@@ -1,0 +1,150 @@
+.not-found{
+
+        padding-top: clamp(80px, 12.6vw, 229px);
+        padding-bottom: clamp(80px, 12.6vw, 229px);
+    
+   
+    img{
+
+        margin-bottom:  clamp(10px, 1.6vw, 29px);
+            width: 70.726%;
+        @include min(768){
+            width: 26.726%;
+        }
+    }
+    span{
+        line-height: normal;
+        font-weight: 400;
+        font-size: 22px;
+        @include min(768){
+            font-size: 24px;
+        }
+        @include min(992){
+            font-size: 28px;
+        }
+        @include min(1200){
+            font-size: 30px;
+        }
+        @include min(1280){
+            font-size: 32px;
+        }
+        @include min(1440){
+            font-size: 34px;
+        }
+    }
+    h1,span{
+        color: $headingColor;
+    }
+    p{
+        color: #596075;
+        margin-bottom: 20px;
+           margin-top: clamp(15px, 2vw, 28px);
+        @include min(768){
+            margin-bottom: 28px;
+                    width: 28%;
+
+        }
+        @include min(1200){
+            margin-bottom: 34px;
+
+        }
+        @include min(1440){
+            margin-bottom: 37px;
+
+        }
+       + .d-flex{
+        gap: 12px;
+       }
+
+    }
+    h1{
+        color: $black;
+
+        font-weight: 400;
+        line-height:  83.333%;
+        font-size:26px;
+        @include min(768){
+            font-size: 35px;
+        }
+        @include min(992){
+            font-size: 40px;
+        }
+        @include min(1200){
+            font-size: 44px;
+        }
+        @include min(1350){
+            font-size: 46px;
+        }
+        @include min(1440){
+            font-size: 48px;
+        }
+    }
+}
+.bg-btn,.border-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      line-height:  183.333%;
+    height: 42px;
+    min-width: 134px;
+    font-size: 12px;
+    @include min(1440){font-size: 12px;}
+    @include min(1600){font-size: 14px;}
+    @include min(1900){font-size: 16px;}
+}
+
+.bg-btn{
+
+    border: 1px solid #D9D9D9;
+    background: #A2864F;
+    color: #FFF;
+    &:hover{
+        background-color: #ffff;
+        color: #000;
+            border: 1px solid #D9D9D9;
+
+    }
+  
+}
+.border-btn{
+    border: 1px solid #D9D9D9;
+
+color: #000;
+&:hover{
+      border: 1px solid #D9D9D9;
+    background: #A2864F;
+    color: #fff;
+}
+
+
+
+}
+
+
+// =================Thank you=========================
+section.thank-you{
+ 
+        padding-top: clamp(80px, 16.6vw, 317px);
+        padding-bottom: clamp(80px, 16.6vw, 317px);
+border-radius: 0;
+
+ picture{
+    margin-bottom: clamp(10px, 1.2vw, 20px);
+    width: 95.239%;
+    margin-left: auto;
+    margin-right: auto;
+    @include min(768){
+            width: 55.239%;
+
+    }
+
+        img{
+        width: 100%;
+        height: auto;
+    }
+ }
+ p{
+     margin-bottom: clamp(10px, 2.1vw, 36px);
+ }
+  
+}

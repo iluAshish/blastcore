@@ -1,0 +1,3476 @@
+//  ------------------------------
+//       Banner Section
+//  ------------------------------
+.google-review {
+  position: absolute;
+  left: 1.09%;
+  bottom: 1.6%;
+  display: flex;
+  align-items: center;
+  border-radius: 81.096px;
+  background-color: $white;
+  gap: 4px;
+  padding: 4px 10px 4px 4px;
+
+  // Tablet & up: reposition + smoother spacing
+  @include min(768) {
+    bottom: 30.6%;
+    left: 12%;
+    gap: clamp(8px, 0.7vw, 15px);
+    padding: clamp(8px, 0.7vw, 12px);
+  }
+
+  #star-rating {
+    display: flex;
+    gap: 6px;
+  }
+
+  .image {
+    position: relative;
+    padding-right: clamp(17px, 1.6vw, 25px);
+
+    img {
+      border: 2px solid #fff;
+      border-radius: 50%;
+      // replaces the repeated width/height per breakpoint
+      width: clamp(35px, 2.5vw, 50px);
+      height: clamp(35px, 2.5vw, 50px);
+    }
+
+    img + img {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateY(0); // keep overlay behavior clear & explicit
+    }
+  }
+
+  &-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .d-flex {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    p {
+      font-weight: 300;
+    }
+
+    span {
+      color: #000;
+    }
+  }
+
+  .jq-star {
+    display: flex;
+  }
+
+  .jq-star,
+  .jq-star-svg {
+    // replaces all the step-wise star sizes
+    width: clamp(12px, 1.1vw, 18px) !important;
+    height: clamp(12px, 1.1vw, 18px) !important;
+  }
+}
+
+
+//  ------------------------------
+//       Social Links
+//  ------------------------------
+.social-links {
+  position: absolute;
+  left: 1.09%;
+  bottom: 14.1%;
+  display: flex;
+  align-items: center;
+  border-radius: 80px;
+  background: #fff;
+  gap: clamp(12px, 1.3vw, 25px);
+  padding: clamp(5px, 0.45vw, 6px) clamp(7px, 0.7vw, 11px);
+
+  svg {
+    height: auto;
+    // replaces all the step-wise widths
+    width: clamp(18px, 1.5vw, 24px);
+  }
+
+  a {
+    svg {
+      transition: 0.5s ease all;
+    }
+
+    &:hover svg {
+      transform: translateY(-5px);
+      filter: contrast(0);
+    }
+  }
+}
+
+
+//  ------------------------------
+//       Banner Dots
+//  ------------------------------
+.banner {
+  .slick-dots {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: 1%;
+    bottom: 12.5%;
+    gap: 11px;
+    list-style: none;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      padding: 0;
+      font-size: 0;
+      border: none;
+      border-radius: 80px;
+      background: #fff;
+      height: 7px;
+      width: clamp(25px, 3.4vw, 65px);
+
+      &::before {
+        content: "";
+        font-size: 0;
+      }
+    }
+
+    .slick-active button {
+      background-color: #304b9f;
+    }
+
+    // Mobile: vertical dots along right side
+    @include max(575) {
+      writing-mode: vertical-lr;
+      right: 15px;
+      bottom: 50%;
+      transform: translateY(50%);
+
+      button {
+        width: 5px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+
+//  ------------------------------
+//       clients Section
+//  ------------------------------ 
+
+.clients {
+
+    .h3 {
+        line-height: 116.667%;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        color: #101010;
+        @include max(575){
+            width: 80%;
+            margin: auto;
+        }
+
+        strong {
+                margin: 0px 4px;
+            position: relative;
+            height: fit-content;
+            color: #fff;
+            position: relative;
+            padding: 2px 6px;
+            z-index: 1;
+
+            &::before {
+                @extend .position;
+                width: 100%;
+                height: 100%;
+                background-color: $primaryColor;
+                z-index: -1;
+                left: -1px;
+                top: 0;
+                border-radius: 3px;
+                z-index: -1;
+
+            }
+        }
+    }
+
+    &-slider {
+        margin-top: 20px;
+
+        @include min(576) {
+            margin-top: 25px;
+        }
+
+        @include min(768) {
+            margin-top: 28px;
+        }
+
+        @include min(992) {
+            margin-top: 31px;
+        }
+
+        @include min(1200) {
+            margin-top: 34px;
+        }
+
+        @include min(1350) {
+            margin-top: 37px;
+        }
+
+        @include min(1440) {
+            margin-top: 40px;
+        }
+
+        @include min(1600) {
+            margin-top: 43px;
+        }
+
+        @include min(1900) {
+            margin-top: 46px;
+        }
+
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+
+        @include min(992) {
+            width: 61.539%;
+
+        }
+
+        .slick-slide {
+            margin: 0px 5px;
+
+            @include min(576) {
+                margin: 0px 10px;
+            }
+
+            @include min(768) {
+                margin: 0px 11px;
+            }
+
+            @include min(992) {
+                margin: 0px 12px;
+            }
+
+            @include min(1200) {
+                margin: 0px 13px;
+            }
+
+            @include min(1350) {
+                margin: 0px 14px;
+            }
+
+            @include min(1440) {
+                margin: 0px 15px;
+            }
+
+            @include min(1600) {
+                margin: 0px 16px;
+            }
+
+            @include min(1900) {
+                margin: 0px 17px;
+            }
+        }
+
+        .slick-list {
+            margin: 0px 5px;
+
+            @include min(576) {
+                margin: 0px 10px;
+            }
+
+            @include min(768) {
+                margin: 0px 11px;
+            }
+
+            @include min(992) {
+                margin: 0px 12px;
+            }
+
+            @include min(1200) {
+                margin: 0px 13px;
+            }
+
+            @include min(1350) {
+                margin: 0px 14px;
+            }
+
+            @include min(1440) {
+                margin: 0px 15px;
+            }
+
+            @include min(1600) {
+                margin: 0px 16px;
+            }
+
+            @include min(1900) {
+                margin: 0px 17px;
+            }
+        }
+    }
+
+    img {
+        filter: grayscale(1) contrast(2.2);
+    }
+
+    .slick-slide:hover,
+    .slick-current {
+        img {
+            filter: grayscale(0) contrast(1);
+
+        }
+    }
+}
+
+
+
+//  ------------------------------
+//       Images Slider Section
+//  ------------------------------ 
+
+.image-slider {
+    .slick-slide {
+        margin-left: 5px;
+        margin-right: 5px;
+
+        @include min(768) {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        @include min(992) {
+            margin-left: 11px;
+            margin-right: 11px;
+        }
+
+        @include min(1200) {
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+
+        @include min(1350) {
+            margin-left: 13px;
+            margin-right: 13px;
+        }
+
+        @include min(1440) {
+            margin-left: 14px;
+            margin-right: 14px;
+        }
+
+        @include min(1600) {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        @include min(1900) {
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+
+    }
+
+    .slick-list {
+        margin-left: -5px;
+        margin-right: -5px;
+
+        @include min(768) {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        @include min(992) {
+            margin-left: -11px;
+            margin-right: -11px;
+        }
+
+        @include min(1200) {
+            margin-left: -12px;
+            margin-right: -12px;
+        }
+
+        @include min(1350) {
+            margin-left: -13px;
+            margin-right: -13px;
+        }
+
+        @include min(1440) {
+            margin-left: -14px;
+            margin-right: -14px;
+        }
+
+        @include min(1600) {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        @include min(1900) {
+            margin-left: -16px;
+            margin-right: -16px;
+        }
+
+    }
+
+    picture {
+        padding-top: 56px;
+
+    }
+
+    .size-lg {
+        width: 200px;
+
+        @include min(768) {
+            width: 247px;
+        }
+
+        @include min(992) {
+            width: 257px;
+        }
+
+        @include min(1200) {
+            width: 267px;
+        }
+
+        @include min(1280) {
+            width: 277px;
+        }
+
+        @include min(1350) {
+            width: 287px;
+        }
+
+        @include min(1440) {
+            width: 297px;
+        }
+
+        @include min(1600) {
+            width: 307px;
+        }
+
+        @include min(1900) {
+            width: 317px;
+        }
+    }
+
+    .size-lg-op,
+    .size-md-op {
+        margin-top: -40px;
+
+        @include min(768) {
+            margin-top: -44px;
+        }
+
+        @include min(992) {
+            margin-top: -46px;
+        }
+
+        @include min(1200) {
+            margin-top: -48px;
+        }
+
+        @include min(1350) {
+            margin-top: -50px;
+        }
+
+        @include min(1440) {
+            margin-top: -52px;
+        }
+
+        @include min(1600) {
+            margin-top: -54px;
+        }
+
+        @include min(1900) {
+            margin-top: -56px;
+        }
+
+    }
+
+    .size-md,
+    .size-md-op {
+        width: 141px;
+
+        @include min(768) {
+            width: 146px;
+        }
+
+        @include min(992) {
+            width: 151px;
+        }
+
+        @include min(1200) {
+            width: 156px;
+        }
+
+        @include min(1350) {
+            width: 161px;
+        }
+
+        @include min(1440) {
+            width: 166px;
+        }
+
+        @include min(1600) {
+            width: 171px;
+        }
+
+        @include min(1900) {
+            width: 176px;
+        }
+    }
+
+    img {
+        border-radius: 20px;
+        object-fit: cover;
+        height: 195px;
+
+        @include min(768) {
+            height: 234px;
+        }
+
+        @include min(992) {
+            height: 237px;
+        }
+
+        @include min(1200) {
+            height: 240px;
+        }
+
+        @include min(1350) {
+            height: 243px;
+        }
+
+        @include min(1440) {
+            height: 246px;
+        }
+
+        @include min(1600) {
+            height: 249px;
+        }
+
+        @include min(1900) {
+            height: 252px;
+        }
+
+    }
+}
+
+
+
+
+//  ------------------------------
+//       Service  Slider Section
+//  ------------------------------ 
+.container-side {
+    margin-left: auto;
+    width: 94.09%;
+}
+
+.services {
+    .slick-slide {
+        margin: 0px 5px;
+
+        @include min(768) {
+            margin: 0px 6px;
+        }
+
+        @include min(992) {
+            margin: 0px 7px;
+        }
+
+        @include min(1200) {
+            margin: 0px 8px;
+        }
+
+        @include min(1350) {
+            margin: 0px 7px;
+        }
+
+        @include min(1440) {
+            margin: 0px 8px;
+        }
+
+        @include min(1600) {
+            margin: 0px 9px;
+        }
+
+        @include min(1900) {
+            margin: 0px 12px;
+        }
+    }
+
+    .slick-list {
+        margin: 0px -5px;
+
+        @include min(768) {
+            margin: 0px -6px;
+        }
+
+        @include min(992) {
+            margin: 0px -7px;
+        }
+
+        @include min(1200) {
+            margin: 0px -8px;
+        }
+
+        @include min(1350) {
+            margin: 0px -7px;
+        }
+
+        @include min(1440) {
+            margin: 0px -8px;
+        }
+
+        @include min(1600) {
+            margin: 0px -9px;
+        }
+
+        @include min(1900) {
+            margin: 0px -12px;
+        }
+    }
+
+    &-slider {
+        // margin-left: 10px;
+        margin-top: 20px;
+
+        @include min(992) {
+            margin-top: 24px;
+        }
+
+        @include min(1200) {
+            margin-top: 28px;
+        }
+
+        @include min(1350) {
+            margin-top: 31px;
+        }
+
+        @include min(1440) {
+            margin-top: 33px;
+        }
+
+        @include min(1600) {
+            margin-top: 35px;
+        }
+
+        @include min(1900) {
+            margin-top: 37px;
+        }
+    }
+
+    &-card {
+        position: relative;
+        background-color: #F5F5F5;
+
+        clip-path: polygon(12px 0%,
+                /* top-left cut */
+                calc(100% - 12px) 0%,
+                /* top-right cut */
+                100% 12px,
+                100% calc(100% - 12px),
+                calc(100% - 12px) 100%,
+                /* bottom-right cut */
+                12px 100%,
+                0% calc(100% - 12px), 0% 12px);
+        display: flex !important;
+        flex-direction: column;
+        padding: 18px;
+        width: 180px;
+
+        @include min(768) {
+            padding: 22px;
+            width: 210px;
+        }
+
+        @include min(992) {
+            padding: 25px;
+            width: 235px;
+        }
+
+        @include min(1200) {
+            padding: 20px;
+            width: 235px;
+        }
+
+        @include min(1350) {
+            padding: 22px;
+            width: 235px;
+        }
+
+        @include min(1440) {
+            padding: 26px;
+            width: 240px;
+        }
+
+        @include min(1600) {
+            padding: 32px;
+            width: 280px;
+        }
+
+        @include min(1900) {
+            padding: 42px;
+            width: 326px;
+        }
+
+        h3 {
+            color: #101010;
+            margin-bottom: 10px;
+
+            @include min(992) {
+                margin-bottom: 14px;
+            }
+
+            @include min(1200) {
+                margin-bottom: 16px;
+            }
+
+            @include min(1360) {
+                margin-bottom: 18px;
+            }
+
+            @include min(1440) {
+                margin-bottom: 20px;
+            }
+
+            @include min(1600) {
+                margin-bottom: 22px;
+            }
+
+            @include min(1900) {
+                margin-bottom: 24px;
+            }
+
+        }
+
+        p {
+            line-height: 140%;
+        }
+
+        a {
+            margin-top: auto;
+        }
+
+        &:hover {
+            background: $primaryColor;
+
+            h3,
+            p,
+            a {
+                color: $white;
+            }
+
+            a {
+
+                &::after {
+                    width: 100%;
+                    height: 100%;
+                    right: 0;
+                    transition: 0.5s ease all;
+                    transform: translateX(5px);
+                    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 18 14" fill="none"><path d="M17.364 7.37629C17.5514 7.18876 17.6567 6.93445 17.6567 6.66929C17.6567 6.40412 17.5514 6.14982 17.364 5.96229L11.707 0.305288C11.6147 0.209778 11.5044 0.133596 11.3824 0.0811869C11.2604 0.0287779 11.1291 0.00119157 10.9964 3.77564e-05C10.8636 -0.00111606 10.7319 0.0241859 10.609 0.0744668C10.4861 0.124748 10.3744 0.199001 10.2806 0.292893C10.1867 0.386786 10.1124 0.498438 10.0621 0.621334C10.0118 0.744231 9.98655 0.87591 9.9877 1.00869C9.98885 1.14147 10.0164 1.27269 10.0689 1.39469C10.1213 1.5167 10.1974 1.62704 10.293 1.71929L14.243 5.66929L0.999952 5.66929C0.734735 5.66929 0.480381 5.77465 0.292845 5.96218C0.105309 6.14972 -4.76837e-05 6.40407 -4.76837e-05 6.66929C-4.76837e-05 6.9345 0.105309 7.18886 0.292845 7.37639C0.480381 7.56393 0.734735 7.66929 0.999952 7.66929L14.243 7.66929L10.293 11.6193C10.1108 11.8079 10.01 12.0605 10.0123 12.3227C10.0146 12.5849 10.1197 12.8357 10.3051 13.0211C10.4905 13.2065 10.7414 13.3117 11.0036 13.314C11.2657 13.3162 11.5183 13.2154 11.707 13.0333L17.364 7.37629Z" fill="white"/></svg>');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center right;
+                }
+            }
+
+        }
+    }
+
+    &-description {
+        margin-bottom: 10px;
+
+        @include min(992) {
+            margin-bottom: 35px;
+        }
+
+        @include min(1200) {
+            margin-bottom: 40px;
+        }
+
+        @include min(1350) {
+            margin-bottom: 50px;
+        }
+
+        @include min(1440) {
+            margin-bottom: 55px;
+        }
+
+        @include min(1600) {
+            margin-bottom: 60px;
+        }
+
+        @include min(1900) {
+            margin-bottom: 65px;
+        }
+    }
+
+}
+
+.services-slider-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+
+    @include min(768) {
+        margin-top: 30px;
+    }
+
+    @include min(992) {
+        margin-top: 34px;
+    }
+
+    @include min(1200) {
+        margin-top: 37px;
+    }
+
+    @include min(1350) {
+        margin-top: 40px;
+    }
+
+    @include min(1440) {
+        margin-top: 45px;
+    }
+
+    @include min(1600) {
+        margin-top: 48px;
+    }
+
+    @include min(1900) {
+        margin-top: 51px;
+    }
+}
+
+
+
+.progress-fill {
+
+    background: $primaryColor; // blue line
+    transition: width 0.35s ease; // smooth change
+}
+
+.progress-arrow {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+        path {
+            fill: $primaryColor;
+        }
+    }
+}
+
+.progress-track {
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 80px;
+    overflow: hidden;
+    background-color: #D9D9D9;
+    background-image: linear-gradient(to right, #304B9F, #304B9F);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size .4s ease-in-out;
+    margin-top: 3px;
+}
+
+// ===========================about============================
+.about {
+    background: #F0F2F4;
+    padding: 40px 0px;
+
+    @include min(768) {
+        padding: 62px 0px;
+    }
+
+    @include min(992) {
+        padding: 67px 0px;
+    }
+
+    @include min(1200) {
+        padding: 72px 0px;
+    }
+
+    @include min(1350) {
+        padding: 77px 0px 87px 0px;
+    }
+
+    @include min(1440) {
+        padding: 82px 0px;
+    }
+
+    @include min(1600) {
+        padding: 87px 0px;
+    }
+
+    @include min(1900) {
+        padding: 92px 0px;
+    }
+
+    .head {
+        @include min(1200) {
+            width: 82%;
+
+        }
+    }
+
+    &-col {
+        justify-content: space-between;
+
+        @include max(991) {
+            flex-direction: column;
+        }
+
+        @include min(768) {
+            width: 60%;
+
+        }
+
+        @include min(992) {
+            width: 56.885%;
+
+        }
+
+        picture {
+            width: 36.573%;
+
+            @include min(992) {
+                width: 36.573%;
+
+            }
+        }
+
+        .about-content {
+            @include max(767) {
+                margin-top: 30px;
+            }
+
+            @include min(992) {
+                width: 57.89%;
+
+            }
+
+            p {
+                line-height: 160%;
+            }
+
+            a {
+                margin-top: 22px;
+
+                @include min(768) {
+                    margin-top: 26px;
+                }
+
+                @include min(992) {
+                    margin-top: 28px;
+                }
+
+                @include min(1200) {
+                    margin-top: 30px;
+                }
+
+                @include min(1350) {
+                    margin-top: 32px;
+                }
+
+                @include min(1440) {
+                    margin-top: 34px;
+                }
+
+                @include min(1600) {
+                    margin-top: 36px;
+                }
+
+                @include min(1900) {
+                    margin-top: 38px;
+                }
+            }
+        }
+
+        +picture {
+
+            // margin-bottom: -293px;
+            // position: absolute;
+            // bottom: 0;
+            // right: 6%;
+            @include max(767) {
+                margin-top: 20px;
+            }
+
+            @include min(768) {
+                width: 40%;
+
+            }
+
+            @include min(992) {
+                transform: translateY(39%);
+                width: 32.098%;
+            }
+
+            img {
+                border-radius: 20px;
+
+            }
+        }
+    }
+}
+
+.mission-vission {
+    width: 98%;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    border-radius: 0 30px 0 0;
+    padding-left: 6%;
+    margin-top: -19px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 16px;
+
+    @include min(768) {
+        width: 71.6906%;
+        margin-top: -19px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-right: 16px;
+    }
+
+    @include min(992) {
+        margin-top: -21px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        padding-right: 18px;
+    }
+
+    @include min(1200) {
+        margin-top: -23px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 20px;
+    }
+
+    @include min(1350) {
+        margin-top: -25px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        padding-right: 22px;
+    }
+
+    @include min(1440) {
+        margin-top: -27px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-right: 24px;
+    }
+
+    @include min(1600) {
+        margin-top: -29px;
+        padding-top: 26px;
+        padding-bottom: 26px;
+        padding-right: 26px;
+    }
+
+    @include min(1900) {
+        margin-top: -31px;
+        padding-top: 28px;
+        padding-bottom: 28px;
+        padding-right: 28px;
+    }
+
+    &-container {
+        @include max(767) {
+            align-items: center;
+        }
+    }
+
+    .slick-slide {
+        opacity: 0;
+
+        &.slick-current {
+            opacity: 1;
+
+        }
+    }
+
+    .slick-slide {
+        margin: 22px 0px;
+
+        @include min(768) {
+            margin: 25px 0px;
+        }
+
+        @include min(992) {
+            margin: 27px 0px;
+        }
+
+        @include min(1200) {
+            margin: 29px 0px;
+        }
+
+        @include min(1350) {
+            margin: 31px 0px;
+        }
+
+        @include min(1440) {
+            margin: 33px 0px;
+        }
+
+        @include min(1600) {
+            margin: 35px 0px;
+        }
+
+        @include min(1900) {
+            margin: 37px 0px;
+        }
+    }
+
+    .slick-list {
+        margin: -22px 0px;
+
+        @include min(768) {
+            margin: -25px 0px;
+        }
+
+        @include min(992) {
+            margin: -27px 0px;
+        }
+
+        @include min(1200) {
+            margin: -29px 0px;
+        }
+
+        @include min(1350) {
+            margin: -31px 0px;
+        }
+
+        @include min(1440) {
+            margin: -33px 0px;
+        }
+
+        @include min(1600) {
+            margin: -35px 0px;
+        }
+
+        @include min(1900) {
+            margin: -37px 0px;
+        }
+    }
+
+
+    &-slider {
+        margin-bottom: 0 !important;
+        width: 83.107%;
+        padding-right: 30px;
+
+        @include min(768) {
+            padding-right: 33px;
+        }
+
+        @include min(992) {
+            padding-right: 35px;
+        }
+
+        @include min(1200) {
+            padding-right: 38px;
+        }
+
+        @include min(1350) {
+            padding-right: 40px;
+        }
+
+        @include min(1440) {
+            padding-right: 45px;
+        }
+
+        @include min(1600) {
+            padding-right: 48px;
+        }
+
+        @include min(1900) {
+            padding-right: 51px;
+        }
+
+        +picture {
+            margin-top: 12px;
+            width: 38px;
+
+            @include min(992) {
+                margin-top: 14px;
+                width: 40px;
+            }
+
+            @include min(1200) {
+                margin-top: 16px;
+                width: 42px;
+            }
+
+            @include min(1350) {
+                margin-top: 18px;
+                width: 44px;
+            }
+
+            @include min(1440) {
+                margin-top: 20px;
+                width: 46px;
+            }
+
+            @include min(1600) {
+                margin-top: 22px;
+                width: 48px;
+            }
+
+            @include min(1900) {
+                margin-top: 24px;
+                width: 50px;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    p {
+        line-height: 140%;
+    }
+
+    h3 {
+        color: #000;
+        margin-bottom: 5px;
+
+        @include min(768) {
+            margin-bottom: 7px;
+        }
+
+        @include min(992) {
+            margin-bottom: 8px;
+        }
+
+        @include min(1200) {
+            margin-bottom: 9px;
+        }
+
+        @include min(1350) {
+            margin-bottom: 10px;
+        }
+
+        @include min(1440) {
+            margin-bottom: 11px;
+        }
+
+        @include min(1600) {
+            margin-bottom: 12px;
+        }
+
+        @include min(1900) {
+            margin-bottom: 13px;
+        }
+    }
+
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        gap: 12px;
+
+        li {
+            background: #C8CACC;
+            border-radius: 80px;
+            width: 4px;
+            height: 28px;
+
+            @include min(992) {
+                width: 4.5px;
+                height: 30px;
+            }
+
+            @include min(1200) {
+                width: 5px;
+                height: 32px;
+            }
+
+            @include min(1350) {
+                width: 5.5px;
+                height: 34px;
+            }
+
+            @include min(1440) {
+                width: 6px;
+                height: 36px;
+            }
+
+            @include min(1600) {
+                width: 6.5px;
+                height: 38px;
+            }
+
+            @include min(1900) {
+                width: 7px;
+                height: 40px;
+            }
+
+            &.slick-active {
+                background-color: $primaryColor;
+            }
+        }
+
+        button {
+            background: unset;
+            color: unset;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+
+    h3 {
+        font-size: 22px;
+
+        @include min(768) {
+            font-size: 24px;
+        }
+
+        @include min(992) {
+            font-size: 26px;
+        }
+
+        @include min(1200) {
+            font-size: 28px;
+        }
+
+        @include min(1350) {
+            font-size: 30px;
+        }
+
+        @include min(1440) {
+            font-size: 32px;
+        }
+
+        @include min(1600) {
+            font-size: 34px;
+        }
+
+        @include min(1900) {
+            font-size: 36px;
+        }
+    }
+}
+
+// ================highlights==================
+.highlights {
+    @include max(575) {
+        padding-top: 0;
+    }
+
+    &-first-image {
+        width: 24.584%;
+
+        @include max(575) {
+            display: none;
+        }
+    }
+
+    &-row {
+        width: 100%;
+        gap: 4px;
+
+        @include min(576) {
+            gap: 5px;
+            width: 74.465%;
+        }
+
+        @include min(768) {
+            gap: 6px;
+        }
+
+        @include min(992) {
+            gap: 8px;
+        }
+
+        @include min(1200) {
+            gap: 9px;
+        }
+
+        @include min(1280) {
+            gap: 9.5px;
+        }
+
+        @include min(1350) {
+            gap: 10px;
+        }
+
+        @include min(1440) {
+            gap: 11px;
+        }
+
+        @include min(1600) {
+            gap: 13px;
+        }
+
+        @include min(1900) {
+            gap: 15px;
+        }
+
+        @include min(1920) {
+            gap: 16px;
+        }
+
+        >div {
+            &:nth-child(1) {
+                background: #EAECED;
+            }
+
+            &:nth-child(2) {
+                background: #F5F7F9;
+                width: 66.427%;
+            }
+
+            &:nth-child(3) {
+                background: #F5F7F9;
+            }
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                padding: 15px 10px;
+
+                @include min(576) {
+                    padding: 15px;
+                }
+
+                @include min(768) {
+                    padding: 25px;
+                }
+
+                @include min(992) {
+                    padding: 28px;
+                }
+
+                @include min(1200) {
+                    padding: 31px;
+                }
+
+                @include min(1350) {
+                    padding: 34px;
+                }
+
+                @include min(1440) {
+                    padding: 37px;
+                }
+
+                @include min(1600) {
+                    padding: 40px;
+                }
+
+                @include min(1900) {
+                    padding: 43px;
+                }
+            }
+
+            &:nth-child(1),
+            &:nth-child(3) {
+                width: 32.295%;
+            }
+
+            &:nth-child(4) {
+                width: 32.455%;
+            }
+
+            &:nth-child(5) {
+                width: 32.694%;
+            }
+
+        }
+    }
+
+    &-card {
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include min(576) {
+            border-radius: 6px;
+        }
+
+        @include min(768) {
+            border-radius: 8px;
+        }
+
+        @include min(992) {
+            border-radius: 10px;
+        }
+
+        @include min(1200) {
+            border-radius: 12px;
+        }
+
+        @include min(1350) {
+            border-radius: 14px;
+        }
+
+        @include min(1440) {
+            border-radius: 16px;
+        }
+
+        @include min(1600) {
+            border-radius: 18px;
+        }
+
+        @include min(1900) {
+            border-radius: 20px;
+        }
+
+        picture {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        span {
+            display: block;
+            color: #000;
+            line-height: normal;
+            font-weight: 300;
+            font-size: 30px;
+
+            @include max(575) {
+                margin-top: 25px;
+            }
+
+            @include min(576) {
+                font-size: 40px;
+            }
+
+            @include min(768) {
+                font-size: 55px;
+            }
+
+            @include min(992) {
+                font-size: 65px;
+            }
+
+            @include min(1200) {
+                font-size: 85px;
+            }
+
+            @include min(1350) {
+                font-size: 96px;
+            }
+
+            @include min(1440) {
+                font-size: 112px;
+            }
+
+            @include min(1600) {
+                font-size: 120px;
+            }
+
+            @include min(1900) {
+                font-size: 128px;
+            }
+
+            &::after {
+                content: '+';
+            }
+
+        }
+
+        img {
+            border-radius: 10px;
+
+            @include min(576) {
+                border-radius: 6px;
+            }
+
+            @include min(768) {
+                border-radius: 8px;
+            }
+
+            @include min(992) {
+                border-radius: 10px;
+            }
+
+            @include min(1200) {
+                border-radius: 12px;
+            }
+
+            @include min(1350) {
+                border-radius: 14px;
+            }
+
+            @include min(1440) {
+                border-radius: 16px;
+            }
+
+            @include min(1600) {
+                border-radius: 18px;
+            }
+
+            @include min(1900) {
+                border-radius: 20px;
+            }
+
+        }
+
+    }
+
+
+
+}
+
+// =========================Products=======================
+.products {
+    background: #F0F2F4;
+
+    &-intro {
+        margin-bottom: 19px;
+
+        @include min(768) {
+            margin-bottom: 22px;
+        }
+
+        @include min(992) {
+            margin-bottom: 25px;
+        }
+
+        @include min(1200) {
+            margin-bottom: 28px;
+        }
+
+        @include min(1350) {
+            margin-bottom: 31px;
+        }
+
+        @include min(1440) {
+            margin-bottom: 34px;
+        }
+
+        @include min(1600) {
+            margin-bottom: 37px;
+        }
+
+        @include min(1900) {
+            margin-bottom: 40px;
+        }
+    }
+
+    .head {
+        @include min(1200) {
+            width: 26.072%;
+
+        }
+    }
+
+    &-content {
+        @include max(1199) {
+            margin: 14px 0;
+
+        }
+
+        @include min(1200) {
+            width: 45.655%;
+
+        }
+
+    }
+
+    .button-wrapper {
+        margin-bottom: 16px;
+
+        @include min(768) {
+            margin-bottom: 18px;
+        }
+
+        @include min(992) {
+            margin-bottom: 18px;
+        }
+
+        @include min(1200) {
+            margin-bottom: 20px;
+        }
+
+        @include min(1350) {
+            margin-bottom: 22px;
+        }
+
+        @include min(1440) {
+            margin-bottom: 24px;
+        }
+
+        @include min(1600) {
+            margin-bottom: 26px;
+        }
+
+        @include min(1900) {
+            margin-bottom: 28px;
+        }
+    }
+}
+
+.products-slider {
+    &-details {
+        @include max(575) {
+            gap: 10px;
+        }
+
+        width: 100%;
+    }
+
+    &-card {
+        background: #FFF;
+        border-radius: 13px;
+
+        @include min(768) {
+            border-radius: 14px;
+        }
+
+        @include min(992) {
+            border-radius: 15px;
+        }
+
+        @include min(1200) {
+            border-radius: 16px;
+        }
+
+        @include min(1350) {
+            border-radius: 17px;
+        }
+
+        @include min(1440) {
+            border-radius: 18px;
+        }
+
+        @include min(1600) {
+            border-radius: 19px;
+        }
+
+        @include min(1900) {
+            border-radius: 20px;
+        }
+
+        &:nth-child(even) {}
+
+        &-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: end;
+            width: 100%;
+            align-items: end;
+            background: #E0E0E0;
+            min-height: 160px;
+            padding: 6px;
+            border-radius: 13px;
+
+            @include min(768) {
+                border-radius: 14px;
+                min-height: 227px;
+                padding: 7px;
+            }
+
+            @include min(992) {
+                border-radius: 15px;
+                min-height: 272px;
+                padding: 8px;
+            }
+
+            @include min(1200) {
+                border-radius: 16px;
+                min-height: 257px;
+                padding: 9px;
+            }
+
+            @include min(1350) {
+                border-radius: 17px;
+                min-height: 270px;
+                padding: 10px;
+            }
+
+            @include min(1440) {
+                border-radius: 18px;
+                min-height: 292px;
+                padding: 11px;
+            }
+
+            @include min(1600) {
+                border-radius: 19px;
+                min-height: 317px;
+                padding: 12px;
+            }
+
+            @include min(1900) {
+                border-radius: 20px;
+                min-height: 372px;
+                padding: 13px;
+            }
+
+            &:has(> :nth-child(3)) {
+                justify-content: space-between;
+
+            }
+
+            picture {
+                width: 100%;
+
+                img {
+                    height: auto;
+                    object-fit: contain;
+                    max-height: 119px;
+
+                    @include min(768) {
+                        max-height: 144px;
+                    }
+
+                    @include min(992) {
+                        max-height: 219px;
+                    }
+
+                    @include min(1200) {
+                        max-height: 194px;
+                    }
+
+                    @include min(1350) {
+                        max-height: 189px;
+                    }
+
+                    @include min(1440) {
+                        max-height: 214px;
+                    }
+
+                    @include min(1600) {
+                        max-height: 250px;
+                    }
+
+                    @include min(1900) {
+                        max-height: 304px;
+                    }
+                }
+            }
+
+            img {
+                width: 90.6%;
+                margin: auto;
+            }
+        }
+
+        p {
+            height: fit-content;
+            border-radius: 5px;
+            width: fit-content;
+            background-color: $primaryColor;
+            color: #FFF;
+            line-height: 175%;
+            padding: 3px 5px;
+            font-size: 8px;
+
+            @include min(768) {
+                padding: 2px 5px;
+                font-size: 10px;
+            }
+
+            @include min(992) {
+                padding: 2.5px 6px;
+                font-size: 11px;
+            }
+
+            @include min(1200) {
+                padding: 3px 7px;
+                font-size: 12px;
+            }
+
+            @include min(1350) {
+                padding: 3.5px 8px;
+                font-size: 13px;
+            }
+
+            @include min(1440) {
+                padding: 4px 8.5px;
+                font-size: 14px;
+            }
+
+            @include min(1600) {
+                padding: 4.5px 9px;
+                font-size: 15px;
+            }
+
+            @include min(1900) {
+                padding: 5px 10px;
+                font-size: 16px;
+            }
+        }
+
+        h3 {
+            color: #000;
+            line-height: 116.667%;
+            width: 100%;
+            font-size: 13px;
+
+            @include min(576) {
+                width: 80.903%;
+            }
+
+            @include min(768) {
+                font-size: 14px;
+            }
+
+            @include min(992) {
+                font-size: 19px;
+            }
+
+            @include min(1200) {
+                font-size: 16px;
+            }
+
+            @include min(1350) {
+                font-size: 17px;
+                width: 75.903%;
+            }
+
+            @include min(1440) {
+                font-size: 17px;
+            }
+
+            @include min(1600) {
+                font-size: 20px;
+            }
+
+            @include min(1900) {
+                font-size: 24px;
+            }
+
+        }
+
+        i {
+            border-radius: 3px;
+            background: #FFF;
+            padding: 1.5px 5px;
+
+            @include min(768) {
+                padding: 4px 12px;
+            }
+
+            @include min(992) {
+                padding: 4.5px 13px;
+            }
+
+            @include min(1200) {
+                padding: 5px 14px;
+            }
+
+            @include min(1350) {
+                padding: 5.5px 15px;
+            }
+
+            @include min(1440) {
+                padding: 6px 16px;
+            }
+
+            @include min(1600) {
+                padding: 6.5px 17px;
+            }
+
+            @include min(1900) {
+                padding: 7px 18px;
+            }
+
+            img {
+                height: auto;
+                width: 30px;
+
+                @include min(768) {
+                    width: 41px;
+                }
+
+                @include min(992) {
+                    width: 45px;
+                }
+
+                @include min(1200) {
+                    width: 49px;
+                }
+
+                @include min(1350) {
+                    width: 53px;
+                }
+
+                @include min(1440) {
+                    width: 57px;
+                }
+
+                @include min(1600) {
+                    width: 61px;
+                }
+
+                @include min(1900) {
+                    width: 65px;
+                }
+            }
+        }
+    }
+
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-list {
+        margin: 0px -2px;
+
+        @include min(768) {
+            margin: 0px -7px;
+        }
+
+        @include min(992) {
+            margin: 0px -8px;
+        }
+
+        @include min(1200) {
+            margin: 0px -7px;
+        }
+
+        @include min(1350) {
+            margin: 0px -10px;
+        }
+
+        @include min(1440) {
+            margin: 0px -11px;
+        }
+
+        @include min(1600) {
+            margin: 0px -12px;
+        }
+
+        @include min(1900) {
+            margin: 0px -13px;
+        }
+    }
+
+    .slick-slide {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px 2px;
+
+        @include min(768) {
+            margin: 0px 7px;
+        }
+
+        @include min(992) {
+            margin: 0px 8px;
+        }
+
+        @include min(1200) {
+            margin: 0px 7px;
+        }
+
+        @include min(1350) {
+            margin: 0px 10px;
+        }
+
+        @include min(1440) {
+            margin: 0px 11px;
+        }
+
+        @include min(1600) {
+            margin: 0px 12px;
+        }
+
+        @include min(1900) {
+            margin: 0px 13px;
+        }
+
+        &:nth-child(odd) {
+            padding: 8px 8px 20px 8px;
+
+            @include min(768) {
+                padding: 10px 10px 28px 10px;
+            }
+
+            @include min(992) {
+                padding: 11px 11px 31px 11px;
+            }
+
+            @include min(1200) {
+                padding: 13px 13px 33px 13px;
+            }
+
+            @include min(1350) {
+                padding: 14px 14px 34px 14px;
+            }
+
+            @include min(1440) {
+                padding: 16px 16px 36px 16px;
+            }
+
+            @include min(1600) {
+                padding: 18px 18px 38px 18px;
+            }
+
+            @include min(1900) {
+                padding: 20px 20px 40px 20px;
+            }
+
+            .products-slider-card-header {
+                margin-bottom: 11px;
+
+                @include min(768) {
+                    margin-bottom: 29px;
+                }
+
+                @include min(992) {
+                    margin-bottom: 31px;
+                }
+
+                @include min(1200) {
+                    margin-bottom: 33px;
+                }
+
+                @include min(1350) {
+                    margin-bottom: 35px;
+                }
+
+                @include min(1440) {
+                    margin-bottom: 37px;
+                }
+
+                @include min(1600) {
+                    margin-bottom: 39px;
+                }
+
+                @include min(1900) {
+                    margin-bottom: 41px;
+                }
+            }
+
+        }
+
+        &:nth-child(even) {
+            padding: 20px 8px 8px 8px;
+
+            @include min(768) {
+                padding: 28px 12px 12px 12px;
+            }
+
+            @include min(992) {
+                padding: 31px 13px 13px 13px;
+            }
+
+            @include min(1200) {
+                padding: 33px 14px 14px 14px;
+            }
+
+            @include min(1350) {
+                padding: 34px 15px 15px 15px;
+            }
+
+            @include min(1440) {
+                padding: 36px 17px 17px 17px;
+            }
+
+            @include min(1600) {
+                padding: 38px 19px 19px 19px;
+            }
+
+            @include min(1900) {
+                padding: 40px 20px 20px 20px;
+            }
+
+
+            .products-slider-card-header {
+                order: 1;
+                margin-top: 11px;
+
+                @include min(768) {
+                    margin-top: 26px;
+                }
+
+                @include min(992) {
+                    margin-top: 29px;
+                }
+
+                @include min(1200) {
+                    margin-top: 32px;
+                }
+
+                @include min(1350) {
+                    margin-top: 35px;
+                }
+
+                @include min(1600) {
+                    margin-top: 37px;
+                }
+
+                @include min(1440) {
+                    margin-top: 39px;
+                }
+
+                @include min(1900) {
+                    margin-top: 41px;
+                }
+            }
+        }
+
+        &:nth-child(4n + 1) {
+            .products-slider-card-header {
+
+                background: #E0E0E0;
+            }
+
+            // 1,5,9,13,17...
+        }
+
+        &:nth-child(4n + 2) {
+            .products-slider-card-header {
+
+                background: #BFDDDF;
+            }
+
+            // 2,6,10,14,18...
+        }
+
+        &:nth-child(4n + 3) {
+            .products-slider-card-header {
+                background: #F7C7D5;
+            }
+
+            // 3,7,11,15,19...
+
+        }
+
+        &:nth-child(4n + 4) {
+            .products-slider-card-header {
+
+                background: #FFF8F0;
+            }
+
+            // 4,8,12,16,20...
+        }
+    }
+
+}
+
+.product-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: $primaryColorBg;
+    transition: all 0.35s ease;
+    width: 30px;
+    height: 30px;
+
+    @include min(768) {
+        width: 38px;
+        height: 38px;
+    }
+
+    @include min(992) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @include min(1200) {
+        width: 37px;
+        height: 37px;
+    }
+
+    @include min(1350) {
+        width: 44px;
+        height: 44px;
+    }
+
+    @include min(1440) {
+        width: 46px;
+        height: 46px;
+    }
+
+    @include min(1600) {
+        width: 48px;
+        height: 48px;
+    }
+
+    @include min(1900) {
+        width: 50px;
+        height: 50px;
+    }
+
+    &::before {
+
+        @extend .position;
+        background: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4.5 12L19.5 12M19.5 12L13.875 18M19.5 12L13.875 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 2;
+        transition: transform 0.35s ease;
+        width: 16px;
+        height: 16px;
+
+        @include min(768) {
+            width: 18px;
+            height: 18px;
+        }
+
+        @include min(992) {
+            width: 19px;
+            height: 19px;
+        }
+
+        @include min(1200) {
+            width: 20px;
+            height: 20px;
+        }
+
+        @include min(1350) {
+            width: 21px;
+            height: 21px;
+        }
+
+        @include min(1440) {
+            width: 22px;
+            height: 22px;
+        }
+
+        @include min(1600) {
+            width: 23px;
+            height: 23px;
+        }
+
+        @include min(1900) {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    // Hover Effect
+    &:hover {
+
+        // background: darken($primaryColor, 10%); // slightly darker background
+        background: linear-gradient(90deg, #263a79 0%, #050380 100%);
+        transform: scale(1.08); // subtle zoom
+
+        &::before {
+            transform: translateX(3px) rotate(45deg); // arrow tilt/shift
+        }
+    }
+
+}
+
+// ================why-choose================
+
+.why-choose {
+    background: #F7FAFC;
+
+    picture {
+        width: 60.969%;
+
+        @include min(768) {
+            width: 30.969%;
+
+        }
+
+        @include max(767) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &-col {
+        width: 100%;
+
+        @include min(768) {
+            width: 68.114%;
+
+        }
+
+        @include min(1200) {
+            width: 57.114%;
+
+        }
+
+        h2 {
+            white-space: pre-line;
+            color: #101010;
+            width: 100%;
+            margin-bottom: 26.95px;
+
+            @include min(768) {
+                margin-bottom: 28.95px;
+            }
+
+            @include min(992) {
+                margin-bottom: 30.95px;
+            }
+
+            @include min(1200) {
+                margin-bottom: 32.95px;
+            }
+
+            @include min(1350) {
+                margin-bottom: 34.95px;
+            }
+
+            @include min(1440) {
+                margin-bottom: 36.95px;
+            }
+
+            @include min(1600) {
+                margin-bottom: 38.95px;
+            }
+
+            @include min(1900) {
+                margin-bottom: 40.95px;
+            }
+        }
+
+        p {
+            color: #929393;
+
+        }
+
+
+        .d-flex {
+            gap: 6px;
+
+            @include min(768) {
+                gap: 17px 8px;
+            }
+
+            @include min(992) {
+                gap: 19px 9px;
+            }
+
+            @include min(1200) {
+                gap: 20px 11px;
+            }
+
+            @include min(1280) {
+                gap: 20.44px 12px;
+            }
+
+            @include min(1350) {
+                gap: 21.44px 13px;
+            }
+
+            @include min(1440) {
+                gap: 22.44px 14px;
+            }
+
+            @include min(1600) {
+                gap: 23.44px 15px;
+            }
+
+            @include min(1900) {
+                gap: 26.44px 18px;
+            }
+
+            @include min(1920) {
+                gap: 27.44px 19px;
+            }
+
+
+        }
+    }
+
+    .why-choose-box {
+        text-align: center;
+        border-radius: 10px;
+        background: $white;
+        width: 49.013%;
+
+        padding: 20px 10px;
+
+        @include min(768) {
+            padding: 30px 15px;
+            width: 32.013%;
+        }
+
+        @include min(992) {
+            padding: 33px 22px;
+        }
+
+        @include min(1200) {
+            padding: 25px;
+        }
+
+        @include min(1350) {
+            padding: 30px;
+        }
+
+        @include min(1440) {
+            padding: 36px;
+        }
+
+        @include min(1600) {
+            padding: 42px;
+        }
+
+        @include min(1900) {
+            padding: 50px;
+        }
+
+        &:last-child {
+            // background: $primaryColor;
+            // padding: 0;
+            // width: 66.007%;
+
+        }
+
+        span {
+            color: #000;
+            line-height: 119.231%;
+            display: block;
+            margin-bottom: 16.98px;
+            font-size: 38px;
+
+            @include min(768) {
+                font-size: 25px;
+            }
+
+            @include min(992) {
+                font-size: 37px;
+            }
+
+            @include min(1200) {
+                font-size: 40px;
+            }
+
+            @include min(1350) {
+                font-size: 43px;
+            }
+
+            @include min(1440) {
+                font-size: 46px;
+            }
+
+            @include min(1600) {
+                font-size: 49px;
+            }
+
+            @include min(1900) {
+                font-size: 52px;
+            }
+
+            &::after {
+                content: '%';
+            }
+
+        }
+    }
+
+    &-box {}
+
+    .video-container {
+
+        padding: 0;
+        width: 100%;
+
+        @include min(768) {
+            width: 66.007%;
+        }
+
+        button {
+            opacity: 0;
+            background: unset;
+            position: absolute;
+            cursor: pointer;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            transition: 0.5s ease all;
+            width: 55px;
+            height: 55px;
+
+            @include min(768) {
+                width: 65px;
+                height: 65px;
+            }
+
+            @include min(992) {
+                width: 70px;
+                height: 70px;
+            }
+
+            @include min(1200) {
+                width: 75px;
+                height: 75px;
+            }
+
+            @include min(1350) {
+                width: 80px;
+                height: 80px;
+            }
+
+            @include min(1440) {
+                width: 90px;
+                height: 90px;
+            }
+
+            @include min(1600) {
+                width: 95px;
+                height: 95px;
+            }
+
+            @include min(1900) {
+                width: 100px;
+                height: 100px;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+        }
+
+        video {
+            border-radius: 10px;
+
+            object-fit: cover;
+            width: 100%;
+            height: 150px;
+
+            @include min(768) {
+                height: 131px;
+            }
+
+            @include min(992) {
+                height: 155px;
+            }
+
+            @include min(1200) {
+                height: 147.9px;
+            }
+
+            @include min(1350) {
+                height: 165.9px;
+            }
+
+            @include min(1440) {
+                height: 181px;
+            }
+
+            @include min(1600) {
+                height: 200px;
+            }
+        }
+
+        &:hover {
+            button {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+                transition: 0.5s ease all;
+
+            }
+        }
+    }
+}
+
+// ====================testimonial=============================
+.testimonial {
+    overflow-x: hidden;
+    background: #F0F2F4;
+
+    .head {
+
+        margin-bottom: 22px;
+
+        @include min(768) {
+            margin-bottom: 19px;
+            width: 75%;
+        }
+
+        @include min(992) {
+            margin-bottom: 30px;
+        }
+
+        @include min(1200) {
+            margin-bottom: 32px;
+        }
+
+        @include min(1350) {
+            margin-bottom: 34px;
+        }
+
+        @include min(1440) {
+            margin-bottom: 36px;
+        }
+
+        @include min(1600) {
+            margin-bottom: 38px;
+        }
+
+        @include min(1900) {
+            margin-bottom: 40px;
+        }
+
+    }
+
+    &-container {
+        max-width: 100%;
+        margin-left: 0;
+
+        @include min(768) {
+            max-width: 94.143%;
+
+        }
+
+        @include max(575) {
+            // margin-left: auto;
+            // margin-right: auto;
+        }
+    }
+
+    &-nav-wrapper {
+        background: #D9D9D9;
+        // width:760px;
+        width: 100%;
+
+        @include max(767) {
+            order: 1;
+            flex-direction: column-reverse;
+        }
+
+        @include min(768) {
+            width: 41.911%;
+
+        }
+
+        >picture {
+            position: relative;
+            width: 100%;
+            @include max(575){
+                display: none;
+            }
+            @include min(768) {
+                width: 66.014%;
+
+            }
+
+            img {
+                object-fit: cover;
+
+                @include min(768) {
+                    height: 380px;
+                }
+
+                @include min(992) {
+                    height: 481px;
+                }
+
+                @include min(1200) {
+                    height: 536px;
+                }
+
+                @include min(1350) {
+                    height: 566px;
+                }
+
+                @include min(1440) {
+                    height: 650px;
+                }
+
+                @include min(1600) {
+                    height: 769px;
+                }
+
+                @include min(1900) {
+                    height: 789px;
+                }
+            }
+
+            &::before {
+                @extend .position;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: url(../images/testimonial-vector.png);
+                background-size: 63%;
+                z-index: 1;
+                background-repeat: no-repeat;
+                background-position: bottom left;
+            }
+        }
+    }
+
+    &-nav {
+        width: 100%;
+        padding: 19px 15px;
+
+        @include min(768) {
+            padding: 15px 0px;
+            width: 33.935%;
+        }
+
+        @include min(992) {
+            padding: 22px 0px;
+        }
+
+        @include min(1200) {
+            padding: 28px 0px;
+        }
+
+        @include min(1350) {
+            padding: 31px 0px;
+        }
+
+        @include min(1440) {
+            padding: 34px 0px;
+        }
+
+        @include min(1600) {
+            padding: 37px 0px;
+        }
+
+        @include min(1900) {
+            padding: 40px 0px;
+        }
+
+        .slick-list {
+
+            margin: 0px -5px;
+
+            @include min(768) {
+                margin: -4px 0px;
+            }
+
+            @include min(992) {
+                margin: -6px 0px;
+            }
+
+            @include min(1200) {
+                margin: -8px 0px;
+            }
+
+            @include min(1350) {
+                margin: -7px 0px;
+            }
+
+            @include min(1440) {
+                margin: -8px 0px;
+            }
+
+            @include min(1600) {
+                margin: -11px 0px;
+            }
+
+            @include min(1900) {
+                margin: -11.5px 0px;
+            }
+        }
+
+        .slick-slide {
+            margin: 0px -5px;
+
+            @include min(768) {
+                margin: 4px 0px;
+            }
+
+            @include min(992) {
+                margin: 6px 0px;
+            }
+
+            @include min(1200) {
+                margin: 8px 0px;
+            }
+
+            @include min(1350) {
+                margin: 7px 0px;
+            }
+
+            @include min(1440) {
+                margin: 8px 0px;
+            }
+
+            @include min(1600) {
+                margin: 11px 0px;
+            }
+
+            @include min(1900) {
+                margin: 11.5px 0px;
+            }
+        }
+
+        picture,
+        img {
+            border-radius: 11.111px;
+
+        }
+
+        picture {
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            background: rgba(250, 250, 250, 1);
+            margin: auto;
+            width: 55px;
+            height: 55px;
+            padding: 3px;
+
+            @include min(768) {
+                padding: 2.8px;
+                width: 50px;
+                height: 50px;
+            }
+
+            @include min(992) {
+                padding: 3px;
+                width: 60px;
+                height: 60px;
+            }
+
+            @include min(1200) {
+                padding: 3.8px;
+                width: 65px;
+                height: 65px;
+            }
+
+            @include min(1350) {
+                padding: 4px;
+                width: 70px;
+                height: 70px;
+            }
+
+            @include min(1440) {
+                padding: 4.5px;
+                width: 80px;
+                height: 80px;
+            }
+
+            @include min(1600) {
+                padding: 5px;
+                width: 90px;
+                height: 90px;
+            }
+
+            @include min(1900) {
+                padding: 6.11px;
+                width: 100px;
+                height: 100px;
+            }
+
+            &::after {
+                @extend .position;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 11.111px;
+                background: rgba(250, 250, 250, 0.54);
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .slick-current {
+            picture {
+                border: 2.222px solid #2B398F;
+
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+
+
+    }
+
+    &-wrapper {
+        width: 100%;
+
+        @include max(767) {
+            padding: 40px 15px 30px 15px;
+        }
+
+        @include min(768) {
+            width: 53.306%;
+
+        }
+    }
+
+    &-slider-item {
+        background-color: $white;
+        border-radius: 19px;
+        padding: 50px 15px 15px;
+
+        @include min(768) {
+            padding: 64px 22px 22px;
+            border-radius: 22px;
+        }
+
+        @include min(992) {
+            padding: 75px 26px 26px;
+            border-radius: 25px;
+        }
+
+        @include min(1200) {
+            padding: 85px 33px 33px;
+            border-radius: 28px;
+        }
+
+        @include min(1350) {
+            padding: 90px 35px 35px;
+            border-radius: 31px;
+        }
+
+        @include min(1440) {
+            padding: 100px 37px 37px;
+            border-radius: 34px;
+        }
+
+        @include min(1600) {
+            padding: 117px 39px 39px;
+            border-radius: 37px;
+        }
+
+        @include min(1900) {
+            padding: 127px 41px 41px;
+            border-radius: 40px;
+        }
+
+        &::before {
+            @extend .position;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M26.6666 29.3333H15.9999C15.2927 29.3333 14.6144 29.0524 14.1143 28.5523C13.6142 28.0522 13.3333 27.3739 13.3333 26.6667V18.6667C13.3333 17.9594 13.6142 17.2811 14.1143 16.781C14.6144 16.281 15.2927 16 15.9999 16H23.9999C24.7072 16 25.3854 16.281 25.8855 16.781C26.3856 17.2811 26.6666 17.9594 26.6666 18.6667V34.6667C26.6666 41.7778 23.111 46.2222 15.9999 48M50.6666 29.3333H39.9999C39.2927 29.3333 38.6144 29.0524 38.1143 28.5523C37.6142 28.0522 37.3333 27.3739 37.3333 26.6667V18.6667C37.3333 17.9594 37.6142 17.2811 38.1143 16.781C38.6144 16.281 39.2927 16 39.9999 16H47.9999C48.7072 16 49.3854 16.281 49.8855 16.781C50.3856 17.2811 50.6666 17.9594 50.6666 18.6667V34.6667C50.6666 41.7778 47.111 46.2222 39.9999 48" stroke="%23D9D9D9" stroke-width="5.33333" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            background-size: contain;
+            left: 4.1%;
+
+            top: 10px;
+            width: 34px;
+            height: 34px;
+
+            @include min(768) {
+                width: 30px;
+                height: 30px;
+                top: 11.1%;
+            }
+
+            @include min(992) {
+                width: 38px;
+                height: 38px;
+            }
+
+            @include min(1200) {
+                width: 42px;
+                height: 42px;
+            }
+
+            @include min(1350) {
+                width: 46px;
+                height: 46px;
+            }
+
+            @include min(1440) {
+                width: 56px;
+                height: 56px;
+            }
+
+            @include min(1600) {
+                width: 60px;
+                height: 60px;
+            }
+
+            @include min(1900) {
+                width: 64px;
+                height: 64px;
+            }
+        }
+    }
+
+    &-content,
+    &-content p {
+        line-height: 140%;
+    }
+
+    .info {
+        display: flex;
+        align-items: end;
+        margin-top: 20px;
+        gap: 9px;
+
+        @include min(768) {
+            margin-top: 24px;
+            gap: 10px;
+        }
+
+        @include min(992) {
+            margin-top: 25px;
+            gap: 11px;
+        }
+
+        @include min(1200) {
+            margin-top: 26px;
+            gap: 12px;
+        }
+
+        @include min(1350) {
+            margin-top: 27px;
+            gap: 13px;
+        }
+
+        @include min(1440) {
+            margin-top: 28px;
+            gap: 14px;
+        }
+
+        @include min(1600) {
+            margin-top: 29px;
+            gap: 15px;
+        }
+
+        @include min(1900) {
+            margin-top: 31px;
+            gap: 16px;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+
+            @include min(768) {
+                width: 45px;
+                height: 45px;
+            }
+
+            @include min(992) {
+                width: 50px;
+                height: 50px;
+            }
+
+            @include min(1200) {
+                width: 50px;
+                height: 50px;
+            }
+
+            @include min(1350) {
+                width: 60px;
+                height: 60px;
+            }
+
+            @include min(1440) {
+                width: 65px;
+                height: 65px;
+            }
+
+            @include min(1600) {
+                width: 75px;
+                height: 75px;
+            }
+
+            @include min(1900) {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        div {
+            padding-bottom: 4.5px;
+
+            @include min(768) {
+                padding-bottom: 5px;
+            }
+
+            @include min(992) {
+                padding-bottom: 5.5px;
+            }
+
+            @include min(1200) {
+                padding-bottom: 6px;
+            }
+
+            @include min(1350) {
+                padding-bottom: 6.5px;
+            }
+
+            @include min(1440) {
+                padding-bottom: 7px;
+            }
+
+            @include min(1600) {
+                padding-bottom: 7.5px;
+            }
+
+            @include min(1900) {
+                padding-bottom: 8px;
+            }
+        }
+
+        span {
+            color: #8C8C8C;
+            font-size: 10px;
+
+            @include min(768) {
+                font-size: 13px;
+            }
+
+            @include min(992) {
+                font-size: 13.5px;
+            }
+
+            @include min(1200) {
+                font-size: 14px;
+            }
+
+            @include min(1350) {
+                font-size: 14.5px;
+            }
+
+            @include min(1440) {
+                font-size: 15px;
+            }
+
+            @include min(1600) {
+                font-size: 15.5px;
+            }
+
+            @include min(1900) {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.testimonial-slider,
+.testimonial-slider .slick-list,
+.testimonial-slider .slick-track {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+
+// ==========================Blog=====================================
+.blog {
+    .services-slider-progress{
+        margin-top: 30px;
+        @include min(768){margin-top: 35px;}
+        @include min(992){margin-top: 40px;}
+        @include min(1200){margin-top: 50px;}
+        @include min(1350){margin-top: 60px;}
+        @include min(1440){margin-top: 70px;}
+        @include min(1600){margin-top: 75px;}
+        @include min(1900){margin-top: 85px;}
+    }
+    h2 {
+        white-space: pre-line;
+    }
+
+    &-card {
+        span {
+            line-height: 100%;
+            color: #000;
+            font-weight: 200;
+            width: fit-content;
+            display: block;
+            border-radius: 80px;
+            border: 1px solid #CEDDE6;
+            background: #FFF;
+            padding: 5px 12px;
+
+            @include min(768) {
+                padding: 7px 14px;
+            }
+
+            @include min(992) {
+                padding: 7.5px 15px;
+            }
+
+            @include min(1200) {
+                padding: 5px 14px;
+            }
+
+            @include min(1350) {
+                padding: 6px 15px;
+            }
+
+            @include min(1440) {
+                padding: 7px 16px;
+            }
+
+            @include min(1600) {
+                padding: 8px 18px;
+            }
+
+            @include min(1900) {
+                padding: 10px 20px;
+            }
+        }
+
+        picture,
+        span {
+            margin-bottom: 14px;
+
+            @include min(768) {
+                margin-bottom: 16px;
+            }
+
+            @include min(992) {
+                margin-bottom: 18px;
+            }
+
+            @include min(1200) {
+                margin-bottom: 20px;
+            }
+
+            @include min(1350) {
+                margin-bottom: 22px;
+            }
+
+            @include min(1440) {
+                margin-bottom: 24px;
+            }
+
+            @include min(1600) {
+                margin-bottom: 26px;
+            }
+
+            @include min(1900) {
+                margin-bottom: 28px;
+            }
+        }
+    }
+
+    // .slick-list {
+
+    //     margin: 0px -5px;
+
+    //     @include min(768) {
+    //         margin: 0px -7px;
+    //     }
+
+    //     @include min(992) {
+    //         margin: 0px -8.5px;
+    //     }
+
+    //     @include min(1200) {
+    //         margin: 0px -10px;
+    //     }
+
+    //     @include min(1350) {
+    //         margin: 0px -11.5px;
+    //     }
+
+    //     @include min(1440) {
+    //         margin: 0px -12px;
+    //     }
+
+    //     @include min(1600) {
+    //         margin: 0px -13.5px;
+    //     }
+
+    //     @include min(1900) {
+    //         margin: 0px -15px;
+    //     }
+    // }
+
+    .slick-slide {
+        margin: 0px 5px;
+
+        @include min(768) {
+            margin: 0px 7px;
+        }
+
+        @include min(992) {
+            margin: 0px 8.5px;
+        }
+
+        @include min(1200) {
+            margin: 0px 10px;
+        }
+
+        @include min(1350) {
+            margin: 0px 11.5px;
+        }
+
+        @include min(1440) {
+            margin: 0px 12px;
+        }
+
+        @include min(1600) {
+            margin: 0px 13.5px;
+        }
+
+        @include min(1900) {
+            margin: 0px 15px;
+        }
+    }
+
+    .slick-slide {
+      
+        @include min(768){ width: 270px;}
+        @include min(992){ width: 221px;}
+        @include min(1200){ width: 255px;}
+        @include min(1280){ width: 250px;}
+        @include min(1350){ width: 257px;}
+        @include min(1440){ width: 280px;}
+        @include min(1600){ width: 310px;}
+        @include min(1900){ width: 404px;}
+
+        img {
+            height: 180px;
+            @include min(768){height: 160px;}
+            @include min(992){height: 190px;}
+            @include min(1200){height: 214px;}
+            @include min(1280){height: 214px;}
+            @include min(1350){height: 220px;}
+            @include min(1440){height: 260px;}
+            @include min(1600){height: 285px;}
+            @include min(1900){height: 360px;}
+        }
+
+        &.slick-current {
+            @include min(768){width: 440px;}
+            @include min(992){width: 405px;}
+            @include min(1200){width: 520px;}
+            @include min(1280){width: 600px;}
+            @include min(1350){width: 650px;}
+            @include min(1440){width: 680px;}
+            @include min(1600){width: 750px;}
+            @include min(1900){width: 813px;}
+
+        }
+          img {
+            object-fit: cover;
+            object-position: right;
+            width: 100%;
+        }
+    }
+
+    h3 {
+        color: #000;
+    }
+}

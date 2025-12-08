@@ -1,0 +1,433 @@
+footer{
+    background: #000;
+    @include max(991){
+        margin-bottom: 36px;
+    }
+    p{
+        color: #CEDDE6;
+        line-height: 140% ;
+     
+    }
+
+
+    .about-footer{
+        width: 100%;
+        @include max(767){
+            + div{
+                margin-top: 20px;
+            }
+        }
+        @include min(768){
+            width: 40.239%;
+
+        }
+        p{
+               width: 98%;
+        }
+        picture{
+            margin-bottom: 17px;
+            @include min(768){margin-bottom: 19px;}
+            @include min(992){margin-bottom: 21px;}
+            @include min(1200){margin-bottom: 23px;}
+            @include min(1350){margin-bottom: 25px;}
+            @include min(1440){margin-bottom: 27px;}
+            @include min(1600){margin-bottom: 29px;}
+            @include min(1900){margin-bottom: 31px;}
+        }
+    }
+    .quick-link{
+              @include max(767){
+            + div{
+                margin-top: 20px;
+            }
+        }
+        
+ 
+        a{
+            line-height:  100%;
+            color: #CEDDE6;
+            &:hover{
+                color: $primaryColor;
+            }
+
+        }
+        li{
+            line-height: normal;
+            + li{
+                margin-top: 7px;
+                @include min(768){margin-top: 8px;}
+                @include min(992){margin-top: 10px;}
+                @include min(1200){margin-top: 12px;}
+                @include min(1350){margin-top: 14px;}
+                @include min(1440){margin-top: 16px;}
+                @include min(1600){margin-top: 18px;}
+                @include min(1900){margin-top: 20px;}
+            }
+        }
+            .view-btn{
+            color: #F4D38F;
+            position: relative;
+            padding-right: 22px;
+            @include min(768){padding-right: 24px;}
+            @include min(992){padding-right: 26px;}
+            @include min(1200){padding-right: 28px;}
+            @include min(1350){padding-right: 30px;}
+            @include min(1440){padding-right: 32px;}
+            @include min(1600){padding-right: 34px;}
+            @include min(1900){padding-right: 36px;}
+                &::after{
+                    @extend .position;
+                    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4.5 12L19.5 12M19.5 12L13.875 18M19.5 12L13.875 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                    width: 16px;
+                    height: 16px;
+                    background-size: cover;
+                    right: 0;
+                    background-repeat: no-repeat;
+                    @include min(768){
+                        width: 17px;
+                        height: 17px
+                    }
+                    @include min(1200){
+                        width: 18px;
+                        height: 18px
+                    }
+                    @include min(1350){
+                        width: 19px;
+                        height: 19px
+                    }
+                    @include min(1440){
+                        width: 20px;
+                        height: 20px
+                    }
+                    @include min(1600){
+                        width: 22px;
+                        height: 22px
+                    }
+                    @include min(1900){
+                        width: 24px;
+                        height: 24px
+                    }
+                }
+            }
+    }
+           span{
+            display: block;
+            line-height:  127.273%;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 17px;
+            @include min(768){font-size: 16px; margin-bottom: 16px;}
+            @include min(992){font-size: 17px; margin-bottom: 17px;}
+            @include min(1200){font-size: 18px; margin-bottom: 18px;}
+            @include min(1350){font-size: 19px; margin-bottom: 19px;}
+            @include min(1440){font-size: 20px; margin-bottom: 20px;}
+            @include min(1600){font-size: 21px; margin-bottom: 21px;}
+            @include min(1900){font-size: 22px; margin-bottom: 22px;}
+
+        }
+        .footer-site-info,.footer-contact-details{
+            border-bottom: 1px solid rgba(255, 255, 255, 0.17);
+               padding: 40px 0px 40px 0px;
+               @include min(768){padding: 61px 0px 78px 0px;}
+               @include min(992){padding: 65px 0px 82px 0px;}
+               @include min(1200){padding: 68px 0px 85px 0px;}
+               @include min(1350){padding: 71px 0px 88px 0px;}
+               @include min(1440){padding: 74px 0px 91px 0px;}
+               @include min(1600){padding: 77px 0px 94px 0px;}
+               @include min(1900){padding: 80px 0px 97px 0px;}
+        }
+        .footer-contact-details{
+            padding: 40px 0px 40px 0px;
+            @include min(768){padding: 40px 0px 57px 0px;}
+            @include min(992){padding: 43px 0px 60px 0px;}
+            @include min(1200){padding: 46px 0px 63px 0px;}
+            @include min(1350){padding: 49px 0px 66px 0px;}
+            @include min(1440){padding: 52px 0px 69px 0px;}
+            @include min(1600){padding: 55px 0px 72px 0px;}
+            @include min(1900){padding: 58px 0px 75px 0px;}
+            .address{
+                width: 100%;
+                @include max(767){
+
+                    + div{
+                        margin-top: 20px;
+                    }
+                }
+
+                @include min(768){
+                    width: 21.489%;
+
+                }
+                a{
+                    display: flex;
+             
+                          gap: 8.5px;
+                    @include min(768){gap: 9px;}
+                    @include min(992){gap: 9.5px;}
+                    @include min(1200){gap: 10px;}
+                    @include min(1350){gap: 10.5px;}
+                    @include min(1440){gap: 11px;}
+                    @include min(1600){gap: 11.5px;}
+                    @include min(1900){gap: 12px;}
+                
+                    + a,+ p{
+                       margin-top: 9px; 
+                       @include min(768){margin-top: 11px; }
+                       @include min(992){margin-top: 13px; }
+                       @include min(1200){margin-top: 15px; }
+                       @include min(1350){margin-top: 17px; }
+                       @include min(1440){margin-top: 19px; }
+                       @include min(1600){margin-top: 21px; }
+                       @include min(1900){margin-top: 23px; }
+                    }
+                }
+                svg{
+                    height: auto;
+                    width: 19px;
+                    width: 19px;
+                    @include min(768){  width: 18px; height: 18px;}
+                    @include min(992){  width: 19px;}
+                    @include min(1200){  width: 20px;}
+                    @include min(1350){  width: 21px;}
+                    @include min(1440){  width: 22px;}
+                    @include min(1600){  width: 23px;}
+                    @include min(1900){  width: 24px;}
+                }
+            }
+        }
+        .news-letter{
+            width: 100%;
+            @include min(768){
+                width: 38.929%;
+
+            }
+            input{
+                &::placeholder{
+                    color: #4B535D;
+                }
+                width: 100%;
+                       color: #fff;
+                background: unset;
+                border: unset;
+                border-radius: 0;
+                border-bottom: 1px solid #6D6D6D;
+                padding-bottom: 20px;
+                padding-left: 10px;
+                @include min(768){ padding-bottom: 14px; padding-left: 10.66px;}
+                @include min(992){ padding-bottom: 15px; padding-left: 11px;}
+                @include min(1200){ padding-bottom: 16px; padding-left: 11.66px;}
+                @include min(1350){ padding-bottom: 17px; padding-left: 12px;}
+                @include min(1440){ padding-bottom: 18px; padding-left: 12.66px;}
+                @include min(1600){ padding-bottom: 19px; padding-left: 13px;}
+                @include min(1900){ padding-bottom: 20px; padding-left: 13.66px;}
+            }
+            button{
+                span{
+                    margin: 0;
+                }
+                font-weight: 500;
+                color: #FFF;
+                display: flex;
+                align-items: center;
+                background: unset;
+                line-height: 100%;
+                position: absolute;
+                right: 0;
+                gap: 9px;
+                bottom: 19px;
+                @include min(992){gap: 10px;}
+                @include min(1350){gap: 11px;}
+                @include min(1600){gap: 12px;}
+
+                svg{
+                    height: auto;
+                    width: 14px;
+                    @include min(768){width: 12px;}
+                    @include min(992){width: 14px;}
+                    @include min(1200){width: 16px;}
+                    @include min(1350){width: 18px;}
+                    @include min(1440){width: 20px;}
+                    @include min(1600){width: 22px;}
+                    @include min(1900){width: 24px;}
+                }
+            }
+
+        }
+        .text{
+            color: #FFF;
+            line-height: 119.231% ;
+                width:100%;
+                margin-bottom: 20px;font-size: 34px;
+                @include min(768){margin-bottom: 28px;font-size: 22px;  width: 71.56%;}
+                @include min(992){margin-bottom: 30px;font-size: 28px;}
+                @include min(1200){margin-bottom: 32px;font-size: 34px;}
+                @include min(1350){margin-bottom: 34px;font-size: 39px;}
+                @include min(1440){margin-bottom: 36px;font-size: 41px;}
+                @include min(1600){margin-bottom: 38px;font-size: 46px;}
+                @include min(1900){margin-bottom: 40px;font-size: 52px;}
+
+        }
+          .terms-wrapper,  .terms-wrapper a{
+
+              line-height:  125%;
+              font-size: 12px;
+              @include min(768){ font-size: 11px;}
+              @include min(992){ font-size: 12.5px;}
+              @include min(1200){ font-size: 13px;}
+              @include min(1350){ font-size: 14.5px;}
+              @include min(1440){ font-size: 15px;}
+              @include min(1600){ font-size: 15.5px;}
+              @include min(1900){ font-size: 16px;}
+          }
+          .form-group{
+                    margin-bottom: 8.5px;
+                    @include min(768){margin-bottom: 9px;}
+                    @include min(992){margin-bottom: 9.5px;}
+                    @include min(1200){margin-bottom: 10px;}
+                    @include min(1350){margin-bottom: 10.5px;}
+                    @include min(1440){margin-bottom: 11px;}
+                    @include min(1600){margin-bottom: 11.5px;}
+                    @include min(1900){margin-bottom: 12px;}
+          }
+        .terms-wrapper {
+            color: #4B535D;
+            gap: 8.5px;
+            @include min(768){gap: 9px;}
+            @include min(992){gap: 9.5px;}
+            @include min(1200){gap: 10px;}
+            @include min(1350){gap: 10.5px;}
+            @include min(1440){gap: 11px;}
+            @include min(1600){gap: 11.5px;}
+            @include min(1900){gap: 12px;}
+            a{
+                text-decoration: underline;
+                &:hover{
+                    color: $white;
+                }
+            }
+            input{
+                border-radius: 0;
+                width: 11.5px;
+                @include min(768){width: 12px;}
+                @include min(992){width: 12.5px;}
+                @include min(1200){width: 13px;}
+                @include min(1350){width: 13.5px;}
+                @include min(1440){width: 14px;}
+                @include min(1600){width: 14.5px;}
+                @include min(1900){width: 15px;}
+        
+            }
+        }
+        .copyrights{
+            padding: 24px 0px 26px 0px;
+            @include min(768){padding: 27px 0px 29px 0px;}
+            @include min(992){padding: 30px 0px 32px 0px;}
+            @include min(1200){padding: 33px 0px 35px 0px;}
+            @include min(1350){padding: 36px 0px 38px 0px;}
+            @include min(1440){padding: 39px 0px 41px 0px;}
+            @include min(1600){padding: 42px 0px 44px 0px;}
+            @include min(1900){padding: 45px 0px 47px 0px;}
+            p{
+                color: #D9D9D9;
+                a{
+                    color: #D9D9D9;
+                }
+            }
+            &-row{
+                @include max(767){
+                    text-align: center;
+                    gap: 10px;
+                }
+                > div{
+                    color: #D9D9D9;
+                    line-height: 88.889% ;
+                    font-size: 12px;
+                    gap:9.5px;
+                     @include max(767){
+                        justify-content: center;
+                     }
+                    @include min-max(768,991){
+                        width: 60%;
+                    }
+                    @include min(768){ font-size: 12px; }
+                    @include min(992){ font-size: 13px;  gap: 54.5px;}
+                    @include min(1200){ font-size: 14px;  gap: 56.5px;}
+                    @include min(1350){ font-size: 15px;  gap: 58.5px;}
+                    @include min(1440){ font-size: 16px;  gap: 60.5px;}
+                    @include min(1600){ font-size: 17px;  gap: 62.5px;}
+                    @include min(1900){ font-size: 18px;  gap: 64.5px;}
+
+                    li{
+                        position: relative;
+                        a{
+                            line-height:  100% ;
+                            color: #D9D9D9;
+                            font-size: 12.5px;
+                            @include min(768){font-size: 11px;}
+                            @include min(992){font-size: 13.5px;}
+                            @include min(1200){font-size: 14px;}
+                            @include min(1350){font-size: 14.5px;}
+                            @include min(1440){font-size: 15px;}
+                            @include min(1600){font-size: 15.5px;}
+                            @include min(1900){font-size: 16px;}
+
+                            &:hover{
+                                color: $primaryColor;
+                            }
+
+                        }
+                        + li{
+                            padding-left: 8px;
+                            margin-left: 8px;
+                            @include min(768){padding-left: 9px; margin-left: 9px;}
+                            @include min(992){padding-left: 9.5px; margin-left: 9.5px;}
+                            @include min(1200){padding-left: 10px; margin-left: 10px;}
+                            @include min(1350){padding-left: 10.5px; margin-left: 10.5px;}
+                            @include min(1440){padding-left: 11px; margin-left: 11px;}
+                            @include min(1600){padding-left: 11.5px; margin-left:  11.5px;}
+                            @include min(1900){padding-left: 12px; margin-left: 12px;}
+                            &::before{
+                                @extend .position;
+                                width: 1px;
+                                height: 50%;
+                                background: #fff;
+                                left: 0;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .social{
+            gap: 15px;
+            @include min(768){gap: 19px;}
+            @include min(992){gap: 20px;}
+            @include min(1200){gap: 21px;}
+            @include min(1350){gap: 22px;}
+            @include min(1440){gap: 23px;}
+            @include min(1600){gap: 24px;}
+            @include min(1900){gap: 25px;}
+
+            svg{
+                                    transition: 0.3s ease all;
+
+                height: auto;
+                width: 17px;
+                height: 17px;
+                @include min(768){width: 18px;height: 18px;}
+                @include min(992){width: 19px; height: 19px;}
+                @include min(1200){width: 20px; height: 20px;}
+                @include min(1350){width: 21px; height: 21px;}
+                @include min(1440){width: 22px; height: 22px;}
+                @include min(1600){width: 23px; height: 23px;}
+                @include min(1900){width: 24px; height: 24px;}
+                &:hover{
+                    transition: 0.5s ease all;
+                        filter: blur(1px);
+                }
+            }
+        }
+}

@@ -1,0 +1,854 @@
+.about-section {
+    &-col {
+        width: 100%;
+
+        @include max(575) {
+            margin-bottom: 20px;
+        }
+
+        @include min(576) {
+            width: 33.9293%;
+
+        }
+
+        h2 {
+            color: #101010;
+            line-height: 147.619%;
+            margin-bottom: 5.05px;
+
+            @include min(768) {
+                margin-bottom: 12.5px;
+            }
+
+            @include min(992) {
+                margin-bottom: 12.05px;
+                width: 80%;
+            }
+
+            @include min(1200) {
+                margin-bottom: 13.05px;
+            }
+
+            @include min(1350) {
+                margin-bottom: 13.5px;
+            }
+
+            @include min(1440) {
+                margin-bottom: 14.05px;
+            }
+
+            @include min(1600) {
+                margin-bottom: 14.5px;
+            }
+
+            @include min(1900) {
+                margin-bottom: 15.05px;
+            }
+        }
+
+        p {
+            line-height: 133.333%;
+            font-weight: 500;
+            font-size: 18px;
+
+            @include min(576) {
+                font-size: 12px;
+            }
+
+            @include min(768) {
+                font-size: 13px;
+            }
+
+            @include min(992) {
+                font-size: 15px;
+            }
+
+            @include min(1200) {
+                font-size: 17px;
+            }
+
+            @include min(1350) {
+                font-size: 19px;
+            }
+
+            @include min(1440) {
+                font-size: 21px;
+            }
+
+            @include min(1600) {
+                font-size: 23px;
+            }
+
+            @include min(1900) {
+                font-size: 24px;
+                width: 93%;
+            }
+
+        }
+
+        picture {
+            margin-top: 20px;
+
+            @include min(768) {
+                margin-top: 22px;
+            }
+
+            @include min(992) {
+                margin-top: 25px;
+            }
+
+            @include min(1200) {
+                margin-top: 28px;
+            }
+
+            @include min(1350) {
+                margin-top: 31px;
+            }
+
+            @include min(1440) {
+                margin-top: 34px;
+            }
+
+            @include min(1600) {
+                margin-top: 37px;
+            }
+
+            @include min(1900) {
+                margin-top: 40px;
+            }
+        }
+
+    }
+
+    &-description {
+        width: 100%;
+
+        @include min(576) {
+            width: 61.25%;
+
+        }
+
+        p {
+            +p {
+                margin-top: 12.5px;
+
+                @include min(768) {
+                    margin-top: 13px;
+                }
+
+                @include min(992) {
+                    margin-top: 13.5px;
+                }
+
+                @include min(1200) {
+                    margin-top: 14px;
+                }
+
+                @include min(1350) {
+                    margin-top: 14.5px;
+                }
+
+                @include min(1440) {
+                    margin-top: 15px;
+                }
+
+                @include min(1600) {
+                    margin-top: 15.5px;
+                }
+
+                @include min(1900) {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+
+    &-accordion {
+
+        @include min(768) {
+            margin-top: 20px;
+        }
+
+        @include min(992) {
+            margin-top: 25px;
+        }
+
+        @include min(1200) {
+            margin-top: 30px;
+        }
+
+        @include min(1350) {
+            margin-top: 20px;
+        }
+
+        @include min(1440) {
+            margin-top: 33px;
+        }
+
+        @include min(1600) {
+            margin-top: 36px;
+        }
+
+        @include min(1900) {
+            margin-top: 39px;
+        }
+    }
+
+    &-accordion-button {
+
+
+        line-height: 145.455%;
+        color: #000;
+        position: relative;
+        background: unset;
+        text-align: left;
+
+        width: 100%;
+        transition: 0.3s ease all;
+
+        padding-left: 22px;
+        font-size: 16px;
+
+        @include min(576) {
+            font-size: 14px;
+        }
+
+        @include min(768) {
+            padding-left: 24px;
+            font-size: 16px;
+        }
+
+        @include min(992) {
+            padding-left: 26px;
+            font-size: 17px;
+        }
+
+        @include min(1200) {
+            padding-left: 28px;
+            font-size: 18px;
+        }
+
+        @include min(1350) {
+            padding-left: 30px;
+            font-size: 19px;
+        }
+
+        @include min(1440) {
+            padding-left: 32px;
+            font-size: 20px;
+        }
+
+        @include min(1600) {
+            padding-left: 34px;
+            font-size: 21px;
+        }
+
+        @include min(1900) {
+            padding-left: 36px;
+            font-size: 22px;
+        }
+
+
+        &::before {
+            transition: 0.3s ease all;
+
+            @extend .position;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24" fill="none"><path d="M2.45199 6.58023L3.51299 5.52024L9.29199 11.2972C9.38514 11.3898 9.45907 11.4999 9.50952 11.6211C9.55997 11.7424 9.58594 11.8724 9.58594 12.0037C9.58594 12.1351 9.55997 12.2651 9.50952 12.3863C9.45907 12.5076 9.38514 12.6177 9.29199 12.7102L3.51299 18.4902L2.45299 17.4302L7.87699 12.0052L2.45199 6.58023Z" fill="%232B398F"/></svg>');
+            background-size: contain;
+            background-position: left;
+            background-repeat: no-repeat;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8.5px;
+            height: 20.5px;
+
+            @include min(768) {
+                width: 9px;
+                height: 21px;
+            }
+
+            @include min(992) {
+                width: 9.5px;
+                height: 21.5px;
+            }
+
+            @include min(1200) {
+                width: 10px;
+                height: 22px;
+            }
+
+            @include min(1350) {
+                width: 10.5px;
+                height: 22.5px;
+            }
+
+            @include min(1440) {
+                width: 11px;
+                height: 23px;
+            }
+
+            @include min(1600) {
+                width: 11.5px;
+                height: 23.5px;
+            }
+
+            @include min(1900) {
+                width: 12px;
+                height: 24px;
+            }
+
+        }
+
+        &.active {
+            font-weight: 500;
+            border-bottom: unset;
+
+            color: #2B398F;
+
+            &:before {
+                transition: 0.3s ease all;
+
+                transform: translateY(-50%) rotate(90deg);
+            }
+        }
+
+    }
+
+    &-item {
+        padding: 12.5px 0px;
+
+        @include min(768) {
+            padding: 9px 0px;
+        }
+
+        @include min(992) {
+            padding: 13.5px 0px;
+        }
+
+        @include min(1200) {
+            padding: 14px 0px;
+        }
+
+        @include min(1350) {
+            padding: 14.5px 0px;
+        }
+
+        @include min(1440) {
+            padding: 15px 0px;
+        }
+
+        @include min(1600) {
+            padding: 15.5px 0px;
+        }
+
+        @include min(1900) {
+            padding: 16px 0px;
+        }
+
+        +div {
+            border-top: 1px solid #CEDDE6;
+        }
+    }
+
+
+.panel{
+     &.open {
+        margin-top: 12px;
+        margin-bottom: 6px;
+
+        @include min(768) {
+            margin-top: 13px;
+            margin-bottom: 7px;
+        }
+
+        @include min(992) {
+            margin-top: 13.5px;
+            margin-bottom: 7.5px;
+        }
+
+        @include min(1200) {
+            margin-top: 14px;
+            margin-bottom: 8px;
+        }
+
+        @include min(1350) {
+            margin-top: 14.5px;
+            margin-bottom: 8.5px;
+        }
+
+        @include min(1440) {
+            margin-top: 15px;
+            margin-bottom: 9px;
+        }
+
+        @include min(1600) {
+            margin-top: 15.5px;
+            margin-bottom: 9.5px;
+        }
+
+        @include min(1900) {
+            margin-top: 16px;
+            margin-bottom: 10px;
+        }
+
+    }}
+    
+}
+.panel {
+    //  display: none;
+    overflow: hidden;
+    transition: height 0.5s ease, margin 0.3s ease;
+    height: 0;
+
+    &.open {
+        transition: 0.2s ease all;
+
+        //   display: block;
+        height: auto;
+    }
+
+}
+
+// =======================Counter==============================
+
+.counter {
+    &-col {
+        position: relative;
+
+        @include max(767) {
+            width: 100%;
+            text-align: center;
+        }
+
+        strong {
+            color: #FFF;
+            line-height: 98.889%;
+            font-size: 105px;
+
+            @include min(768) {
+                font-size: 90px;
+                line-height: 138.889%;
+            }
+
+            @include min(992) {
+                font-size: 110px;
+            }
+
+            @include min(1200) {
+                font-size: 140px;
+            }
+
+            @include min(1350) {
+                font-size: 150px;
+            }
+
+            @include min(1440) {
+                font-size: 160px;
+            }
+
+            @include min(1600) {
+                font-size: 170px;
+            }
+
+            @include min(1900) {
+                font-size: 180px;
+            }
+
+            &::after {
+                content: '+';
+                position: relative;
+                z-index: 2;
+            }
+        }
+
+        p {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            z-index: 1;
+            padding-right: 20%;
+
+            @include min(768) {
+                padding-right: 27%;
+
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #F0F2F4;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                z-index: -1;
+            }
+        }
+
+    }
+}
+
+
+// =====================Why Choose Us =============================
+.whyChoose {
+    h2 {
+        color: #101010;
+        @include max(575){
+            padding-bottom: 20px;
+        }
+
+
+    }
+
+    &-row {
+        gap:20px 2.15%;
+        @include min(768){
+            gap:0% 2.15%;
+
+        }
+    }
+
+    &-col {
+        display: flex;
+        flex-direction: column;
+        // background-position:30px 28%; 
+        position: relative;
+        // width: 328.5px;
+        width: 48%;
+    
+        @include min(576){
+            width: 22.524%;
+        }
+        @include min(1200){
+            width: 19.524%;
+
+        }
+
+        &:hover {
+            picture {
+                background-color: #2b388f60;
+
+                img {
+                    transition: transform 1.5s ease;
+                    transform: rotateY(360deg);
+                }
+            }
+        }
+
+
+        div {
+            color: #000;
+            line-height: 66.667%;
+            font-weight: 500;
+            font-size: 22px;
+            @include min(768){ font-size: 22px;}
+            @include min(992){ font-size: 26px;}
+            @include min(1200){ font-size: 30px;}
+            @include min(1350){ font-size: 32px;}
+            @include min(1440){ font-size: 38px;}
+            @include min(1600){ font-size: 42px;}
+            @include min(1900){ font-size: 48px;}
+
+            &::after {
+                content: "%";
+            }
+        }
+
+        p {
+
+            white-space: pre-line;
+            color: #000;
+            line-height: 131.25%;
+            font-size: 13px;
+            @include min(576){font-size: 11px;}
+            @include min(768){font-size: 15px;}
+            @include min(992){font-size: 16px;}
+            @include min(1200){font-size: 20px;}
+            @include min(1350){font-size: 21px;}
+            @include min(1440){font-size: 24px;}
+            @include min(1600){font-size: 28px;}
+            @include min(1900){font-size: 32px;}
+
+        }
+
+        &::before {
+            @extend .position;
+            width: 100%;
+            height: 100%;
+
+            background: url('data:image/svg+xml,<svg width="341" height="335" viewBox="0 0 341 335" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M67.5 43.5C56.3333 43.5 32.4 43.5 26 43.5C18 43.5 2 48.5 2 64.5C2 80.5 2 193 2 200.5C2 208 6.5 222.5 24.5 222.5C42.5 222.5 95 222.5 99.5 222.5C104 222.5 106 226 108 229.5C110 233 121.5 252.036 123.5 255.5C125.5 258.964 128 261.5 132.5 261.5C137 261.5 137.5 260 139 258.5C140.2 257.3 152.167 237.333 158 227.5C159.5 225.61 163 221.964 165 222.5C167.5 223.17 232.5 222.5 237.5 222.5C242.5 222.5 261.5 221 263 202C264.5 183 263 40 263 35.5C263 31 263.5 10.5 287 10.5C305.8 10.5 323.833 10.5 330.5 10.5" stroke="%23304B9F" stroke-width="4"/><circle cx="330.5" cy="10" r="10" fill="%23304B9F"/><circle cx="132.5" cy="285" r="5" fill="%23304B9F"/><circle cx="132.5" cy="300" r="5" fill="%23304B9F"/><circle cx="132.5" cy="315" r="5" fill="%23304B9F"/><circle cx="132.5" cy="330" r="5" fill="%23304B9F"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        &:nth-child(odd) {
+
+            div {
+                padding-bottom: 95px;
+                @include min(360){padding-bottom: 89.9px;}
+                @include min(390){padding-bottom: 110px;}
+                @include min(400){padding-bottom: 125px;}
+                @include min(450){padding-bottom: 145px;}
+                @include min(500){padding-bottom: 195px;}
+                @include min(576){padding-bottom: 62px;}
+                @include min(600){padding-bottom: 80px;}
+                @include min(700){padding-bottom: 115px;}
+                @include min(768){padding-bottom: 90px;}
+                @include min(800){padding-bottom: 110px;}
+                @include min(850){padding-bottom: 115px;}
+                @include min(900){padding-bottom: 143px;}
+                @include min(992){padding-bottom: 108px;}
+                @include min(1024){padding-bottom: 125px;}
+                @include min(1100){padding-bottom: 145px;}
+                @include min(1200){padding-bottom: 103px;}
+                @include min(1350){padding-bottom: 108px;}
+                @include min(1440){padding-bottom: 120px;}
+                @include min(1600){padding-bottom: 158px;}
+                @include min(1900){padding-bottom: 166px;}
+            }
+
+            picture {
+                margin-bottom: 20px;
+                @include min(768){  margin-bottom: 23px;}
+                @include min(992){  margin-bottom: 27px;}
+                @include min(1200){  margin-bottom: 31px;}
+                @include min(1350){  margin-bottom: 35px;}
+                @include min(1440){  margin-bottom: 39px;}
+                @include min(1600){  margin-bottom: 43px;}
+                @include min(1900){  margin-bottom: 47px;}
+            }
+
+            &::before {
+                top: 7.5%;
+                right: -22px;
+                @include min-max(576,767){
+                    right: unset;
+                    left: 41%;
+                    transform: translateX(-34%);
+                }
+                @include min(768){right: -18px;}
+                @include min(992){right: -20px;}
+                @include min(1200){right: -22px;}
+                @include min(1350){right: -24px;}
+                @include min(1440){right: -26px;}
+                @include min(1600){right: -28px;}
+                @include min(1900){right: -30px;}
+            }
+        }
+
+        &:nth-child(even) {
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+
+            &::before {
+         
+                       left: -20px;
+                @include min-max(576,767){
+                        left: -14px;
+                        top: -14%;
+                }
+                @include min(768){left: -30px;}
+                @include min(768){left: -18px;}
+                @include min(992){left: -20px;}
+                @include min(1200){left: -22px;}
+                @include min(1350){left: -24px;}
+                @include min(1440){left: -26px;}
+                @include min(1600){left: -28px;}
+                @include min(1900){left: -30px;}
+                top: -5%;
+            }
+
+            p {
+                margin-top: -50px;
+                @include min (576){  margin-top: -60px;}
+                @include min (768){  margin-top: -60px;}
+                @include min (992){  margin-top: -53px;}
+                @include min (1200){  margin-top: -67px;}
+                @include min (1350){  margin-top: -75px;}
+                @include min (1440){  margin-top: -100px;}
+                @include min (1600){  margin-top: -110px;}
+                @include min (1900){  margin-top: -120px;}
+            }
+
+            div {
+                padding-top: 100px;
+                @include min(576){ padding-top: 60px;}
+                @include min(768){ padding-top: 88px;}
+                @include min(992){ padding-top: 102px;}
+                @include min(1200){ padding-top: 106px;}
+                @include min(1350){ padding-top: 133px;}
+                @include min(1440){ padding-top: 142px;}
+                @include min(1600){ padding-top: 173px;}
+                @include min(1900){ padding-top: 183px;}
+            }
+
+            picture {
+                margin-top: 20px;
+                @include min(768){ margin-top: 12px;}
+                @include min(992){ margin-top: 14px;}
+                @include min(1200){ margin-top: 16px;}
+                @include min(1350){ margin-top: 18px;}
+                @include min(1440){ margin-top: 20px;}
+                @include min(1600){ margin-top: 22px;}
+                @include min(1900){ margin-top: 24px;}
+            }
+
+            &::before {
+                background: url('data:image/svg+xml,<svg width="341" height="335" viewBox="0 0 341 335" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M273 291.5C284.167 291.5 308.1 291.5 314.5 291.5C322.5 291.5 338.5 286.5 338.5 270.5C338.5 254.5 338.5 142 338.5 134.5C338.5 127 334 112.5 316 112.5C298 112.5 245.5 112.5 241 112.5C236.5 112.5 234.5 109 232.5 105.5C230.5 102 219 82.9641 217 79.5C215 76.0359 212.5 73.5 208 73.5C203.5 73.5 203 75 201.5 76.5C200.3 77.7 188.333 97.6667 182.5 107.5C181 109.39 177.5 113.036 175.5 112.5C173 111.83 108 112.5 103 112.5C98 112.5 79 114 77.5 133C76 152 77.5 295 77.5 299.5C77.5 304 77 324.5 53.5 324.5C34.7 324.5 16.6667 324.5 10 324.5" stroke="%23304B9F" stroke-width="4"/><circle cx="10" cy="325" r="10" transform="rotate(-180 10 325)" fill="%23304B9F"/><circle cx="208" cy="50" r="5" transform="rotate(-180 208 50)" fill="%23304B9F"/><circle cx="208" cy="35" r="5" transform="rotate(-180 208 35)" fill="%23304B9F"/><circle cx="208" cy="20" r="5" transform="rotate(-180 208 20)" fill="%23304B9F"/><circle cx="208" cy="5.00003" r="5" transform="rotate(-180 208 5.00003)" fill="%23304B9F"/></svg>');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+
+    }
+
+    picture {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 3px solid $primaryColor;
+        margin-left: auto;
+        margin-right: auto;
+        width: 55px;
+        height: 55px;
+        @include min(576){ width: 45px;height: 45px;}
+        @include min(768){ width: 55px;height: 55px;}
+        @include min(992){ width: 70px; height: 70px;}
+        @include min(1200){ width: 68px;height: 68px;    border: 4px solid $primaryColor;}
+        @include min(1350){ width: 85px;height: 85px;}
+        // @include min(1440){ width: 85px;height: 85px;}
+        @include min(1600){ width: 95px;height: 95px;}
+        @include min(1900){ width: 118px;height: 118px;}
+
+        img {
+            border-radius: 50%;
+            background-color: $primaryColor;
+            height: auto;
+            width: 38px;padding: 6px;
+            @include min(576){width: 30px;padding: 4px;}
+            @include min(768){width: 38px;padding: 6px;}
+            @include min(992){width: 50px;padding: 8px;}
+            @include min(1200){width: 50px; padding: 8px;}
+            @include min(1350){width: 60px; padding: 9px;}
+            @include min(1440){width: 78px;padding: 13px;}
+            @include min(1600){width: 70px; padding: 13px;}
+            @include min(1900){width: 82px;padding: 15px;}
+        }
+
+    }
+}
+
+// ===============================================history============================
+
+.container-history {
+    max-width: 81.747%;
+    margin-left: auto;
+    margin-right: auto;
+}
+$slick-colors: 
+  #E97435,
+  #FAC94A,
+  #3DB0A1,
+  #36515E,
+  #D85C45,
+  #304B9F,
+  #4B535D;
+
+.history{
+    h2{
+        color: $black;
+    }
+.slick-list{
+    // padding: 0px 34px;
+    margin: 0px -2px;
+}
+ .slick-slide {
+     position: relative;
+     margin-left:  2px;
+     margin-right:  2px;
+     margin-bottom: 28px;
+    //  margin-bottom: 14px;
+    //  @include min(768){margin-bottom: 16px;}
+    //  @include min(992){margin-bottom: 18px;}
+    //  @include min(1200){margin-bottom: 20px;}
+    //  @include min(1350){margin-bottom: 22px;}
+    //  @include min(1440){margin-bottom: 24px;}
+    //  @include min(1600){margin-bottom: 26px;}
+    //  @include min(1900){margin-bottom: 28px;}
+    @for $i from 1 through 100 {
+        &:nth-child(#{$i}) {
+        circle:first-child {
+            fill: nth($slick-colors, (($i - 1) % length($slick-colors)) + 1);
+        }
+        }
+    }
+    }
+    &-item{
+        position: relative;
+        background: #F8F8FA;
+        padding:60px 14px 30px 14px;
+        @include min(768){padding: 88px 16px 60px 16px;}
+        @include min(992){padding: 98px 17px 65px 17px;}
+        @include min(1200){padding: 108px 18px 70px 18px;}
+        @include min(1350){padding: 118px 19px 75px 19px;}
+        @include min(1440){padding: 128px 20px 80px 20px;}
+        @include min(1600){padding: 138px 21px 85px 21px;}
+        @include min(1900){padding: 148px 22px 90px 22px;}
+        //           @for $i from 1 through 100 {
+        //     &:nth-child(#{$i}) {
+        //       circle:first-child {
+        //         fill: nth($slick-colors, (($i - 1) % length($slick-colors)) + 1);
+        //       }
+        //     }
+        //   }
+
+
+       
+
+         div{
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 10px;
+            @include min(768){font-size: 24px; margin-bottom: 16px;}
+            @include min(992){font-size: 28px; margin-bottom: 17px;}
+            @include min(1200){font-size: 32px; margin-bottom: 18px;}
+            @include min(1350){font-size: 36px; margin-bottom: 19px;}
+            @include min(1440){font-size: 40px; margin-bottom: 20px;}
+            @include min(1600){font-size: 44px; margin-bottom: 21px;}
+            @include min(1900){font-size: 48px; margin-bottom: 22px;}
+         }
+         span{
+            display: block;
+            color: #101010;
+            font-size: 13px;
+            margin-bottom: 8px;
+            @include min(768){font-size: 14px; margin-bottom: 10px;}
+            @include min(992){font-size: 15px; margin-bottom: 12px;}
+            @include min(1200){font-size: 16px; margin-bottom: 14px;}
+            @include min(1350){font-size: 18px; margin-bottom: 16px;}
+            @include min(1440){font-size: 20px; margin-bottom: 18px;}
+            @include min(1600){font-size: 22px; margin-bottom: 20px;}
+            @include min(1900){font-size: 24px; margin-bottom: 22px;}
+         }
+         svg{
+            height: auto;
+            position: absolute;
+                bottom: -8px;
+    left: -14px;
+    
+            margin-top: 55px;
+            width: 100px;
+            @include min(576){bottom: -28px; left: -34px;}
+            @include min(768){margin-top: 60px; width: 95px; bottom: -8px; left: -14px;}
+            @include min(992){margin-top: 65px;width: 160px; width: 93px; bottom: -8px; left: -13px;}
+            @include min(1200){margin-top: 70px; width: 120px; bottom: -15px; left: -19px;}
+            @include min(1350){margin-top: 75px; width: 140px; bottom: -17px; left: -19px;}
+            @include min(1440){margin-top: 80px; width: 140px; bottom: -18px; left: -19px;}
+            @include min(1600){margin-top: 85px; width: 140px; bottom: -18px; left: -19px; }
+            @include min(1900){margin-top: 90px; width: 215px; bottom: -28px; left: -34px;}
+         }
+    }
+}

@@ -1,0 +1,104 @@
+.inner-banner {
+    // margin-top: 121px;
+    border-bottom: 1px solid #D5E8F0;
+    img{
+        width: 100%;
+        object-fit: cover;
+        height: 61px;
+        @include min(768){
+            height: 70px;
+        }
+        @include min(992){
+            height: 70px;
+        }
+        @include min(1200){
+            height: 83px;
+        }
+        @include min(1280){
+            height: 87px;
+        }
+        @include min(1350){
+            height: 90px;
+        }
+        @include min(1440){
+            height: 96px;
+        }
+        @include min(1600){
+            height: 106px;
+        }
+        @include min(1900){
+            height: 121px;
+        }
+    }
+    > div{
+        padding: 38px 0px;
+        @include min(768){padding: 42px 0px;}
+        @include min(992){padding: 45px 0px;}
+        @include min(1200){padding: 48px 0px;}
+        @include min(1350){padding: 51px 0px;}
+        @include min(1440){padding: 54px 0px;}
+        @include min(1600){padding: 57px 0px;}
+        @include min(1900){padding: 60px 0px;}
+
+    }
+    h1{
+        color: $black;
+        margin-bottom: 18px;
+        @include min(768){margin-bottom: 20px;}
+        @include min(992){margin-bottom: 22px;}
+        @include min(1200){margin-bottom: 24px;}
+        @include min(1350){margin-bottom: 26px;}
+        @include min(1440){margin-bottom: 28px;}
+        @include min(1600){margin-bottom: 30px;}
+        @include min(1900){margin-bottom: 32px;}
+    }
+    .breadcrumb {
+        @include max(575){
+            gap: 5px 0px;
+        }
+        li a,li{
+                color: #929393;
+                font-weight: 300!important;
+                                    @extend h5;
+
+                
+                
+        }
+        li{
+            position: relative;
+            
+            + li{
+                color: $primaryColor;
+
+                margin-left: 4.5px;
+                padding-left: 9.5px;
+                @include min(768){margin-left: 7px; padding-left: 14px;}
+                @include min(992){margin-left: 7.5px; padding-left: 14.5px;}
+                @include min(1200){margin-left: 8px; padding-left: 15px;}
+                @include min(1350){margin-left: 8.5px; padding-left: 15.5px;}
+                @include min(1440){margin-left: 9px; padding-left: 16px;}
+                @include min(1600){margin-left: 9.5px; padding-left: 16.5px;}
+                @include min(1900){margin-left: 10px; padding-left: 17px;}
+              
+                &::before{
+                     color: #929393;
+                    content: '/';
+                    position: absolute;
+                    left: 0;
+                }
+            }
+            &:last-child,&:last-child a{
+       
+                    color: $primaryColor;
+                    font-weight: 500!important;
+
+                
+            }
+        }
+    }
+}
+
+.bg-theme-grey{
+    background: #F0F2F4
+
+}

@@ -1,0 +1,876 @@
+.product-listing {
+
+
+    &-body {
+        width: 100%;
+        @include min(768){
+
+        }
+        @include min(992){
+            width: 65.358%;
+        }
+
+        div.d-flex {
+            gap: 10px;
+
+            @include min(768) {
+                gap: 11px;
+            }
+
+            @include min(992) {
+                gap: 14px;
+            }
+
+            @include min(1200) {
+                gap: 17px;
+            }
+
+            @include min(1350) {
+                gap: 19px;
+            }
+
+            @include min(1440) {
+                gap: 21px;
+            }
+
+            @include min(1600) {
+                gap: 23px;
+            }
+
+            @include min(1900) {
+                gap: 25px;
+            }
+        }
+    }
+
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 1px solid #E0E0E0;
+        background: #FFF;
+        width: 48%;
+        padding: 7px;
+        @include min(576){
+            width: 49%;
+        }
+        @include min(768) {
+            width:32.3%;
+            padding: 8px;
+           
+        }
+        @include min(992){
+                   width: 31.33%;
+        }
+
+        @include min(1200) {
+            padding: 8px 8px 11px 8px;
+        }
+
+        @include min(1440) {
+            padding: 10px 10px 13px 10px;
+        }
+
+        @include min(1600) {
+            padding: 12px 12px 15px 12px;
+        }
+
+        @include min(1900) {
+            padding: 14px 14px 17px 14px;
+        }
+
+        picture {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #D9D9D9;
+            border-radius: 10px;
+            text-align: center;
+            padding: 5px 0px;
+                        height: 140px;
+            
+            @include min(768) {
+                padding: 6px 0px;
+                height: 170px;
+            }
+            @include min(992){
+                
+                height: 180px;
+            }
+            
+            @include min(1200) {
+                border-radius: 20px;
+                padding: 8px 0px;
+                height: 210px;
+            }
+
+            @include min(1440) {
+                padding: 10px 0px;
+                height: 230px;
+            }
+
+            @include min(1600) {
+                padding: 12px 0px;
+                height: 248px;
+            }
+
+            @include min(1900) {
+                padding: 14px 0px;
+                height: 258px;
+            }
+            img{
+                object-fit: contain;
+                width: 100%;
+                height: auto;
+                 max-width: 120px;
+    max-height: 112px;
+                @include min(768){max-width: 180px;max-height: 177px; }
+                @include min(992){max-width: 170px; max-height: 152px; }
+                @include min(1200){max-width: 180px;max-height: 162px; }
+                @include min(1350){max-width: 190px;max-height: 175px; }
+                @include min(1440){max-width: 210px;max-height: 192px; }
+                @include min(1600){max-width: 220px;max-height: 197px; }
+                @include min(1900){max-width: 240px;max-height: 207px; }
+
+
+            }
+        }
+
+        h3 {
+            font-weight: 600;
+
+            color: #000;
+            line-height: 120%;
+            font-size: 13px;
+            margin-bottom: 0;
+            @include max(575){
+                  line-height:19px
+            }
+
+            @include min(992) {
+                font-size: 15px;
+            }
+
+            @include min(1200) {
+                font-size: 16px;
+            }
+
+            @include min(1350) {
+                font-size: 17px;
+            }
+
+            @include min(1440) {
+                font-size: 18px;
+            }
+
+            @include min(1600) {
+                font-size: 19px;
+            }
+
+            @include min(1900) {
+                font-size: 20px;
+            }
+
+        }
+
+        p {
+            line-height: 169.231%;
+            font-size: 11px;
+
+            @include min(768) {
+                font-size: 10px;
+            }
+
+            @include min(1200) {
+                font-size: 11px;
+            }
+
+            @include min(1350) {
+                font-size: 12px;
+            }
+
+            @include min(1440) {
+                font-size: 13px;
+            }
+
+            @include min(1600) {
+                font-size: 16px;
+            }
+
+            @include min(1900) {
+                font-size: 19px;
+            }
+
+        }
+        &:hover{
+            picture{
+                transition: 0.5s ease all;
+                background: #304b9f8a;
+            }
+        }
+    }
+
+    .product-details {
+        margin-bottom: 12px;
+
+        @include min(992) {
+            margin-bottom: 15px;
+        }
+        @include min(1200) {
+            margin-bottom: 17px;
+        }
+        @include min(1350) {
+            margin-bottom: 19px;
+        }
+        @include min(1440) {
+            margin-bottom: 21px;
+        }
+
+        @include min(1600) {
+            margin-bottom: 23px;
+        }
+
+        @include min(1900) {
+            margin-bottom: 25px;
+        }
+    }
+
+    .product-button-wrap {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include max(991){
+            flex-wrap: wrap;
+        }
+        .theme-btn{
+            height: 30px; padding: 0px 12px;
+            @include min(768){ height: 29px; padding: 0px 14px;}
+            @include min(992){ height: 31px; padding: 0px 15px;}
+            @include min(1200){ height: 32px; padding: 0px 16px;}
+            @include min(1350){ height: 34px; padding: 0px 17px;}
+            @include min(1440){ height: 36px; padding: 0px 18px;}
+            @include min(1600){ height: 38px; padding: 0px 19px;}
+            @include min(1900){ height: 40px; padding: 0px 20px;}
+            @include max(575){
+                font-size: 11.5px;
+                padding: 0px 6px;
+                height: 26px;
+                border-radius: 12px;
+            }
+        }
+    }
+
+    &-item{
+    
+        border-radius: 5px;
+        background: #FFF;
+            padding: 0px 16px;
+            @include min(768){padding: 0px 10px}
+            @include min(992){padding: 0px 11px}
+            @include min(1200){padding: 0px 15px;}
+            @include min(1350){padding:0px  16px;}
+            @include min(1440){padding: 0px 17px;}
+            @include min(1600){padding: 0px 18px;}
+            @include min(1900){padding: 0px 20px;}
+            button{
+                text-align: left;
+                position: relative;
+                line-height: 120% ;
+                background: unset;
+                color: #101010;
+                padding-top: 10px;padding-bottom: 10px;
+                 @include min(768){padding-top: 10px;padding-bottom: 10px}
+                 @include min(992){padding-top: 11px; padding-bottom: 11px}
+                @include min(1200){padding-top: 15px; padding-bottom: 15px;}
+                @include min(1350){padding-top:16px; padding-bottom:16px;}
+                @include min(1440){padding-top:  17px;padding-bottom:  17px;}
+                @include min(1600){padding-top: 18px; padding-bottom: 18px;}
+                @include min(1900){padding-top:20px;padding-bottom:20px;}
+                padding-right: 24px;
+                width: 100%;
+                &.active{
+                    font-weight: 500;
+                    color: $primaryColor;
+                    padding-bottom: 8px;
+                }
+
+                &::after{
+                    @extend .position;
+                
+                    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M0.75 6.75H12.75M6.75 12.75V0.75" stroke="%23101010" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                    
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    
+                    transition: transform 0.3s, content 0.3s;
+                    width: 10.5px;
+                height: 10.5px;
+                @include min(768){width: 11px;  height: 11px;}
+                @include min(992){width: 9.5px;  height: 9.5px;}
+                @include min(1200){width: 12px;  height: 12px;}
+                @include min(1350){width: 12.5px;  height: 12.5px;}
+                @include min(1440){width: 13px;  height: 13px;}
+                @include min(1600){width: 13.5px;  height: 13.5px;}
+                @include min(1900){width: 14px;  height: 14px;}
+                }
+                &.active::after {
+                    height: 2px;
+                    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="2" viewBox="0 0 16 2" fill="none"><path d="M1 1H15" stroke="%23304B9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                    transform: translateY(-50%) rotate(180deg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 11px;
+                    @include min(768){width: 12.5px;}
+                    @include min(992){width: 13.5px;}
+                    @include min(1200){width: 14px;}
+                    @include min(1350){width: 14.5px;}
+                    @include min(1440){width: 15px;}
+                    @include min(1600){width: 15.5px;}
+                    @include min(1900){width: 16px;}
+
+                }
+
+
+            }
+            + div{
+                margin-top: 4px;
+            }
+
+            .panel.open{
+                        padding-bottom: 10px;
+                 @include min(768){padding-bottom: 10px}
+                 @include min(992){padding-bottom: 11px}
+                @include min(1200){padding-bottom: 15px;}
+                @include min(1350){ padding-bottom:16px;}
+                @include min(1440){padding-bottom:  17px;}
+                @include min(1600){ padding-bottom: 18px;}
+                @include min(1900){padding-bottom:20px;}
+            }
+    }
+    .product-image{
+        position: relative;
+          margin-bottom: 19px;
+            
+            @include min(768) {
+                margin-bottom: 21px;
+            }
+        
+            
+            @include min(1200) {
+       
+                margin-bottom: 23px;
+            }
+
+            @include min(1440) {
+                margin-bottom: 25px;
+            }
+
+            @include min(1600) {
+                margin-bottom: 27px;
+            }
+
+            @include min(1900) {
+                margin-bottom: 29px;
+            }
+         i{
+            position: absolute;
+            border-radius: 3px;
+            background: #FFF;
+            padding: 1.5px 5px;
+            left: 10px;
+            bottom: 10px;
+
+            @include min(768) {
+                padding: 4px 12px;
+                    left: 20px;
+            bottom: 20px;
+            }
+
+            @include min(992) {
+                padding: 4.5px 13px;
+            }
+
+            @include min(1200) {
+                padding: 5px 14px;
+            }
+
+            @include min(1350) {
+                padding: 5.5px 15px;
+            }
+
+            @include min(1440) {
+                padding: 6px 16px;
+            }
+
+            @include min(1600) {
+                padding: 6.5px 17px;
+            }
+
+            @include min(1900) {
+                padding: 7px 18px;
+            }
+
+            img {
+                height: auto;
+                width: 30px;
+
+                @include min(768) {
+                    width: 41px;
+                }
+
+                @include min(992) {
+                    width: 45px;
+                }
+
+                @include min(1200) {
+                    width: 49px;
+                }
+
+                @include min(1350) {
+                    width: 53px;
+                }
+
+                @include min(1440) {
+                    width: 57px;
+                }
+
+                @include min(1600) {
+                    width: 61px;
+                }
+
+                @include min(1900) {
+                    width: 65px;
+                }
+            }}
+    }
+}
+
+aside.filter-card {
+    height: fit-content;
+
+    border-radius: 20px;
+border: 1px solid #D5E8F0;
+background: rgba(218, 235, 241, 0.35);
+    padding: 26px 10px 23.99px 10px;
+    
+    width:100%;
+    @include min(768){
+
+                padding: 17px 17px 14.99px 17px;
+    }
+    @include max(991){
+        margin-bottom: 30px;
+        padding-bottom: 170px;
+    }
+    @include min(992) {
+            position: sticky;
+    top: 90px;
+            width: 29.461%;
+                padding: 18px 18px 15.99px 18px;
+
+    }
+    @include min(1200) {
+            width: 32.381%;
+        padding: 20px 20px 17.99px 20px;
+
+    }
+    @include min(1350) {
+        padding: 22px 22px 19.99px 22px;
+
+    }
+    @include min(1440) {
+        padding: 24px 24px 21.99px 24px;
+
+    }
+
+    @include min(1600) {
+        padding: 26px 26px 23.99px 26px;
+
+    }
+
+    @include min(1900) {
+        padding: 28px 28px 25.99px 29px;
+
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        gap: 2.5%;
+        color: #000;
+        line-height: 100%;
+        margin-bottom: 13px;
+        font-size: 16px;
+        @include min(768){
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+        @include min(992){
+            margin-bottom: 19px;
+            font-size: 18px;
+        }
+        @include min(1200){
+            margin-bottom: 21px;
+            font-size: 19px;
+        }
+        @include min(1440){
+            margin-bottom: 23px;
+            font-size: 20px;
+        }
+        @include min(1600){
+            margin-bottom: 25px;
+                font-size: 22px;
+        }
+        @include min(1900){
+            margin-bottom: 28px;
+            font-size: 24px;
+        }
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background: #D1E6EE;
+            width: 25px; height: 25px;
+            @include min(768){ width: 33px; height: 33px;}
+            @include min(992){ width: 28px; height: 28px;}
+            @include min(1200){ width: 35px; height: 35px;}
+            @include min(1350){ width: 36px; height: 36px;}
+            @include min(1440){ width: 37px; height: 37px;}
+            @include min(1600){ width: 38px; height: 38px;}
+            @include min(1900){ width: 40px; height: 40px;}
+
+            svg{
+                height: auto;
+                width: 16px;
+                @include min(768){width: 18px;}
+                @include min(992){width: 17px;}
+                @include min(1200){width: 20px;}
+                @include min(1350){width: 21px;}
+                @include min(1440){width: 22px;}
+                @include min(1600){width: 23px;}
+                @include min(1900){width: 24px;}
+            }
+        }
+    }
+    + div{
+        margin-top: 14px;
+        @include min(768){margin-top: 16px;}
+        @include min(992){margin-top: 18px;}
+        @include min(1200){margin-top: 20px;}
+        @include min(1350){margin-top: 22px;}
+        @include min(1440){margin-top: 24px;}
+        @include min(1600){margin-top: 26px;}
+        @include min(1900){margin-top: 28px;}
+    }
+}
+
+/* Category block */
+.filter-group {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border-left: 1px solid #D5E8F0;
+    gap: 8px;
+    padding: 9px 12px 9px 12px;   
+    @include min(768){padding: 10px 13px 10px 13px;   gap: 9px;}
+    @include min(992){padding: 10.5px 13.5px 10.5px 13.5px;   gap: 9.5px;}
+    @include min(1200){padding: 11px 14px 11px 14px;   gap: 10px;}
+    @include min(1350){padding: 11.5px 14.5px 11.5px 14.5px;  gap: 10.5px; }
+    @include min(1440){padding: 12px 15px 12px 15px;   gap: 11px;}
+    @include min(1600){padding: 12.5px 15.5px 12.5px 15.5px;   gap: 11.5px;}
+    @include min(1900){padding: 13px 16px 13px 16px;  gap: 12px; }
+
+}
+
+/* First item has a blue outline in your mock */
+
+
+/* Hide native radio but keep it accessible */
+.filter-option>input[type="radio"] {
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Custom radio (square to match screenshot) */
+.fake-radio {
+    border: 1px solid #D6DBDD;
+
+
+    border-radius: 3px;
+    /* square-ish */
+    background: #fff;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    flex: 0 0 12px;
+    @include min(768){
+        width: 11px;
+        height: 11px;
+        flex: 0 0 11px;
+    }
+    @include min(992){
+        width: 12px;
+        height: 12px;
+        flex: 0 0 12px;
+    }
+    @include min(1200){
+        width: 13px;
+        height: 13px;
+        flex: 0 0 12px;
+    }
+    @include min(1350){
+        width: 14px;
+        height: 14px;
+        flex: 0 0 14px;
+    }
+    @include min(1440){
+        width: 15px;
+        height: 15px;
+        flex: 0 0 15px;
+    }
+    @include min(1600){
+        width: 17px;
+        height: 17px;
+        flex: 0 0 17px;
+    }
+    @include min(1440){
+        width: 17px;
+        height: 17px;
+        flex: 0 0 17px;
+    }
+}
+
+/* Checked state */
+.filter-option>input[type="radio"]:checked+.fake-radio {
+    border-color: $primaryColor;
+}
+
+.filter-option>input[type="radio"]:checked+.fake-radio::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: $primaryColor;
+    border-radius: 4px;
+}
+
+.filter-option>input[type="radio"]:checked~.label-text {
+    // font-weight: 600;
+    // line-height: 87.5%;
+    color: $primaryColor;
+}
+
+/* Keyboard focus */
+.filter-option>input[type="radio"]:focus-visible+.fake-radio {
+    // outline:3px solid color-mix(in oklab, var(--accent) 60%, white);
+    // outline-offset:2px;
+}
+
+/* Brands block */
+.brands {
+    margin-top: 12px;
+    @include min(768){
+        margin-top: 15px;
+    }
+    @include min(992){
+        margin-top: 17px;
+    }
+    @include min(1200){
+        margin-top: 19px;
+    }
+    @include min(1350){
+        margin-top: 20px;
+    }
+    @include min(1440){
+        margin-top: 22px;
+    }
+    @include min(1600){
+        margin-top: 24px;
+    }
+    @include min(1900){
+        margin-top: 26px;
+    }
+}
+
+.brand-logos {
+    border-radius: 10px;
+    background-color: $white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 11px;
+    gap: 9px;
+    @include min(768){padding: 14px;  gap: 44px 34px;}
+    @include min(992){padding: 12px; gap: 16px 8px;}
+    @include min(1200){padding: 18px;  gap: 23px 20px;}
+    @include min(1350){padding: 23px;  gap: 26px 23px;}
+    @include min(1440){padding: 24px;  gap: 29px 22px;}
+    @include min(1600){padding: 29px;  gap: 33px 22px}
+    @include min(1900){padding: 32px;  gap: 44px 34px;}
+
+    a {
+        width: 50px; height: 49px;
+        @include min(768){width: 51px; height: 50px;}
+
+        @include min(992){width: 32px; height: 28px;}
+        @include min(1200){width: 36px; height: 32px;}
+        @include min(1350){width: 40px; height: 39px;}
+        @include min(1440){width: 44px; height: 43px;}
+        @include min(1600){width: 50px; height: 49px;}
+        @include min(1900){width: 57px; height: 56px;}
+    }
+
+}
+
+.brand img {
+
+    display: block;
+}
+
+/* Optional: compact on very small screens */
+.label-text {
+    line-height: 120%;
+
+}
+@media (max-width:420px) {
+    .filter-card {
+        padding: 18px
+    }
+
+    .filter-option {
+        padding: 10px 5px
+    }
+
+    .label-text {
+        font-size: 12px
+    }
+}
+
+
+/* ---------- Mobile Offcanvas ---------- */
+@media (max-width:991px) {
+  .filter-toggle {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .filter-card {
+    background: #D9D9D9;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  }
+
+  .filter-card.active {
+            overflow-x: hidden;
+        overflow-y: auto;
+        background: #ffffff;
+    z-index: 9;
+        left: 0;
+        width: 83%;
+        top: 61px;
+        border-radius: 0;
+        height: 100vh;
+  }
+
+  .filter-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 0;
+  }
+
+  .filter-overlay.active {
+    display: block;
+  }
+
+  .close-filter {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: #333;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+}
+@include max(575){
+    .search-container {
+    width: 50%;
+    display: flex
+;
+    justify-content: flex-end;
+}
+}
+.load-more{
+    color: #101010;
+    background: unset;
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    gap: 13px;
+    margin-top: clamp(30px, 6.3vw, 121px);
+
+    @include min(768){
+        font-size: 11px;
+    }
+
+    @include min(992){
+        font-size: clamp(12px, 1vw, 16px);
+    }
+    @include min(1200){
+        font-size: clamp(14px, 1vw, 18px);
+    }
+    svg{
+        height: auto;
+        width: clamp(12px, 0.94vw, 18px);
+    }
+    &:hover{
+        color: $primaryColor;
+    }
+
+}
+
+
+@media (max-width: 991px) {
+    section.product-listing~ footer{
+                margin-bottom: 86px;
+    }
+    .product-listing-header {
+        position: fixed;
+        bottom: 0;
+        background: #f3f3f3;
+        padding: 11px;
+        z-index: 9;
+        width: 100%;
+        left: 0;
+        bottom: 44px;
+
+        button{
+            background: unset;
+        }
+    }
+}

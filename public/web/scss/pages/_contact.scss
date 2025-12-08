@@ -1,0 +1,249 @@
+.contact{
+       &-location-container{
+        width:100%;
+        @include min(768){
+            width: 54.524%;
+
+        }
+       }
+    &-location-card{
+        background: #F0F2F4;
+        border-radius: 20px;
+           padding:20px;
+           @include min(992){
+               padding:25px;
+
+           }
+           @include min(1200){  padding:18px;}
+           @include min(1350){  padding:26px;}
+           @include min(1440){  padding:29px;}
+           @include min(1600){  padding:32px;}
+           @include min(1900){  padding:35px;}
+           @include max(1199){
+            gap: 20px;
+           }
+        + div{
+            margin-top: 20px;
+            @include min(768){
+                margin-top: 28px;
+
+            }
+        }
+        > div{
+            gap: 15px;
+         @include min(1200){gap: 8px;}
+         @include min(1350){gap: 10px;}
+         @include min(1440){gap: 16px;}
+         @include min(1600){gap: 18px;}
+         @include min(1900){gap: 26px;}
+            i{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                background: rgba(48, 75, 159, 0.20);
+                width:  clamp(25px ,3.5vw , 50px);
+                height: clamp(25px ,3.5vw , 50px);
+                @include min(1200){
+                     width:  clamp(25px ,2.8vw , 50px);
+                height: clamp(25px ,2.8vw , 50px);
+                }
+                 SVG{
+                        height: clamp(12px, 1vw, 18.667px);
+                          width:  clamp(12px, 1vw, 18.667px);
+                 }
+            }
+        }
+        .left{
+            width: 100%;
+            @include min(1200){
+                width: 53.31%;
+
+            }
+            svg{
+                // height: auto;
+                // width: 18.667px clamp(25px ,2.8vw , 50px);
+
+            }
+        }
+       
+        .right{
+            width: 1000%;
+            @include min(1200){
+                width: 42.435%;
+
+            }
+            a{
+                display: block;
+                position: relative;
+                width: fit-content;
+                @include max(575){
+                        font-size: 18px;
+
+                }
+           
+                &[href^="mailto:"]{
+                    padding-bottom: 9px;
+                    &::after{
+                        @extend .position;
+                        height: 1px;
+                        width: 100%;
+                        background: #000;
+                        bottom: 0;
+                        left: 0;
+
+                    }
+                }
+                  &[href^="tel:"]{
+                    color: $black;
+                    line-height: 87.5%;
+                    @include min(1200){
+                        font-size:clamp(10px, 1.7vw, 32px) ;
+                    }
+     @include max(575){
+                    width: 100%;
+                }
+
+                  }
+                +a{
+                    @include min(1200){
+                        margin-top: clamp(10px, 1.2vw, 23px) ;
+
+                    }
+                
+                }
+                
+            }
+        }
+        &-details{
+            width: 85%;
+            @include min(768){
+                width: 83.15%;
+                
+            }
+            a{
+                + a{
+                       gap: clamp(4px, 0.6vw, 10px) ;
+                }
+            }
+            p{
+                @include min(1200){
+                    width: 94%;
+
+                }
+            }
+        }
+        h3{
+            @include min(992){margin-bottom: 12px;padding-top: 4px;}
+            @include min(1200){margin-bottom: 16px;padding-top: 4px;}
+            @include min(1350){margin-bottom: 18px;padding-top: 4px;}
+            @include min(1440){margin-bottom: 20px;padding-top: 5px;}
+            @include min(1600){margin-bottom: 22px;}
+            @include min(1900){margin-bottom: 24px;}
+
+
+        }
+        .buttonGroup {
+            gap: 8px;
+            margin-top: clamp(10px, 1.8vw ,34px);
+                a{
+                    padding: 0px 10px;
+                    @include max(575){
+                          padding: 0px 15px;
+        font-size: 13px;
+                    }
+                    @include min-max(1200,1349){
+                        font-size: 13px;
+                    }
+                    @include min-max(1350,1599){
+                        font-size: 14px;
+                    }
+                    @include min-max(1600,1900){
+                        font-size: 15px;
+                    }
+                    @include min(1440){
+                           padding-left: clamp(10px, 1.2vw , 22.5px);
+                           padding-right: clamp(10px ,1.2vw , 22.5px);
+
+                       }
+                    + a{
+                        @include min(1440){
+                           
+                                   padding-left: clamp(5px, 1.2vw , 16.5px);
+                                padding-right: clamp(5px ,1.2vw , 16.5px);
+
+                       }                    }
+                       svg{
+                        height: auto;
+                        width:  clamp(14px ,1.3vw , 27px);
+                        @include min(1900){}
+                       }
+                    }
+        }
+
+    }
+     &-location-contact-info{
+         width: 78.832%;
+         @include max(1199){
+             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px;
+         }
+         @include max(991){
+            gap: 6px;
+         }
+
+        }
+        &-form{
+            height: fit-content;
+            border-radius: 20px;
+            background: #DBEBF2;
+            padding: clamp(25px ,3.1vw , 58px);;
+            width:100%;
+            @include max(767){
+                margin-top: 20px;
+            }
+            @include min(768){width: 43.691%;}
+            h3{
+                margin-bottom: 20px;
+                @include min(1200){
+                       margin-bottom:clamp(10px, 1.67vw, 32px) ;
+
+                   }
+            }
+            input,textarea{
+                width: 100%;
+                border-radius: 10px;
+                background: #FFF;
+                padding: 10px;
+                @include min(768){padding: 11px 12px;}
+                @include min(992){padding: 13px 14px;}
+                @include min(1200){padding: 15px 16px;}
+                @include min(1350){padding: 17px 18px;}
+                @include min(1440){padding: 19px 20px;}
+                @include min(1600){padding: 21px 22px;}
+                @include min(1900){padding: 23px 24px;}
+            }
+            .formGroup {
+                margin-bottom: clamp(5px, 0.8vw, 14px) ;;
+            }
+            textarea{
+                height:clamp(100px, 8.9vw, 169px) ;
+
+            }
+            button{
+                margin-top: clamp(15px,2.3vw, 16px);
+            }
+        }
+
+        h3{
+            width: 100%;
+            font-weight: 400;
+            line-height: 83.333% ;
+            color: $black;
+            font-size: clamp(25px ,2.5vw , 48px);
+         
+        }
+
+}
