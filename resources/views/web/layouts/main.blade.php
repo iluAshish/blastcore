@@ -475,14 +475,12 @@
                                     <div class="menu-col">
                                         <strong>Categories</strong>
                                         <ul>
-                                            <li><a href="product-category.php">Blasting Equipments</a></li>
-                                            <li><a href="product-category.php">Capital Equipment</a></li>
-                                            <li><a href="product-category.php">Pneumatic Products</a></li>
-                                            <li><a href="product-category.php"> Painting Accessoreis</a></li>
-                                            <li><a href="product-category.php">Abrasive</a></li>
-                                            <li><a href="product-category.php">Coating Equipments</a></li>
-                                            <li><a href="product-details.php">Other Accessories</a></li>
-                                            <li><a href="product-category.php">Blasting Accessories</a></li>
+                                            @foreach($main_product_categories as $productCategory)
+                                            <li>
+                                                <a href="{{ route('productCategory',['short_url' => $productCategory->short_url])}}">{{$productCategory->title}}</a>
+                                            </li>
+                                            @endforeach
+                                           
                                         </ul>
                                     </div>
                                     <div class="menu-col">

@@ -28,7 +28,7 @@ Route::get('services/{short_url}', 'web\MasterController@service')->name('servic
 
 Route::post('loadMoreFooterService', 'web\MasterController@loadMoreFooterService');
 Route::post('service/enquiry', 'web\MasterController@serviceEnquiry');
-Route::get('product-category/{short_url}', 'web\MasterController@productCategory');
+Route::get('product-category/{short_url}', 'web\MasterController@productCategory')->name('productCategory');
 Route::get('product-brand/{short_url}', 'web\MasterController@productBrand')->name('productBrand');
 
 Route::get('products', 'web\MasterController@products')->name('products');
