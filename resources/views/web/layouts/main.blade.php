@@ -451,19 +451,11 @@
                                     </svg>
                                 </button>
                             <ul class="dropdown-menu " aria-labelledby="servicesMenuMobile" style="">
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Foundry</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Machine Works</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Heater</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Motor Rewinding</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Fabrications</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Machinery</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Electrical control pannel</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Spring and Lock</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Blower Manufacturing</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Dynamic Balancing Machine</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Rubber Parts Manufacturing</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Gasket</a></li>
-                                <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Seals</a></li>
+                                @foreach($service_menus as $service_menu)
+                                <li>
+                                    <a href="{{ route('serviceDetail', ['short_url' => $service_menu->short_url]) }}">{{$service_menu->title}}</a>
+                                </li>
+                                @endforeach
                             </ul>
                         </li>
              <li class="nav-item mobDropDown dropdown"> <a href="products.php">Products</a> <button class="show" type="button" id="productsMenuMobile" data-bs-toggle="dropdown"

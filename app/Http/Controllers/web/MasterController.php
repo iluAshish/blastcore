@@ -41,7 +41,7 @@ class MasterController extends Controller
         $extra_meta_data = OtherMetaData::first();
         View::share(compact('siteInformation', 'contacts', 'service_menus', 'footer_service_menus',
             'main_product_categories', 'productBrands', 'featured_products', 'extra_meta_data'));
-            // dd($productBrands);
+            // dd($service_menus);
     }
 
     public function seo_content($type, $page_name, $key = NULL)
