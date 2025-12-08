@@ -138,7 +138,6 @@
                             </p>
                             <div class="brand-logos row">
                                 @foreach($productBrands as $productBrand)
-                                    <div class="col-lg-4 col-md-6 col-4 nopad text-center">
                                         <label class="imageCheckbox brand">
                                             <input type="checkbox"
                                                    name="product_brand_id[]"
@@ -161,7 +160,7 @@
                                                      alt="{{ $productBrand->image_meta_tag ?? $productBrand->title }}">
                                             </picture>
                                         </label>
-                                    </div>
+                                  
                                 @endforeach
                             </div>
                         </div>

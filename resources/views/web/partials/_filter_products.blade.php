@@ -1,13 +1,12 @@
 
 @if($products->isNotEmpty())
-    <div class="product-listing-body d-flex flex-wrap">
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap w-100">
             @foreach($products as $product)
                 <div class="product-card">
                     <div class="product-image">
                         <picture>
                             @if($product->activeFirstImage->webp_image)
-                            <img loading="lazy" src="{{ asset('uploads/product/image/webp/' . $product->id . '/'.rawurlencode($product->activeFirstImage->webp_image)) }}" width="93" height="129" class="img-fluid" alt="Coffee Machines">
+                            <source  loading="lazy" src="{{ asset('uploads/product/image/webp/' . $product->id . '/'.rawurlencode($product->activeFirstImage->webp_image)) }}" width="93" height="129" class="img-fluid" alt="Coffee Machines">
                             @endif
                             <img loading="lazy" src="{{ $product->activeFirstImage->image ? asset('uploads/product/image/' . $product->id . '/'.$product->activeFirstImage->image) : 'default image'}}" width="93" height="129" class="img-fluid" alt="{{ $product->activeFirstImage->image_meta_tag }}">
                         </picture>
@@ -45,6 +44,6 @@
             </div>
         @endif
 
-    </div>
+ 
 
 @endif
