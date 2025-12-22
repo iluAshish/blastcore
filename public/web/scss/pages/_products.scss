@@ -51,6 +51,7 @@
         background: #FFF;
         width: 48%;
         padding: 7px;
+        height: fit-content;
         @include min(576){
             width: 49%;
         }
@@ -600,7 +601,7 @@ background: rgba(218, 235, 241, 0.35);
 
 
 /* Hide native radio but keep it accessible */
-.filter-option>input[type="radio"] {
+.filter-option>input[type="checkbox"] {
     appearance: none;
     position: absolute;
     opacity: 0;
@@ -659,11 +660,11 @@ background: rgba(218, 235, 241, 0.35);
 }
 
 /* Checked state */
-.filter-option>input[type="radio"]:checked+.fake-radio {
+.filter-option>input[type="checkbox"]:checked+.fake-radio {
     border-color: $primaryColor;
 }
 
-.filter-option>input[type="radio"]:checked+.fake-radio::after {
+.filter-option>input[type="checkbox"]:checked+.fake-radio::after {
     content: "";
     position: absolute;
     inset: 3px;
@@ -671,14 +672,14 @@ background: rgba(218, 235, 241, 0.35);
     border-radius: 4px;
 }
 
-.filter-option>input[type="radio"]:checked~.label-text {
+.filter-option>input[type="checkbox"]:checked~.label-text {
     // font-weight: 600;
     // line-height: 87.5%;
     color: $primaryColor;
 }
 
 /* Keyboard focus */
-.filter-option>input[type="radio"]:focus-visible+.fake-radio {
+.filter-option>input[type="checkbox"]:focus-visible+.fake-radio {
     // outline:3px solid color-mix(in oklab, var(--accent) 60%, white);
     // outline-offset:2px;
 }
@@ -725,7 +726,9 @@ background: rgba(218, 235, 241, 0.35);
     @include min(1600){padding: 29px;  gap: 33px 22px}
     @include min(1900){padding: 32px;  gap: 44px 34px;}
 
-    a {
+    .imageCheckbox  {
+        cursor: pointer;
+        padding: 0;
         width: 50px; height: 49px;
         @include min(768){width: 51px; height: 50px;}
 
@@ -735,6 +738,20 @@ background: rgba(218, 235, 241, 0.35);
         @include min(1440){width: 44px; height: 43px;}
         @include min(1600){width: 50px; height: 49px;}
         @include min(1900){width: 57px; height: 56px;}
+    }
+
+        input[type="checkbox"] {
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+    input[type="checkbox"]:checked{
+      ~  picture{
+             border: 1px solid $primaryColor;
+                 padding: 2px;
+
+        }
     }
 
 }

@@ -9362,6 +9362,8 @@ footer .social svg:hover {
   background: #FFF;
   width: 48%;
   padding: 7px;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 @media (min-width: 576px) {
   .product-listing .product-card {
@@ -10314,7 +10316,7 @@ aside.filter-card + div {
 
 /* First item has a blue outline in your mock */
 /* Hide native radio but keep it accessible */
-.filter-option > input[type=radio] {
+.filter-option > input[type=checkbox] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -10387,11 +10389,11 @@ aside.filter-card + div {
 }
 
 /* Checked state */
-.filter-option > input[type=radio]:checked + .fake-radio {
+.filter-option > input[type=checkbox]:checked + .fake-radio {
   border-color: #304B9F;
 }
 
-.filter-option > input[type=radio]:checked + .fake-radio::after {
+.filter-option > input[type=checkbox]:checked + .fake-radio::after {
   content: "";
   position: absolute;
   inset: 3px;
@@ -10399,7 +10401,7 @@ aside.filter-card + div {
   border-radius: 4px;
 }
 
-.filter-option > input[type=radio]:checked ~ .label-text {
+.filter-option > input[type=checkbox]:checked ~ .label-text {
   color: #304B9F;
 }
 
@@ -10495,51 +10497,65 @@ aside.filter-card + div {
     gap: 44px 34px;
   }
 }
-.brand-logos a {
+.brand-logos .imageCheckbox {
+  cursor: pointer;
+  padding: 0;
   width: 50px;
   height: 49px;
 }
 @media (min-width: 768px) {
-  .brand-logos a {
+  .brand-logos .imageCheckbox {
     width: 51px;
     height: 50px;
   }
 }
 @media (min-width: 992px) {
-  .brand-logos a {
+  .brand-logos .imageCheckbox {
     width: 32px;
     height: 28px;
   }
 }
 @media (min-width: 1200px) {
-  .brand-logos a {
+  .brand-logos .imageCheckbox {
     width: 36px;
     height: 32px;
   }
 }
 @media (min-width: 1350px) {
-  .brand-logos a {
+  .brand-logos .imageCheckbox {
     width: 40px;
     height: 39px;
   }
 }
 @media (min-width: 1440px) {
-  .brand-logos a {
+  .brand-logos .imageCheckbox {
     width: 44px;
     height: 43px;
   }
 }
 @media (min-width: 1600px) {
-  .brand-logos a {
+  .brand-logos .imageCheckbox {
     width: 50px;
     height: 49px;
   }
 }
 @media (min-width: 1900px) {
-  .brand-logos a {
+  .brand-logos .imageCheckbox {
     width: 57px;
     height: 56px;
   }
+}
+.brand-logos input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.brand-logos input[type=checkbox]:checked ~ picture {
+  border: 1px solid #304B9F;
+  padding: 2px;
 }
 
 .brand img {
