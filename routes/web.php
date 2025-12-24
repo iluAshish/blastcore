@@ -36,6 +36,8 @@ Route::get('shop/{category}/{short_url}', 'web\MasterController@product')->name(
 
 Route::post('loadMoreProducts', 'web\MasterController@loadMoreProducts');
 
+Route::get('privacy', 'web\MasterController@privacy')->name('privacy');
+Route::get('terms', 'web\MasterController@terms')->name('terms');
 
 Route::post('product/enquiry', 'web\MasterController@productEnquiry');
 Route::post('product-search', 'web\MasterController@productSearch');
@@ -135,6 +137,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('home/highlight/', 'app\HomeController@home_highlight');
     Route::post('home/highlight/', 'app\HomeController@home_highlight_store');
 
+    Route::get('home/testimonial/list', 'app\HomeController@testimonial_list');
+    Route::get('home/testimonial/create', 'app\HomeController@testimonial_create');
+    Route::post('home/testimonial/create', 'app\HomeController@testimonial_store');
+    Route::get('home/testimonial/edit/{id}', 'app\HomeController@testimonial_edit');
+    Route::post('home/testimonial/edit/{id}', 'app\HomeController@testimonial_update');
+    Route::get('home/testimonial/view/{id}', 'app\HomeController@testimonial_view');
+    Route::post('home/delete_testimonial/', 'app\HomeController@delete_testimonial');
+
+    Route::get('home/gallery/list', 'app\HomeController@gallery_list');
+    Route::get('home/gallery/create', 'app\HomeController@gallery_create');
+    Route::post('home/gallery/create', 'app\HomeController@gallery_store');
+    Route::get('home/gallery/edit/{id}', 'app\HomeController@gallery_edit');
+    Route::post('home/gallery/edit/{id}', 'app\HomeController@gallery_update');
+    Route::get('home/gallery/view/{id}', 'app\HomeController@gallery_view');
+    Route::post('home/delete_gallery/', 'app\HomeController@delete_gallery');
+
     /************************ Home ends ************************************/
 
     /************************ About starts ************************************/
@@ -162,6 +180,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('about/our_brand/brand_highlight/edit/{id}', 'app\AboutController@brand_highlight_update');
     Route::get('about/our_brand/brand_highlight/view/{id}', 'app\AboutController@brand_highlight_view');
     Route::post('about/our_brand/delete_brand_highlight/', 'app\AboutController@delete_brand_highlight');
+
+    Route::get('about/success_story/list', 'app\AboutController@success_story_list');
+    Route::get('about/success_story/create', 'app\AboutController@success_story_create');
+    Route::post('about/success_story/create', 'app\AboutController@success_story_store');
+    Route::get('about/success_story/edit/{id}', 'app\AboutController@success_story_edit');
+    Route::post('about/success_story/edit/{id}', 'app\AboutController@success_story_update');
+    Route::get('about/success_story/view/{id}', 'app\AboutController@success_story_view');
+    Route::post('about/delete_success_story/', 'app\AboutController@delete_success_story');
 
     /************************ About ends ************************************/
 

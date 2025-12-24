@@ -39,6 +39,8 @@
     <link rel="stylesheet" href="{{asset('app/css/sweetalert.min.css')}}">
     <link rel="stylesheet" href="{{asset('app/css/sweetalert-overrides.css')}}">
     @endif
+    <link rel="stylesheet" href="{{asset('app/css/sweetalert.min.css')}}">
+    <link rel="stylesheet" href="{{asset('app/css/sweetalert-overrides.css')}}">
 
     <!--<style>header .dropdownnProducts .dropdownnproductsRight .brandsLog .brandsLogo{padding:0!important;} ul.results{z-index:3!important;}ul.results li, ul.results li a{height:90px!important}ul.results li .row { align-items: center; }</style>-->
 
@@ -54,27 +56,27 @@
             <!-- Left: Contact -->
             <div class="header-left">
                 <div class="header-contact">
-                    <a href="tel:+97142383844">
+                    <a href="tel:{{$siteInformation->phone_number}}">
                         <i>
                             <!-- phone svg -->
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" fill="none"> <path fill-rule="evenodd" clip-rule="evenodd" d="M2.48303 0.793297C3.70003 -0.416703 5.70403 -0.201703 6.72303 1.1603L7.98503 2.8443C8.81503 3.9523 8.74103 5.5003 7.75603 6.4793L7.51803 6.7173C7.49104 6.81721 7.4883 6.92211 7.51003 7.0233C7.57303 7.4313 7.91403 8.2953 9.34203 9.7153C10.77 11.1353 11.64 11.4753 12.054 11.5393C12.1583 11.5603 12.2661 11.5572 12.369 11.5303L12.777 11.1243C13.653 10.2543 14.997 10.0913 16.081 10.6803L17.991 11.7203C19.628 12.6083 20.041 14.8323 18.701 16.1653L17.28 17.5773C16.832 18.0223 16.23 18.3933 15.496 18.4623C13.686 18.6313 9.46903 18.4153 5.03603 14.0083C0.899027 9.8943 0.105027 6.3063 0.00402701 4.5383C-0.045973 3.6443 0.376027 2.8883 0.914027 2.3543L2.48303 0.793297ZM5.52303 2.0593C5.01603 1.3823 4.07203 1.3283 3.54003 1.8573L1.97003 3.4173C1.64003 3.7453 1.48203 4.1073 1.50203 4.4533C1.58203 5.8583 2.22203 9.0953 6.09403 12.9453C10.156 16.9833 13.907 17.1043 15.357 16.9683C15.653 16.9413 15.947 16.7873 16.222 16.5143L17.642 15.1013C18.22 14.5273 18.093 13.4813 17.275 13.0373L15.365 11.9983C14.837 11.7123 14.219 11.8063 13.835 12.1883L13.38 12.6413L12.85 12.1093C13.38 12.6413 13.379 12.6423 13.378 12.6423L13.377 12.6443L13.374 12.6473L13.367 12.6533L13.352 12.6673C13.3098 12.7065 13.2643 12.7419 13.216 12.7733C13.136 12.8263 13.03 12.8853 12.897 12.9343C12.627 13.0353 12.269 13.0893 11.827 13.0213C10.96 12.8883 9.81103 12.2973 8.28403 10.7793C6.75803 9.2613 6.16203 8.1193 6.02803 7.2533C5.95903 6.8113 6.01403 6.4533 6.11603 6.1833C6.17216 6.03137 6.25254 5.88953 6.35403 5.7633L6.38603 5.7283L6.40003 5.7133L6.40603 5.7073L6.40903 5.7043L6.41103 5.7023L6.69903 5.4163C7.12703 4.9893 7.18703 4.2823 6.78403 3.7433L5.52303 2.0593Z" fill="white"></path> </svg>
                         </i>
-                        +971 - 4238 3844
+                       {{$siteInformation->phone_number}}
                     </a>
 
-                    <a href="mailto:info@jetblastintl.com">
+                    <a href="mailto:{{$siteInformation->email}}">
                         <i>
                             <!-- email svg -->
                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none"> <path d="M1 3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V13C19 13.5304 18.7893 14.0391 18.4142 14.4142C18.0391 14.7893 17.5304 15 17 15H3C2.46957 15 1.96086 14.7893 1.58579 14.4142C1.21071 14.0391 1 13.5304 1 13V3Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 3.00001L10 9.00001L19 3.00001" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg>
                         </i>
-                        info@jetblastintl.com
+                        {{$siteInformation->email}}
                     </a>
                 </div>
             </div>
 
             <!-- Center: Logo -->
             <a href="{{ route('index') }}" class="brand">
-                <img src="{{asset('web/images/logo.png')}}" width="250" height="84" alt="Blast Core"
+                <img src="{{asset('uploads/site/logo/'.$siteInformation->logo)}}" width="250" height="84" alt="Blast Core"
                      loading="lazy" class="img-fluid" />
             </a>
 
@@ -150,12 +152,10 @@
                 <nav class="quick-link" aria-label="Services">
                     <span>Services</span>
                     <ul>
-                        <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Foundry</a></li>
-                        <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Machine Works</a></li>
-                        <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Heater</a></li>
-                        <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Motor Rewinding</a></li>
-                        <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Fabrications</a></li>
-                        <li><a href="{{ route('serviceDetail', ['short_url' => 'heater']) }}">Machinery</a></li>
+                        @foreach($services as $service)
+                        <li><a href="{{ route('serviceDetail', ['short_url' => $service->short_url]) }}">{{ $service->title }}</a></li>
+                        @endforeach
+
                     </ul>
                 </nav>
 
@@ -163,19 +163,16 @@
                 <nav class="quick-link" aria-label="Featured products">
                     <span>Featured Products</span>
                     <ul>
-                        <li><a href="{{ route('productDetail', ['short_url' => 'air-after-cooler', 'category'=>'pneumatic-products']) }}
-">Blasting Booth</a></li>
-                        <li><a href="{{ route('productDetail', ['short_url' => 'air-after-cooler', 'category'=>'pneumatic-products']) }}
-">Industrial Pneumatic Blower Fan</a></li>
-                        <li><a href="{{ route('productDetail', ['short_url' => 'air-after-cooler', 'category'=>'pneumatic-products']) }}
-">Air Receiver Tank</a></li>
-                        <li><a href="{{ route('productDetail', ['short_url' => 'air-after-cooler', 'category'=>'pneumatic-products']) }}
-">Air Cooled After Cooler</a></li>
-                        <li><a href="{{ route('productDetail', ['short_url' => 'air-after-cooler', 'category'=>'pneumatic-products']) }}
-">Fabrications</a></li>
-                        <li><a href="{{ route('productDetail', ['short_url' => 'air-after-cooler', 'category'=>'pneumatic-products']) }}
-">Air Manifold</a></li>
-                        <li><a href="#" class="view-btn">View More</a></li>
+                        @foreach($featured_products as $featured_product)
+                        <li>
+                            <a href="{{ route('productDetail', ['short_url' => $featured_product->short_url, 'category'=>$featured_product->category->short_url]) }}">
+                                {{ $featured_product->title }}
+                        </a>
+                                
+                        </li>
+                        @endforeach
+                        
+                        <li><a href="{{route('products')}}" class="view-btn">View More</a></li>
                     </ul>
                 </nav>
             </div>
@@ -188,127 +185,78 @@
             <div class="d-flex flex-wrap justify-content-between">
 
                 <!-- Head office -->
-                <address class="address">
-                    <span>Head Office</span>
-                    <a href="https://maps.google.com/?q=119+Al+Hilal+Bank+Building+Al+Nahda+St+Al+Qusais+Dubai+UAE"
-                       class="location"
-                       target="_blank"
-                       rel="noopener">
-                        <i aria-hidden="true">
-                            <!-- Location icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                 viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M12 2C7.6 2 4 5.6 4 10C4 15.4 11 21.5 11.3 21.8C11.5 21.9 11.8 22 12 22C12.2 22 12.5 21.9 12.7 21.8C13 21.5 20 15.4 20 10C20 5.6 16.4 2 12 2ZM12 19.7C9.9 17.7 6 13.4 6 10C6 6.7 8.7 4 12 4C15.3 4 18 6.7 18 10C18 13.3 14.1 17.7 12 19.7ZM12 6C9.8 6 8 7.8 8 10C8 12.2 9.8 14 12 14C14.2 14 16 12.2 16 10C16 7.8 14.2 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12Z"
-                                    fill="white"/>
-                            </svg>
-                        </i>
-                        <p>
-                            Office No: 119 Al Hilal Bank Building,<br>
-                            Al Nahda St - Al Qusais, PB 624438,<br>
-                            Dubai, United Arab Emirates
-                        </p>
-                    </a>
+                @if($contactsFooter->count() > 0)
+                    @foreach($contactsFooter as $contact)
+                    <address class="address">
+                        <span>Address {{ $loop->iteration }}</span>
+                        <a href="https://maps.google.com/?q=119+Al+Hilal+Bank+Building+Al+Nahda+St+Al+Qusais+Dubai+UAE"
+                        class="location"
+                        target="_blank"
+                        rel="noopener">
+                            <i aria-hidden="true">
+                                <!-- Location icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M12 2C7.6 2 4 5.6 4 10C4 15.4 11 21.5 11.3 21.8C11.5 21.9 11.8 22 12 22C12.2 22 12.5 21.9 12.7 21.8C13 21.5 20 15.4 20 10C20 5.6 16.4 2 12 2ZM12 19.7C9.9 17.7 6 13.4 6 10C6 6.7 8.7 4 12 4C15.3 4 18 6.7 18 10C18 13.3 14.1 17.7 12 19.7ZM12 6C9.8 6 8 7.8 8 10C8 12.2 9.8 14 12 14C14.2 14 16 12.2 16 10C16 7.8 14.2 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12Z"
+                                        fill="white"/>
+                                </svg>
+                            </i>
+                            {!! $contact->address !!}
+                        </a>
 
-                    <a href="mailto:info@jetblastintl.com" class="mail">
-                        <i aria-hidden="true">
-                            <!-- Mail icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
-                                 viewBox="0 0 20 16" fill="none">
-                                <path
-                                    d="M1 3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V13C19 13.5304 18.7893 14.0391 18.4142 14.4142C18.0391 14.7893 17.5304 15 17 15H3C2.46957 15 1.96086 14.7893 1.58579 14.4142C1.21071 14.0391 1 13.5304 1 13V3Z"
-                                    stroke="white" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M1 3L10 9L19 3"
-                                      stroke="white" stroke-width="2"
-                                      stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </i>
-                        <p>info@jetblastintl.com</p>
-                    </a>
+                        <a href="mailto:{{$contact->email}}" class="mail">
+                            <i aria-hidden="true">
+                                <!-- Mail icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
+                                    viewBox="0 0 20 16" fill="none">
+                                    <path
+                                        d="M1 3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V13C19 13.5304 18.7893 14.0391 18.4142 14.4142C18.0391 14.7893 17.5304 15 17 15H3C2.46957 15 1.96086 14.7893 1.58579 14.4142C1.21071 14.0391 1 13.5304 1 13V3Z"
+                                        stroke="white" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M1 3L10 9L19 3"
+                                        stroke="white" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </i>
+                            <p>{{$contact->email}}</p>
+                        </a>
 
-                    <a href="tel:+97142383844" class="phone">
-                        <i aria-hidden="true">
-                            <!-- Phone icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                 viewBox="0 0 24 24" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M5.73303 2.0433C6.95003 0.833297 8.95403 1.0483 9.97303 2.4103L11.235 4.0943C12.065 5.2023 11.991 6.7503 11.006 7.7293L10.768 7.9673C10.741 8.06721 10.7383 8.17211 10.76 8.2733C10.823 8.6813 11.164 9.5453 12.592 10.9653C14.02 12.3853 14.89 12.7253 15.304 12.7893C15.4083 12.8103 15.5161 12.8072 15.619 12.7803L16.027 12.3743C16.903 11.5043 18.247 11.3413 19.331 11.9303L21.241 12.9703C22.878 13.8583 23.291 16.0823 21.951 17.4153L20.53 18.8273C20.082 19.2723 19.48 19.6433 18.746 19.7123C16.936 19.8813 12.719 19.6653 8.28603 15.2583C4.14903 11.1443 3.35503 7.5563 3.25403 5.7883C3.20403 4.8943 3.62603 4.1383 4.16403 3.6043L5.73303 2.0433Z"
-                                      fill="white"/>
-                            </svg>
-                        </i>
-                        <p>+971 4 238 3844</p>
-                    </a>
-                </address>
+                        <a href="tel:{{$contact->phone_number}}" class="phone">
+                            <i aria-hidden="true">
+                                <!-- Phone icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M5.73303 2.0433C6.95003 0.833297 8.95403 1.0483 9.97303 2.4103L11.235 4.0943C12.065 5.2023 11.991 6.7503 11.006 7.7293L10.768 7.9673C10.741 8.06721 10.7383 8.17211 10.76 8.2733C10.823 8.6813 11.164 9.5453 12.592 10.9653C14.02 12.3853 14.89 12.7253 15.304 12.7893C15.4083 12.8103 15.5161 12.8072 15.619 12.7803L16.027 12.3743C16.903 11.5043 18.247 11.3413 19.331 11.9303L21.241 12.9703C22.878 13.8583 23.291 16.0823 21.951 17.4153L20.53 18.8273C20.082 19.2723 19.48 19.6433 18.746 19.7123C16.936 19.8813 12.719 19.6653 8.28603 15.2583C4.14903 11.1443 3.35503 7.5563 3.25403 5.7883C3.20403 4.8943 3.62603 4.1383 4.16403 3.6043L5.73303 2.0433Z"
+                                        fill="white"/>
+                                </svg>
+                            </i>
+                            <p>{{$contact->phone_number}}</p>
+                        </a>
+                    </address>
 
-                <!-- Branch office -->
-                <address class="address">
-                    <span>Branch Office</span>
-                    <a href="https://maps.google.com/?q=Al+Nouf+Eng.+Turning+LLC+Industrial+Area+Sharjah+UAE"
-                       class="location"
-                       target="_blank"
-                       rel="noopener">
-                        <i aria-hidden="true">
-                            <!-- Location icon reused -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                 viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M12 2C7.6 2 4 5.6 4 10C4 15.4 11 21.5 11.3 21.8C11.5 21.9 11.8 22 12 22C12.2 22 12.5 21.9 12.7 21.8C13 21.5 20 15.4 20 10C20 5.6 16.4 2 12 2ZM12 19.7C9.9 17.7 6 13.4 6 10C6 6.7 8.7 4 12 4C15.3 4 18 6.7 18 10C18 13.3 14.1 17.7 12 19.7ZM12 6C9.8 6 8 7.8 8 10C8 12.2 9.8 14 12 14C14.2 14 16 12.2 16 10C16 7.8 14.2 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12Z"
-                                    fill="white"/>
-                            </svg>
-                        </i>
-                        <p>
-                            Al Nouf Eng. Turning LLC<br>
-                            PO Box 96780, Industrial Area,<br>
-                            Sharjah, United Arab Emirates
-                        </p>
-                    </a>
-
-                    <a href="mailto:info@jetblastintl.com" class="mail">
-                        <i aria-hidden="true">
-                            <!-- Mail icon reused -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
-                                 viewBox="0 0 20 16" fill="none">
-                                <path
-                                    d="M1 3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V13C19 13.5304 18.7893 14.0391 18.4142 14.4142C18.0391 14.7893 17.5304 15 17 15H3C2.46957 15 1.96086 14.7893 1.58579 14.4142C1.21071 14.0391 1 13.5304 1 13V3Z"
-                                    stroke="white" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M1 3L10 9L19 3"
-                                      stroke="white" stroke-width="2"
-                                      stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </i>
-                        <p>info@jetblastintl.com</p>
-                    </a>
-
-                    <a href="tel:+97142383844" class="phone">
-                        <i aria-hidden="true">
-                            <!-- Phone icon reused -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                 viewBox="0 0 24 24" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M5.73303 2.0433C6.95003 0.833297 8.95403 1.0483 9.97303 2.4103L11.235 4.0943C12.065 5.2023 11.991 6.7503 11.006 7.7293L10.768 7.9673C10.741 8.06721 10.7383 8.17211 10.76 8.2733C10.823 8.6813 11.164 9.5453 12.592 10.9653C14.02 12.3853 14.89 12.7253 15.304 12.7893C15.4083 12.8103 15.5161 12.8072 15.619 12.7803L16.027 12.3743C16.903 11.5043 18.247 11.3413 19.331 11.9303L21.241 12.9703C22.878 13.8583 23.291 16.0823 21.951 17.4153L20.53 18.8273C20.082 19.2723 19.48 19.6433 18.746 19.7123C16.936 19.8813 12.719 19.6653 8.28603 15.2583C4.14903 11.1443 3.35503 7.5563 3.25403 5.7883C3.20403 4.8943 3.62603 4.1383 4.16403 3.6043L5.73303 2.0433Z"
-                                      fill="white"/>
-                            </svg>
-                        </i>
-                        <p>+971 4 238 3844</p>
-                    </a>
-                </address>
+                    @endforeach
+                
+                @endif
 
                 <!-- Newsletter -->
                 <div class="news-letter">
                     <div class="text">
                         Subscribe for the Exclusive Updates!
                     </div>
-                    <form action="#" method="post" novalidate>
+                    <form action="#">
                         <div class="form-group d-flex position-relative">
                             <label for="footer-email" class="visually-hidden">Email address</label>
-                            <input id="footer-email"
-                                   name="email"
-                                   type="email"
-                                   placeholder="Enter Your Email Address"
-                                   required>
-                            <button type="submit">
+                            <input
+                                class="is-valid"
+                                name="email" 
+                                id="newsletter_email"
+                                type="email"
+                                placeholder="Enter Your Email Address"
+                                required>
+                                   
+                            <button type="submit" id="newsletter_subscription">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                      viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path
@@ -322,7 +270,7 @@
                         <div class="terms-wrapper d-flex align-items-center">
                             <input type="checkbox" name="privacy" id="privacy" required>
                             <label for="privacy">
-                                I agree to the <a href="privacy-policy.php">Privacy Policy</a>
+                                I agree to the <a href="{{route('privacy')}}">Privacy Policy</a>
                             </label>
                         </div>
                     </form>
@@ -343,21 +291,24 @@
                         <a href="https://mightywarner.ae" target="_blank" rel="noopener">Mighty Warners</a>
                     </p>
                     <ul class="d-flex">
-                        <li><a href="terms.php">Terms &amp; Conditions</a></li>
-                        <li><a href="privacy.php">Privacy Policy</a></li>
+                        <li><a href="{{ route('terms') }}">Terms &amp; Conditions</a></li>
+                        <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
                     </ul>
                 </div>
 
                 <ul class="social d-flex align-items-center flex-wrap" aria-label="Social media">
+                    @if($siteInformation->facebook_url)
                     <li>
-                        <a href="#" target="_blank" class="Facebook" aria-label="Facebook">
+                        <a href="{{ $siteInformation->facebook_url }}" target="_blank" class="Facebook" aria-label="Facebook">
                             <!-- Facebook SVG -->
                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.238 1.538C5.22244 0.553396 6.55768 0.000164749 7.95 0L10.65 0C10.8489 0 11.0397 0.0790175 11.1803 0.21967C11.321 0.360322 11.4 0.551088 11.4 0.75V4.35C11.4 4.54891 11.321 4.73968 11.1803 4.88033C11.0397 5.02098 10.8489 5.1 10.65 5.1H7.95C7.9303 5.1 7.9108 5.10388 7.8926 5.11142C7.8744 5.11896 7.85786 5.13 7.84393 5.14393C7.83 5.15786 7.81896 5.1744 7.81142 5.1926C7.80388 5.2108 7.8 5.2303 7.8 5.25V7.2H10.65C10.764 7.19994 10.8766 7.22587 10.979 7.27583C11.0815 7.32579 11.1713 7.39846 11.2415 7.48832C11.3117 7.57817 11.3604 7.68285 11.3841 7.79439C11.4078 7.90593 11.4057 8.02139 11.378 8.132L10.478 11.732C10.4374 11.8943 10.3437 12.0384 10.2118 12.1413C10.0799 12.2442 9.91731 12.3001 9.75 12.3H7.8V18.75C7.8 18.9489 7.72098 19.1397 7.58033 19.2803C7.43968 19.421 7.24891 19.5 7.05 19.5H3.45C3.25109 19.5 3.06032 19.421 2.91967 19.2803C2.77902 19.1397 2.7 18.9489 2.7 18.75V12.3H0.75C0.551088 12.3 0.360322 12.221 0.21967 12.0803C0.0790175 11.9397 0 11.7489 0 11.55L0 7.95C0 7.85151 0.0193993 7.75398 0.0570903 7.66299C0.0947813 7.57199 0.150026 7.48931 0.21967 7.41967C0.289314 7.35003 0.371993 7.29478 0.462987 7.25709C0.553982 7.2194 0.651509 7.2 0.75 7.2H2.7V5.25C2.70016 3.85768 3.2534 2.52244 4.238 1.538ZM7.95 1.5C6.95544 1.5 6.00161 1.89509 5.29835 2.59835C4.59509 3.30161 4.2 4.25544 4.2 5.25V7.95C4.2 8.14891 4.12098 8.33968 3.98033 8.48033C3.83968 8.62098 3.64891 8.7 3.45 8.7H1.5V10.8H3.45C3.64891 10.8 3.83968 10.879 3.98033 11.0197C4.12098 11.1603 4.2 11.3511 4.2 11.55V18H6.3V11.55C6.3 11.3511 6.37902 11.1603 6.51967 11.0197C6.66032 10.879 6.85109 10.8 7.05 10.8H9.164L9.689 8.7H7.05C6.85109 8.7 6.66032 8.62098 6.51967 8.48033C6.37902 8.33968 6.3 8.14891 6.3 7.95V5.25C6.3 4.81239 6.47384 4.39271 6.78327 4.08327C7.09271 3.77384 7.51239 3.6 7.95 3.6H9.9V1.5H7.95Z" fill="white"></path> </svg>
                         </a>
                     </li>
+                    @endif
+                    @if($siteInformation->instagram_url)
                     <li>
-                        <a href="#" target="_blank" class="instagram" aria-label="Instagram">
+                        <a href="{{$siteInformation->instagram_url}}" target="_blank" class="instagram" aria-label="Instagram">
                             <!-- Instagram SVG -->
                              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                 <path d="M11 15C13.2091 15 15 13.2091 15 11C15 8.79086 13.2091 7 11 7C8.79086 7 7 8.79086 7 11C7 13.2091 8.79086 15 11 15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -365,30 +316,38 @@
                             </svg>
                         </a>
                     </li>
+                    @endif
+                    @if($siteInformation->linkedin_url)
                     <li>
-                        <a href="#" target="_blank" class="linkedin" aria-label="LinkedIn">
+                        <a href="{{$siteInformation->linkedin_url}}" target="_blank" class="linkedin" aria-label="LinkedIn">
                             <!-- LinkedIn SVG -->
                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M6.12698 3.02942C6.13163 3.6222 5.90278 4.19298 5.48991 4.61836C5.07705 5.04374 4.51334 5.28952 3.92069 5.30256C3.32928 5.28108 2.76874 5.03318 2.35492 4.61012C1.94111 4.18705 1.70567 3.62116 1.69727 3.02942C1.72282 2.45274 1.96682 1.90739 2.37974 1.50402C2.79266 1.10065 3.34358 0.86948 3.92069 0.857422C4.49611 0.869711 5.04507 1.10146 5.45522 1.50523C5.86536 1.90901 6.10568 2.45427 6.12698 3.02942ZM1.93555 9.34142C1.93555 8.03514 2.76698 8.23914 3.92069 8.23914C5.07441 8.23914 5.88869 8.03514 5.88869 9.34142V22.0683C5.88869 23.3917 5.05727 23.1209 3.92069 23.1209C2.78412 23.1209 1.93555 23.3917 1.93555 22.0683V9.34142ZM9.31727 9.34314C9.31727 8.61285 9.58812 8.34028 10.0116 8.25628C10.435 8.17228 11.8973 8.25628 12.4047 8.25628C12.9138 8.25628 13.1178 9.08771 13.1007 9.71514C13.5367 9.13142 14.1148 8.66901 14.7801 8.37194C15.4454 8.07487 16.1756 7.95302 16.9013 8.01799C17.614 7.97448 18.3279 8.08136 18.9966 8.3317C19.6653 8.58203 20.2739 8.97023 20.7828 9.47107C21.2917 9.97191 21.6896 10.5742 21.9506 11.2388C22.2116 11.9034 22.3299 12.6155 22.2978 13.3289V22.0169C22.2978 23.3403 21.4836 23.0694 20.3281 23.0694C19.1727 23.0694 18.3601 23.3403 18.3601 22.0169V15.23C18.39 14.8807 18.3444 14.5292 18.2263 14.1991C18.1083 13.8691 17.9206 13.5683 17.676 13.3172C17.4315 13.0661 17.1357 12.8706 16.8089 12.7439C16.482 12.6173 16.1317 12.5624 15.7818 12.5831C15.4333 12.574 15.0868 12.639 14.7652 12.7739C14.4437 12.9088 14.1545 13.1105 13.9169 13.3657C13.6793 13.6208 13.4986 13.9236 13.3868 14.2538C13.2751 14.5841 13.2348 14.9344 13.2687 15.2814V22.0683C13.2687 23.3917 12.4373 23.1209 11.2836 23.1209C10.1298 23.1209 9.31555 23.3917 9.31555 22.0683L9.31727 9.34314Z" stroke="white" stroke-width="1.71429" stroke-linecap="round" stroke-linejoin="round"></path> </svg>
                         </a>
                     </li>
+                    @endif
+                    @if($siteInformation->twitter_url)
                     <li>
-                        <a href="#" target="_blank" class="twitter" aria-label="Twitter">
+                        <a href="{{$siteInformation->twitter_url}}" target="_blank" class="twitter" aria-label="Twitter">
                             <!-- Twitter SVG -->
                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0221 3.34248C15.5301 3.25548 16.0991 3.22648 16.6351 3.31748C17.5899 3.47875 18.4745 3.92211 19.1751 4.59048C19.6311 4.60048 20.0801 4.51048 20.4771 4.38248C20.8607 4.25703 21.229 4.08898 21.5751 3.88148L21.5841 3.87548C21.7281 3.77953 21.9009 3.73633 22.0731 3.7532C22.2453 3.77007 22.4064 3.84596 22.529 3.96802C22.6517 4.09009 22.7284 4.2508 22.7461 4.42293C22.7638 4.59506 22.7214 4.76802 22.6261 4.91248C22.4191 5.22748 22.1301 5.78948 21.8071 6.41948L21.6521 6.72048C21.4671 7.08048 21.2771 7.44448 21.1001 7.75648C20.9891 7.95248 20.8701 8.15148 20.7501 8.32348V8.59748C20.7624 10.2361 20.4482 11.8608 19.8259 13.3767C19.2035 14.8926 18.2855 16.2694 17.1253 17.4267C15.9651 18.5839 14.5861 19.4986 13.0686 20.1171C11.5512 20.7357 9.92574 21.0459 8.28713 21.0295C5.91241 21.0328 3.58751 20.3486 1.59313 19.0595C1.44996 18.9675 1.34233 18.8295 1.28791 18.6683C1.2335 18.5071 1.23553 18.3321 1.29369 18.1722C1.35185 18.0123 1.46266 17.8769 1.60794 17.7882C1.75322 17.6996 1.92431 17.663 2.09313 17.6845C2.39313 17.7211 2.6948 17.7395 2.99813 17.7395C4.07876 17.7355 5.14578 17.4981 6.12613 17.0435C5.51203 16.7641 4.96282 16.3599 4.51347 15.8567C4.06412 15.3535 3.72446 14.7622 3.51613 14.1205C3.47643 13.9977 3.46911 13.8667 3.49486 13.7402C3.52061 13.6137 3.57857 13.496 3.66313 13.3985L3.67313 13.3885C3.16574 12.9363 2.75906 12.3825 2.47946 11.763C2.19986 11.1435 2.05359 10.4721 2.05013 9.79248V9.73948C2.05006 9.57483 2.10417 9.41474 2.20411 9.28389C2.30405 9.15305 2.44427 9.05873 2.60313 9.01548C2.26466 8.34012 2.08897 7.59491 2.09013 6.83948C2.08956 5.98265 2.31368 5.14065 2.74013 4.39748C2.80072 4.29198 2.88606 4.20281 2.98879 4.13764C3.09153 4.07248 3.20857 4.03329 3.32983 4.02345C3.45109 4.01361 3.57292 4.03341 3.68482 4.08115C3.79672 4.12889 3.89532 4.20313 3.97213 4.29748C5.72198 6.45163 8.22764 7.85717 10.9781 8.22748C10.9542 7.32766 11.1812 6.43895 11.6337 5.66081C12.0862 4.88267 12.7463 4.2458 13.5401 3.82148C13.9421 3.60748 14.4741 3.43648 15.0221 3.34248ZM3.74213 10.8905C3.93632 11.437 4.26907 11.9237 4.70782 12.3031C5.14657 12.6824 5.67629 12.9413 6.24513 13.0545C6.40902 13.0871 6.55731 13.1736 6.66647 13.3001C6.77563 13.4266 6.8394 13.586 6.84767 13.7529C6.85595 13.9198 6.80824 14.0847 6.71212 14.2214C6.61601 14.3581 6.47699 14.4588 6.31713 14.5075C6.04447 14.5901 5.76646 14.6478 5.48313 14.6805C5.79048 15.0767 6.18261 15.3991 6.63077 15.6241C7.07894 15.849 7.57177 15.9708 8.07313 15.9805C8.22779 15.9834 8.37776 16.0341 8.5025 16.1255C8.62724 16.217 8.72065 16.3448 8.76992 16.4914C8.8192 16.638 8.82193 16.7963 8.77775 16.9446C8.73357 17.0928 8.64464 17.2238 8.52313 17.3195C7.47985 18.1391 6.26827 18.7179 4.97513 19.0145C6.04592 19.3576 7.16372 19.5313 8.28813 19.5295H8.29713C9.73715 19.5445 11.1657 19.2725 12.4995 18.7293C13.8332 18.1861 15.0453 17.3825 16.065 16.3656C17.0847 15.3487 17.8915 14.1388 18.4384 12.8066C18.9853 11.4744 19.2612 10.0465 19.2501 8.60648V8.07148C19.25 7.88937 19.3161 7.71342 19.4361 7.57648C19.5061 7.49748 19.6261 7.31548 19.7961 7.01648C19.9561 6.73448 20.1341 6.39448 20.3191 6.03548L20.3521 5.96948C19.8298 6.08689 19.2919 6.11965 18.7591 6.06648C18.579 6.04686 18.412 5.96267 18.2891 5.82948C17.7862 5.28416 17.1166 4.92118 16.3851 4.79748C16.0163 4.74493 15.6413 4.75338 15.2751 4.82248C14.9182 4.87796 14.5717 4.98685 14.2471 5.14548C13.5928 5.49508 13.073 6.052 12.7693 6.72887C12.4656 7.40574 12.3952 8.16427 12.5691 8.88548C12.5965 8.99889 12.597 9.11711 12.5707 9.23077C12.5444 9.34442 12.4919 9.45036 12.4174 9.54016C12.3429 9.62997 12.2485 9.70116 12.1417 9.74809C12.0349 9.79502 11.9186 9.81638 11.8021 9.81048C8.72994 9.65412 5.82554 8.36142 3.65313 6.18348C3.61087 6.39992 3.58978 6.61995 3.59013 6.84048V6.84248C3.58901 7.39322 3.72409 7.9357 3.98336 8.42161C4.24262 8.90751 4.61802 9.32177 5.07613 9.62748C5.21066 9.71802 5.31222 9.84973 5.36558 10.0029C5.41895 10.156 5.42125 10.3223 5.37214 10.4768C5.32302 10.6314 5.22515 10.7658 5.09318 10.8601C4.9612 10.9543 4.80225 11.0032 4.64013 10.9995C4.33842 10.99 4.0382 10.9531 3.74313 10.8895" fill="white"></path> </svg>
                         </a>
                     </li>
+                    @endif
+                    @if($siteInformation->youtube_url)
                     <li>
-                        <a href="#" target="_blank" class="youtube" aria-label="YouTube">
+                        <a href="{{$siteInformation->youtube_url}}" target="_blank" class="youtube" aria-label="YouTube">
                             <!-- YouTube SVG -->
                              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
                                 <path d="M12.75 7.84961L9.25 9.84961V5.84961L12.75 7.84961Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                 <path d="M0.75 8.558V7.142C0.75 4.247 0.75 2.799 1.655 1.868C2.561 0.936 3.987 0.896 6.838 0.815C8.188 0.777 9.568 0.75 10.75 0.75C11.932 0.75 13.311 0.777 14.662 0.815C17.513 0.896 18.939 0.936 19.844 1.868C20.749 2.8 20.75 4.248 20.75 7.142V8.557C20.75 11.453 20.75 12.9 19.845 13.832C18.939 14.763 17.514 14.804 14.662 14.884C13.312 14.923 11.932 14.95 10.75 14.95C9.568 14.95 8.189 14.923 6.838 14.884C3.987 14.804 2.561 14.764 1.655 13.832C0.749 12.9 0.75 11.452 0.75 8.558Z" stroke="white" stroke-width="1.5"></path> </svg>
                         </a>
                     </li>
+                    @endif
+                    @if($siteInformation->whatsapp_number)
                     <li>
-                        <a href="#" target="_blank" class="whatsappp" aria-label="WhatsApp">
+                        <a href="https://wa.me/{{ $siteInformation->whatsapp_number }}" target="_blank" class="whatsappp" aria-label="WhatsApp">
                             <!-- WhatsApp SVG -->
                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <mask id="mask0_552_469" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -400,6 +359,7 @@
                             </svg>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -646,7 +606,7 @@
 <!-- FIXED BOTTOM MENU (MOBILE) -->
 <div class="bottomFixedMenu d-lg-none">
     <ul class="d-flex flex-wrap justify-content-around">
-        <li> <a href="https://wa.me/0283199433"
+        <li> <a href="https://wa.me/{{$siteInformation->whatsapp_number}}"
                aria-label="Chat with us on WhatsApp"
                target="_blank"
                rel="noopener">
@@ -680,7 +640,7 @@
             </button>
         </li>
         <li>
-            <a href="tel:0283199433" aria-label="Call us">
+            <a href="tel:{{$siteInformation->phone_number }}" aria-label="Call us">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 512 512" fill="none">
                     <path
                         d="M512 133.12C512 296.107 295.893 512 133.12 512C97.4934 512 64.2134 498.56 39.6801 474.027L18.3467 449.493C-6.39992 424.747 -6.39992 382.933 19.4134 357.12C20.0534 356.48 71.4667 317.013 71.4667 317.013C97.0668 292.693 137.387 292.693 162.773 317.013L193.92 341.973C262.187 312.96 310.613 264.32 341.76 193.707L317.013 162.56C292.48 137.173 292.48 96.6401 317.013 71.2534C317.013 71.2534 356.48 19.8401 357.12 19.2001C382.933 -6.61325 424.747 -6.61325 450.56 19.2001L472.96 38.6134C498.56 64.0001 512 97.2801 512 132.907V133.12Z"
@@ -698,7 +658,7 @@
     <div class="btn-group dropstart"></div>
         <!-- WhatsApp side button -->
     <div class="QuickSideRightBar QuickSideRightBarWhatsapp">
-         <a href="https://wa.me/0283199433"
+         <a href="https://wa.me/{{$siteInformation->whatsapp_number}}"
            target="_blank"
            rel="noopener"
            aria-label="Chat with us on WhatsApp">
@@ -710,13 +670,13 @@
                 </svg>
             </div>
             <div class="slideLeft">
-                <span class="textRight">0283199433</span>
+                <span class="textRight">{{$siteInformation->whatsapp_number}}</span>
             </div>
         </a>
     </div>
        <!-- Phone side button -->
     <div class="QuickSideRightBar QuickSideRightBarWhatsapp">
-        <a href="tel:0283199433" aria-label="Call us">
+        <a href="tel:{{$siteInformation->phone_number}}" aria-label="Call us">
             <div class="iconBox animateBox">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 35 35" fill="none">
                     <path
@@ -725,7 +685,7 @@
                 </svg>
             </div>
             <div class="slideLeft">
-                <span class="textRight">0283199433</span>
+                <span class="textRight">{{$siteInformation->phone_number}}</span>
             </div>
         </a>
     </div>
@@ -778,16 +738,19 @@
 
 @if (!Request::is('/'))
 <script src="{{asset('web/js/jquery.fancybox.min.js')}}"></script>
-<script src="{{asset('app/js/sweetalert.min.js')}}"></script>
-<script src="{{asset('app/js/sweetalert-init.js')}}"></script>
+
 
 @endif
-<script src="{{asset('web/js/main.min.js')}}"></script>
+<script src="{{asset('app/js/sweetalert.min.js')}}"></script>
+<script src="{{asset('app/js/sweetalert-init.js')}}"></script>
+<!-- <script src="{{asset('web/js/main.min.js')}}"></script> -->
+<script src="{{asset('web/js/main.js')}}"></script>
 <script type="text/javascript">
     var base_url = "{{ url('/') }}";
     var token = "{{ csrf_token() }}";
 </script>
 <script src="{{asset('web/js/scripts.min.js')}}"></script>
 @yield('scripts')
+@stack('scripts')
 </body>
 </html>

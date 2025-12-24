@@ -17,16 +17,16 @@
             </div>
             <div class="highlights-row d-flex flex-wrap">
                 <div class="highlights-card">
-                    <p>Years of Experience</p>
-                    <span class="timer" data-to="23" data-speed="3000">23</span>
+                    <p>{{$homeAboutHighlight->first_title}}</p>
+                    <span class="timer" data-to="23" data-speed="3000">{{$homeAboutHighlight->first_number}}</span>
                 </div>
                 <div class="highlights-card">
-                    <p>Our Clients</p>
-                    <span class="timer" data-to="1000" data-speed="3000">1000</span>
+                    <p>{{$homeAboutHighlight->second_title}}</p>
+                    <span class="timer" data-to="1000" data-speed="3000">{{$homeAboutHighlight->second_number}}</span>
                 </div>
                 <div class="highlights-card">
-                    <p>Our Products</p>
-                    <span class="timer" data-to="200" data-speed="3000">200</span>
+                    <p>{{$homeAboutHighlight->third_title}}</p>
+                    <span class="timer" data-to="200" data-speed="3000">{{$homeAboutHighlight->third_number}}</span>
                 </div>
                 <div class="highlights-card">
                     <picture>

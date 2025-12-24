@@ -19,6 +19,10 @@
                             href="{{url('admin/home/about')}}"><i class="fa fa-angle-right"></i> About</a></li>
                     <li class="{{ (Request::segment(3)=='highlight')?'active':'' }}"><a
                             href="{{url('admin/home/highlight')}}"><i class="fa fa-angle-right"></i> Highlight</a></li>
+                    <li class="{{ (Request::segment(3)=='testimonial')?'active':'' }}"><a
+                            href="{{url('admin/home/testimonial/list')}}"><i class="fa fa-angle-right"></i> Testimonial</a></li>
+                    <li class="{{ (Request::segment(3)=='gallery')?'active':'' }}"><a
+                            href="{{url('admin/home/gallery/list')}}"><i class="fa fa-angle-right"></i>Manage Gallery</a></li>
                 </ul>
             </li>
             <li class="is-dropdown {{ (Request::segment(2)=='about')?'open':'' }} mt-2">
@@ -32,6 +36,9 @@
                     <li class="{{ (Request::segment(3)=='why_choose_us')?'active':'' }}"><a
                             href="{{url('admin/about/why_choose_us/list')}}"><i class="fa fa-angle-right"></i> Why
                             Choose Us</a></li>
+                    <li class="{{ (Request::segment(3)=='success_story')?'active':'' }}"><a
+                            href="{{url('admin/about/success_story/list')}}"><i class="fa fa-angle-right"></i> Success
+                            Story</a></li>
                     <li class="is-dropdown {{ (Request::segment(3)=='our_brand')?'open':'' }}">
                         <a href="#"><i class="fa fa-angle-right"></i><span>Our Brand</span></a>
                         <ul>

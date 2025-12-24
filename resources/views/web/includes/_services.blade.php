@@ -6,73 +6,17 @@
         </div>
 
         <div class="services-slider">
-
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Foundry</h3>
-                    <p>We are specialist in Foundry works in Cast iron, Brass, Bronze and Aluminium alloys.</p>
+            @foreach($services as $service)
+                <div class="services-card">
+                    <div class="services-description">
+                        <h3>{{$service->title}}</h3>
+                        {!! Str::limit(strip_tags($service->home_description), 50) !!}
+                        
+                    </div>
+                    <a href="{{ route('serviceDetail', ['short_url' => $service->short_url]) }}" class="chevron-btn">Learn More</a>
                 </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
 
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Machine Works</h3>
-                    <p>All kinds of precision machining jobs, Tools and Dies etc….. We are specialist ...</p>
-                </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
-
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Heater</h3>
-                    <p>Developing electric heating products for use around the gulf. With uncompromised...</p>
-                </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
-
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Motor Rewinding</h3>
-                    <p>Electric motors are relatively simple mechanical devices, but rewinding the coils...</p>
-                </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
-
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Fabrications</h3>
-                    <p>We give life to your imaginations and thoughts by coming up with the best...</p>
-                </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
-
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Machinery</h3>
-                    <p>
-                        Technology is one thing that we are too particular about. We always equip ourselves with the
-                        best and latest of top-notch technology to serve your requirements efficiently.
-                    </p>
-                </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
-
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Foundry2</h3>
-                    <p>We are specialist in Foundry works in Cast iron, Brass, Bronze and Aluminium alloys.</p>
-                </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
-
-            <div class="services-card">
-                <div class="services-description">
-                    <h3>Machine Works2</h3>
-                    <p>All kinds of precision machining jobs, Tools and Dies etc….. We are specialist ...</p>
-                </div>
-                <a href="" class="chevron-btn">Learn More</a>
-            </div>
+            @endforeach
         </div>
     </div>
 

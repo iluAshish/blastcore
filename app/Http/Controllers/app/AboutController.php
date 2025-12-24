@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\WhyChooseUs;
 use Illuminate\Http\Request;
 use App\AboutUs;
+use App\SuccessStory;
 
 class AboutController extends Controller
 {
@@ -443,6 +444,108 @@ class AboutController extends Controller
             return response()->json(['status' => false, 'message' => 'Empty value submitted']);
         }
     }
+
+    public function success_story_list()
+    {
+        $title = "Success Story List";
+        $successStory = SuccessStory::get();
+        return view('app.about.success_story.success_story_list',
+            compact('successStory', 'title'));
+    }
+
+    public function success_story_create()
+    {
+        $key = "Create";
+        $title = "Create Success Story";
+        return view('app.about.success_story.success_story_form', compact('key', 'title'));
+    }
+
+    public function success_story_store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'year' => 'required',
+            'description' => 'required',
+        ]);
+        
+        $successStory = new SuccessStory();
+        $successStory->title = $request->title ?? '';
+        $successStory->year = $request->year ?? '';
+        $successStory->description = $request->description ?? '';
+        if ($successStory->save()) {
+            session()->flash('message', "'Success Story' has been added successfully");
+            return redirect('admin/about/success_story/list');
+        } else {
+            return back()->withInput($request->input())->withErrors("Error while updating the content");
+        }
+    }
+
+    public function success_story_edit(Request $request, $id)
+    {
+        $key = "Update";
+        $title = "Update Success Story";
+        $successStory = SuccessStory::find($id);
+        if ($successStory) {
+            return view('app.about.success_story.success_story_form',
+                compact('key', 'successStory', 'title'));
+        } else {
+            return view('app/errors/404');
+        }
+    }
+
+    public function success_story_view(Request $request, $id)
+    {
+        $title = "View Success Story";
+        $successStory = SuccessStory::find($id);
+        if ($successStory) {
+            return view('app.about.success_story.success_story_view',
+                compact('successStory', 'title'));
+        } else {
+            return view('app/errors/404');
+        }
+    }
+
+    public function success_story_update(Request $request, $id)
+    {
+        $successStory = SuccessStory::find($id);
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'year' => 'required',
+            'description' => 'required',
+        ]);
+        $successStory->title = $request->title;
+        $successStory->year = $request->year;
+        $successStory->description = $request->description;
+        $successStory->updated_at = date('Y-m-d h:i:s');
+        if ($successStory->save()) {
+            session()->flash('message', "'Success Story' has been updated successfully");
+            return redirect('admin/about/success_story/list');
+        } else {
+            return back()->withInput($request->input())->withErrors("Error while updating the content");
+        }
+    }
+
+    public function delete_success_story(Request $request)
+    {
+        if (isset($request->id) && $request->id != NULL) {
+            $successStory = SuccessStory::find($request->id);
+            if ($successStory) {
+                $deleted = $successStory->delete();
+                if ($deleted == true) {
+                    return response()->json(['status' => true]);
+                } else {
+                    return response()->json(['status' => false, 'message' => 'Some error occurred,please try after sometime']);
+                }
+            } else {
+                return response()->json(['status' => false, 'message' => 'Model class not found']);
+            }
+        } else {
+            return response()->json(['status' => false, 'message' => 'Empty value submitted']);
+        }
+    }
+
+
+
 }
 
 ?>

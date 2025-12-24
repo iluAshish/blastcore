@@ -19,47 +19,46 @@
                     Fill up the form and Our Team will get back to you within 24 Hours
                 </p>
 
-                <form id="siteEnquiryFormValidation" action="" method="post" enctype="multipart/form-data"
-                    class="d-flex flex-wrap justify-content-between" novalidate>
+                <form action="#" id="getAQuoteForm" class="d-flex flex-wrap justify-content-between" novalidate>
                     <div class="formGroup col--4">
-                        <input type="text" id="name_enquiry" name="name_enquiry" placeholder="Name*" autocomplete="name"
-                            required aria-describedby="name_enquiryError">
-                        <span id="name_enquiryError" class="error-message d-none">
+                        <input type="text"  name="name" id="name" placeholder="Name*" autocomplete="name"
+                            required aria-describedby="nameError">
+                        <span id="nameError" class="error-message d-none">
                             Please enter your name
                         </span>
                     </div>
 
                     <div class="formGroup col--4">
-                        <input type="email" id="email_enquiry" name="email_enquiry" placeholder="Email*"
-                            autocomplete="email" required aria-describedby="email_enquiryError">
-                        <span id="email_enquiryError" class="error-message d-none">
+                        <input type="email" id="email" name="email" placeholder="Email*"
+                            autocomplete="email" required aria-describedby="emailError">
+                        <span id="emailError" class="error-message d-none">
                             Please enter a valid email
                         </span>
                     </div>
 
                     <div class="formGroup col--4">
-                        <input type="tel" id="phone_enquiry" name="phone_enquiry" class="phone_number"
-                            placeholder="Phone*" autocomplete="tel" required aria-describedby="phone_enquiryError"  disabled>
-                        <span id="phone_enquiryError" class="error-message d-none">
+                        <input type="tel" id="phone" name="phone" class="phone_number"
+                            placeholder="Phone*" autocomplete="tel" required aria-describedby="phoneError" >
+                        <span id="phoneError" class="error-message d-none">
                             Please enter a valid phone number
                         </span>
                     </div>
 
                     <div class="formGroup col-12">
-                        <textarea id="message_enquiry" name="message_enquiry" placeholder="Message" rows="4"></textarea>
+                        <textarea id="message" name="message" placeholder="Message" rows="4"></textarea>
                     </div>
 
                     <div class="d-flex justify-content-end buttonGroup p-0 w-100">
-                        <button type="submit" class="btn theme-btn theme-bg me-2">
+                        <button type="submit" class="btn theme-btn theme-bg me-2" data-url="/contact" id="contact_form_btn">
                             Submit
                         </button>
                         <button type="button" class="btn theme-btn theme-border boder-grey" data-bs-dismiss="modal"
-                            aria-label="Close" id="siteEnquiryFormCancel">
+                            aria-label="Close" id="getAQuoteForm">
                             Cancel
                         </button>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
+    </div> 
 </div>

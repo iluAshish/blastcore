@@ -165,12 +165,6 @@
                             </div>
                         </div>
                     @endif
-
-                    {{-- Hidden inputs for AJAX / load more --}}
-                    <input type="hidden" id="loading_limit" name="limit" value="3">
-                    <input type="hidden" id="input_field" name="input_field">
-                    <input type="hidden" name="type" id="type" value="{{ $type ?? '' }}">
-                    <input type="hidden" name="typeValue" id="typeValue" value="{{ $typeValue ?? '' }}">
                 </aside>
 
                 {{-- ========== RIGHT SIDE: PRODUCT LIST (AJAX target) ========== --}}
@@ -195,5 +189,23 @@
     </div>
 
 </form>
+
+@push('scripts')
+<script>
+    let selectedProduct = {};
+
+    $(document).on('click', '.enquiryBtn', function () {
+
+        selectedProduct = {
+            id: $(this).data('product-id'),
+            name: $(this).data('product-name'),
+            url: $(this).data('product-url')
+        };
+
+        $('#product_id').val(selectedProduct.id);
+        $('#product_enquiry_name').val(selectedProduct.name);
+    });
+</script>
+@endpush
 
 @endsection

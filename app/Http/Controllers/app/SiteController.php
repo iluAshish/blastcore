@@ -96,6 +96,13 @@ class SiteController extends Controller
         $site->instagram_url = $request->instagram_url ?? '';
         $site->linkedin_url = $request->linkedin_url ?? '';
         $site->youtube_url = $request->youtube_url ?? '';
+        $site->tiktok_url = $request->tiktok_url ?? '';
+        $site->pinterest_url = $request->pinterest_url ?? '';
+        $site->snapchat_url = $request->snapchat_url ?? '';
+        $site->twitter_url = $request->twitter_url ?? '';
+        $site->google_review = $request->google_review ?? '';
+        $site->privacy = $request->privacy ?? '';
+        $site->terms_conditions = $request->terms_conditions ?? '';
         if ($site->save()) {
             session()->flash('message', "'Site Information' has been updated successfully");
             return redirect('admin/site/content');

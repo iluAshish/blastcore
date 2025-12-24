@@ -70,6 +70,28 @@
                                            autocomplete="off" value="{{ isset($blog)?$blog->image_meta_tag:'' }}">
                                 </div>
                             </div>
+                            <!-- new author image  -->
+                             <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="author_image">Author image</label>
+                                    <div class="file-loading">
+                                        <input id="author_image" name="author_image" type="file" accept="image/*">
+                                    </div>
+                                    <span class="caption_note">Note: Author size should be minimum of 30 x 30</span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="author_webp_image">Author Image (webp)</label>
+                                    <div class="file-loading">
+                                        <input id="author_webp_image" name="author_webp_image" type="file" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="author_name">Author Name</label>
+                                    <input type="text" name="author_name" id="author_name" required
+                                           placeholder="Author Name" class="form-control placeholder-cls"
+                                           autocomplete="off" value="{{ isset($blog)?$blog->author_name:'' }}">
+                                </div>
+                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="description">Description*</label>
@@ -231,6 +253,57 @@
                         caption: " {{($blog->webp_image != NULL) ? $blog->title : ''}}",
                         width: "120px",
                         key: " {{($blog->webp_image != NULL) ? 'webp_image/' . $blog->id : '0'}}",
+                        url: 'blog/delete'
+                    }
+                ],
+                @endif
+            });
+
+            $("#author_image").fileinput({
+                'theme': 'explorer-fas',
+                validateInitialCount: true,
+                overwriteInitial: false,
+                autoReplace: true,
+                initialPreviewShowDelete: false,
+                initialPreviewAsData: true,
+                dropZoneEnabled: false,
+                required: true,
+                showRemove: true,
+                minImageWidth: 30,
+                minImageHeight: 30,
+                maxImageWidth: 30,
+                maxImageHeight: 30,
+                @if(isset($blog) && $blog->author_image != NULL)
+                initialPreview: [" {{$author_image_with_path}}",],
+                initialPreviewConfig: [
+                    {
+                        caption: " {{($blog->author_image != NULL) ? $blog->author_name : ''}}",
+                        width: "120px",
+                        key: " {{($blog->author_image != NULL) ? 'image/' . $blog->id : '0'}}",
+                        url: 'blog/delete'
+                    }
+                ]
+                @endif
+            });
+
+            $("#author_webp_image").fileinput({
+                'theme': 'explorer-fas',
+                validateInitialCount: true,
+                overwriteInitial: false,
+                autoReplace: true,
+                initialPreviewShowDelete: false,
+                initialPreviewAsData: true,
+                dropZoneEnabled: false,
+                required: false,
+                showRemove: true,
+                allowedFileExtensions: ["webp"],
+                @if(isset($blog) && $blog->author_webp_image != NULL)
+                initialPreview: [" {{$author_image_with_webp_path}}",],
+                initialPreviewConfig: [
+                    {
+                        caption: " {{($blog->author_webp_image != NULL) ? $blog->title : ''}}",
+                        width: "120px",
+                        key: " {{($blog->author_webp_image != NULL) ? 'webp_image/' . $blog->id : '0'}}",
                         url: 'blog/delete'
                     }
                 ],

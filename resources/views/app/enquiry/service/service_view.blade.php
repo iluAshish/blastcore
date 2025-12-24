@@ -65,6 +65,10 @@
                                         <td>{{ $serviceEnquiry->service->title}}</td>
                                     </tr>
                                     <tr>
+                                        <th>Company:</th>
+                                        <td>{{ $serviceEnquiry->company}}</td>
+                                    </tr>
+                                    <tr>
                                         <th>Request URL:</th>
                                         <td>{{ $serviceEnquiry->request_url}}</td>
                                     </tr>

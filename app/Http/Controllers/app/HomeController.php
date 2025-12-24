@@ -11,8 +11,9 @@ use App\HomeAbout;
 use App\OtherMetaData;
 use App\ServiceRequest;
 use App\ContactEnquiry;
+use App\HomeGallery;
 use App\SiteInformation;
-
+use App\Testimonial;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -68,6 +69,27 @@ class HomeController extends Controller
             $request->webp_image->move($sliderPath, $slider_name);
             $slider->webp_image = $slider_name;
         }
+        // mobile slider 
+        if ($request->hasFile('mobile_image')) {
+            $sliderPath = public_path('uploads/home/slider/');
+            if (!file_exists($sliderPath)) {
+                mkdir($sliderPath, 0777, true);
+            }
+            $fileName = $request->mobile_image->getClientOriginalName();
+            $slider_name = rand(1, 9999) . time() . rand(1, 9999) . '.' . $fileName;
+            $request->mobile_image->move($sliderPath, $slider_name);
+            $slider->mobile_image = $slider_name;
+        }
+        if ($request->hasFile('mobile_webp_image')) {
+            $sliderPath = public_path('uploads/home/slider/webp/');
+            if (!file_exists($sliderPath)) {
+                mkdir($sliderPath, 0777, true);
+            }
+            $fileName = $request->mobile_webp_image->getClientOriginalName();
+            $slider_name = time() . rand(1, 9999) . '.' . $fileName;
+            $request->mobile_webp_image->move($sliderPath, $slider_name);
+            $slider->mobile_webp_image = $slider_name;
+        }
         $sort_order = HomeBanner::orderBy('sort_order', 'DESC')->first();
         if ($sort_order) {
             $sort_number = ($sort_order->sort_order + 1);
@@ -80,6 +102,8 @@ class HomeController extends Controller
         $slider->button_text = $request->button_text ?? '';
         $slider->button_url = $request->button_url ?? '';
         $slider->image_meta_tag = $validatedData['image_meta_tag'];
+        $slider->mobile_image_meta_tag = $request->mobile_image_meta_tag ?? '';
+
         $slider->sort_order = $sort_number;
         if ($slider->save()) {
             session()->flash('message', "'Slider' has been added successfully");
@@ -152,6 +176,38 @@ class HomeController extends Controller
             }
             $slider->webp_image = $icon_name;
         }
+
+        // mobile slider 
+        if ($request->hasFile('mobile_image')) {
+            $sliderPath = public_path('uploads/home/slider/');
+            if (!file_exists($sliderPath)) {
+                mkdir($sliderPath, 0777, true);
+            }
+            $fileName = $request->mobile_image->getClientOriginalName();
+            $slider_name = rand(1, 9999) . time() . rand(1, 9999) . '.' . $fileName;
+            
+            if ($slider->mobile_image != NULL) {
+                unlink($sliderPath . $slider->mobile_image);
+            }
+            $request->mobile_image->move($sliderPath, $slider_name);
+            $slider->mobile_image = $slider_name;
+        }
+        if ($request->hasFile('mobile_webp_image')) {
+            $sliderPath = public_path('uploads/home/slider/webp/');
+            if (!file_exists($sliderPath)) {
+                mkdir($sliderPath, 0777, true);
+            }
+            $fileName = $request->mobile_webp_image->getClientOriginalName();
+            $slider_name = time() . rand(1, 9999) . '.' . $fileName;
+            
+            if ($slider->mobile_webp_image != NULL) {
+                unlink($sliderPath . $slider->mobile_webp_image);
+            }
+            $request->mobile_webp_image->move($sliderPath, $slider_name);
+            $slider->mobile_webp_image = $slider_name;
+        }
+
+       
         $slider->title = $request->title ?? '';
         $slider->sub_title = $request->sub_title ?? '';
         $slider->tag_line = $request->tag_line ?? '';
@@ -607,6 +663,269 @@ class HomeController extends Controller
             return response()->json(['status' => true, 'message' => 'State Changed successfully.']);
         } else {
             return response()->json(['status' => false, 'message' => 'Error occurred while changing State.']);
+        }
+    }
+
+    public function testimonial_list()
+    {
+        $title = "Testimonial List";
+        $testimonialLists  = Testimonial::get();
+        return view('app.home.testimonial.testimonial_list', compact('testimonialLists', 'title'));
+    }
+
+    public function testimonial_create()
+    {
+        $key = "Create";
+        $title = "Create Testimonial";
+        return view('app.home.testimonial.testimonial_form', compact('key', 'title'));
+    }
+
+    public function testimonial_store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'name' => 'required',
+            'position' => 'required',
+        ]);
+        $testimonial = new Testimonial;
+        if ($request->hasFile('image')) {
+            $testimonialPath = public_path('uploads/home/testimonial/');
+            if (!file_exists($testimonialPath)) {
+                mkdir($testimonialPath, 0777, true);
+            }
+            $fileName = $request->image->getClientOriginalName();
+            $testimonial_name = rand(1, 9999) . time() . rand(1, 9999) . '.' . $fileName;
+            $request->image->move($testimonialPath, $testimonial_name);
+            $testimonial->image = $testimonial_name;
+        }
+        if ($request->hasFile('webp_image')) {
+            $testimonialPath = public_path('uploads/home/testimonial/webp/');
+            if (!file_exists($testimonialPath)) {
+                mkdir($testimonialPath, 0777, true);
+            }
+            $fileName = $request->webp_image->getClientOriginalName();
+            $testimonial_name = time() . rand(1, 9999) . '.' . $fileName;
+            $request->webp_image->move($testimonialPath, $testimonial_name);
+            $testimonial->image_webp = $testimonial_name;
+        }
+       
+        $testimonial->name = $request->name ?? '';
+        $testimonial->position = $request->position ?? '';
+        $testimonial->description = $request->description ?? '';
+        if ($testimonial->save()) {
+            session()->flash('message', "'Testimonial' has been added successfully");
+            return redirect('admin/home/testimonial/list');
+        } else {
+            return back()->withInput($request->input())->withErrors("Error while updating the content");
+        }
+    }
+
+    public function testimonial_edit(Request $request, $id)
+    {
+        $key = "Update";
+        $title = "Update Testimonial";
+        $testimonial = Testimonial::find($id);
+        if ($testimonial) {
+            $image_with_path = url('uploads/home/testimonial/' . $testimonial->image);
+            $webp_image_with_path = url('uploads/home/testimonial/webp/' . $testimonial->webp_image);
+            return view('app.home.testimonial.testimonial_form',
+                compact('key', 'testimonial', 'title', 'image_with_path', 'webp_image_with_path'));
+        } else {
+            return view('app.errors.404');
+        }
+    }
+
+    public function testimonial_view(Request $request, $id)
+    {
+        $title = "View Testimonial";
+        $testimonial = Testimonial::find($id);
+        if ($testimonial) {
+            $image_with_path = url('uploads/home/testimonial/' . $testimonial->image);
+            $webp_image_with_path = url('uploads/home/testimonial/webp/' . $testimonial->image_webp);
+            return view('app.home.testimonial.testimonial_view',
+                compact('testimonial', 'title', 'image_with_path', 'webp_image_with_path'));
+        } else {
+            return view('app.errors.404');
+        }
+    }
+
+    public function testimonial_update(Request $request, $id)
+    {
+        $testimonial = Testimonial::find($id);
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'position' => 'required',
+            // 'image_meta_tag' => 'required|min:5',
+        ]);
+        if ($request->hasFile('image')) {
+            $testimonialPath = public_path('uploads/home/testimonial/');
+            if (!file_exists($testimonialPath)) {
+                mkdir($testimonialPath, 0777, true);
+            }
+            $fileName = $request->image->getClientOriginalName();
+            $testimonial_name = time() . rand(1, 9999) . '.' . $fileName;
+            $request->image->move($testimonialPath, $testimonial_name);
+            if ($testimonial->image != NULL) {
+                unlink($testimonialPath . $testimonial->image);
+            }
+            $testimonial->image = $testimonial_name;
+        }
+        if ($request->hasFile('webp_image')) {
+            $iconPath = public_path('uploads/home/testimonial/webp/');
+            if (!file_exists($iconPath)) {
+                mkdir($iconPath, 0777, true);
+            }
+            $fileName = $request->webp_image->getClientOriginalName();
+            $icon_name = rand(1, 9999) . time() . '.' . $fileName;
+            $request->webp_image->move($iconPath, $icon_name);
+            if ($testimonial->image_webp != NULL) {
+                unlink($iconPath . $testimonial->image_webp);
+            }
+            $testimonial->image_webp = $icon_name;
+        }
+        $testimonial->name = $request->name ?? '';
+        $testimonial->position = $request->position ?? '';
+        $testimonial->image_attribute = $request->image_attribute ?? '';
+        $testimonial->updated_at = date('Y-m-d h:i:s');
+        if ($testimonial->save()) {
+            session()->flash('message', "'Testimonial' has been updated successfully");
+            return redirect('admin/home/testimonial/list');
+        } else {
+            return back()->withInput($request->input())->withErrors("Error while updating the content");
+        }
+    }
+
+    public function delete_testimonial(Request $request)
+    {
+        if (isset($request->id) && $request->id != NULL) {
+            $testimonial = Testimonial::find($request->id);
+            if ($testimonial) {
+                $testimonial->sort_order = null;
+                $testimonial->save();
+                unlink(public_path('uploads/home/testimonial/' . $testimonial->image));
+                unlink(public_path('uploads/home/testimonial/webp/' . $testimonial->image_webp));
+                $deleted = $testimonial->delete();
+                if ($deleted == true) {
+                    return response()->json(['status' => true]);
+                } else {
+                    return response()->json(['status' => false, 'message' => 'Some error occurred,please try after sometime']);
+                }
+            } else {
+                return response()->json(['status' => false, 'message' => 'Model class not found']);
+            }
+        } else {
+            return response()->json(['status' => false, 'message' => 'Empty value submitted']);
+        }
+    }
+
+    public function gallery_list()
+    {
+        $title = "Gallery List";
+        $galleryLists  = HomeGallery::get();
+        return view('app.home.gallery.gallery_list', compact('galleryLists', 'title'));
+    }
+
+    public function gallery_create()
+    {
+        $key = "Create";
+        $title = "Create Gallery";
+        return view('app.home.gallery.gallery_form', compact('key', 'title'));
+    }
+
+    public function gallery_store(Request $request)
+    {
+        if ($request->hasFile('image')) {
+
+            foreach ($request->file('image') as $key => $image) {
+
+                $gallery = new HomeGallery();
+
+                // JPG / PNG image
+                $imagePath = public_path('uploads/home/gallery/');
+                if (!file_exists($imagePath)) {
+                    mkdir($imagePath, 0777, true);
+                }
+
+                $imageName = time().'_'.$key.'_'.rand(100,999).'.'.$image->getClientOriginalExtension();
+                $image->move($imagePath, $imageName);
+                $gallery->image = $imageName;
+
+                $sort_order = HomeGallery::orderBy('sort_order', 'DESC')->first();
+                if ($sort_order) {
+                    $sort_number = ($sort_order->sort_order + 1);
+                } else {
+                    $sort_number = 1;
+                }
+                $gallery->sort_order = $sort_number;
+                $gallery->save();
+            }
+            session()->flash('message', "'Gallery' images have been added successfully");
+            return redirect('admin/home/gallery/list');
+        }else {
+            return back()->withInput($request->input())->withErrors("Error while uploading the images");
+        }
+        
+    }
+
+    public function gallery_edit(Request $request, $id)
+    {
+        $key = "Update";
+        $title = "Update Gallery";
+        $gallery = HomeGallery::find($id);
+        if ($gallery) {
+            $image_with_path = url('uploads/home/gallery/' . $gallery->image);
+            return view('app.home.gallery.gallery_form',
+                compact('key', 'gallery', 'title', 'image_with_path'));
+        } else {
+            return view('app.errors.404');
+        }
+    }
+
+
+    public function gallery_update(Request $request, $id)
+    {
+        $gallery = HomeGallery::find($id);
+        if ($request->hasFile('image')) {
+            $galleryPath = public_path('uploads/home/gallery/');
+            if (!file_exists($galleryPath)) {
+                mkdir($galleryPath, 0777, true);
+            }
+            $fileName = $request->image->getClientOriginalName();
+            $gallery_name = time() . rand(1, 9999) . '.' . $fileName;
+            $request->image->move($galleryPath, $gallery_name);
+            if ($gallery->image != NULL) {
+                unlink($galleryPath . $gallery->image);
+            }
+            $gallery->image = $gallery_name;
+        }
+        $gallery->updated_at = date('Y-m-d h:i:s');
+        if ($gallery->save()) {
+            session()->flash('message', "'Gallery' has been updated successfully");
+            return redirect('admin/home/gallery/list');
+        } else {
+            return back()->withInput($request->input())->withErrors("Error while updating the content");
+        }
+    }
+
+    public function delete_gallery(Request $request)
+    {
+        if (isset($request->id) && $request->id != NULL) {
+            $gallery = HomeGallery::find($request->id);
+            if ($gallery) {
+                $gallery->sort_order = null;
+                $gallery->save();
+                unlink(public_path('uploads/home/gallery/' . $gallery->image));
+                $deleted = $gallery->delete();
+                if ($deleted == true) {
+                    return response()->json(['status' => true]);
+                } else {
+                    return response()->json(['status' => false, 'message' => 'Some error occurred,please try after sometime']);
+                }
+            } else {
+                return response()->json(['status' => false, 'message' => 'Model class not found']);
+            }
+        } else {
+            return response()->json(['status' => false, 'message' => 'Empty value submitted']);
         }
     }
 }

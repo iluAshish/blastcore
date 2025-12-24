@@ -1,3 +1,4 @@
+@if (isset($testimonials) && $testimonials->count() > 0)
 <section class="testimonial">
     <div class="testimonial-container">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
@@ -13,33 +14,20 @@
                     >
                 </picture>
                 <div class="testimonial-nav">
-                    @for ($i = 1; $i <= 6; $i++)
+                    @foreach ($testimonials as $i => $testimonial)
                         <div class="testimonial-nav-item">
                             <picture>
                                 <img
                                     loading="lazy"
-                                    src="{{ asset('web/images/' . $i . '.png') }}"
+                                    src="{{ asset('uploads/home/testimonial/' . $testimonial->image) }}"
                                     width="88"
                                     height="88"
                                     class="img-fluid"
-                                    alt="Customer {{ $i }}"
+                                    alt="{{ $testimonial->image_attribute ?? $testimonial->name }}"
                                 >
                             </picture>
                         </div>
-                    @endfor
-
-                    <div class="testimonial-nav-item">
-                        <picture>
-                            <img
-                                loading="lazy"
-                                src="{{asset('web/images/2.png')}}"
-                                width="88"
-                                height="88"
-                                class="img-fluid"
-                                alt="Customer 2"
-                            >
-                        </picture>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -50,34 +38,36 @@
                         Our Happy Feedbacks</h2>
                 </div>
                 <div class="testimonial-slider">
-                    @for ($i = 1; $i <= 6; $i++)
+                    @foreach($testimonials as $testimonial)
                         <div class="testimonial-slider-item">
                             <div class="testimonial-content">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s.
+                                {!! $testimonial->description !!}
                             </div>
 
                             <div class="info">
                                 <picture>
                                     <img
                                         loading="lazy"
-                                        src="{{ asset('web/images/' . $i . '.png') }}"
+                                        src="{{ asset('uploads/home/testimonial/' . $testimonial->image) }}"
                                         width="80"
                                         height="80"
-                                        alt="Testimonial {{ $i }}"
+                                        alt="{{ $testimonial->image_attribute ?? $testimonial->name }}"
                                     >
                                 </picture>
 
                                 <div>
-                                    <p>Patrick Nerokie</p>
-                                    <span>CEO of Kingdom Advisors</span>
+                                    <p>{{ $testimonial->name }}</p>
+                                    <span>{{ $testimonial->position }}</span>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
+                    
 
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+@endif

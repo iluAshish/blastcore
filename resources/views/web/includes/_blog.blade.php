@@ -7,55 +7,15 @@
         </div>
 
         <div class="blog-list blog-slider-init">
-            <a href="blogs-details.php" class="blog-card">
-                <picture>
-                    <img loading="lazy" src="{{asset('web/images/blog/1.jpg')}}" width="403" height="360" alt="Approach Temperature in Air-Cooled Aftercoolers">
-                </picture>
-                <span>Aug 30, 2025</span>
-                <h3 class="h4">Why Is It Important to Consider Approach Temperature When Choosing an Air-Cooled
-                    Aftercooler?</h3>
-            </a>
-
-            <a href="blogs-details.php" class="blog-card">
-                <picture>
-                    <img loading="lazy" src="{{asset('web/images/blog/2.jpg')}}" width="403" height="360" alt="Selecting the Right Grit Size">
-                </picture>
-                <span>Aug 27, 2025</span>
-                <h3 class="h4">How to Select the Right Grit Size for Your Sandblasting Material?</h3>
-            </a>
-
-            <a href="blogs-details.php" class="blog-card">
-                <picture>
-                    <img loading="lazy" src="{{asset('web/images/blog/3.jpg')}}" width="403" height="360" alt="Abrasive Options for Wood and Painted Surfaces">
-                </picture>
-                <span>Aug 27, 2025</span>
-                <h3 class="h4">What are the standard abrasive options for working on wood and painted surfaces?</h3>
-            </a>
-
-            <a href="blogs-details.php" class="blog-card">
-                <picture>
-                    <img loading="lazy" src="{{asset('web/images/blog/1.jpg')}}" width="403" height="360" alt="Approach Temperature in Air-Cooled Aftercoolers">
-                </picture>
-                <span>Aug 30, 2025</span>
-                <h3 class="h4">Why Is It Important to Consider Approach Temperature When Choosing an Air-Cooled
-                    Aftercooler?</h3>
-            </a>
-
-            <a href="blogs-details.php" class="blog-card">
-                <picture>
-                    <img loading="lazy" src="{{asset('web/images/blog/2.jpg')}}" width="403" height="360" alt="Selecting the Right Grit Size">
-                </picture>
-                <span>Aug 27, 2025</span>
-                <h3 class="h4">How to Select the Right Grit Size for Your Sandblasting Material?</h3>
-            </a>
-
-            <a href="blogs-details.php" class="blog-card">
-                <picture>
-                    <img loading="lazy" src="{{asset('web/images/blog/3.jpg')}}" width="403" height="360" alt="Abrasive Options for Wood and Painted Surfaces">
-                </picture>
-                <span>Aug 27, 2025</span>
-                <h3 class="h4">What are the standard abrasive options for working on wood and painted surfaces?</h3>
-            </a>
+            @foreach($blogs as $blog)
+                <a href="{{ route('blogDetail', ['short_url' => $blog->short_url]) }}" class="blog-card">
+                    <picture>
+                        <img loading="lazy" src="{{asset('uploads/blog/image/'.$blog->image)}}" width="403" height="360" alt="{{ $blog->image_meta_tag }}" >
+                    </picture>
+                    <span>{{ \Carbon\Carbon::parse($blog->posted_date)->format('M d, Y') }}</span>
+                    <h3 class="h4">{!! Str::limit(strip_tags($blog->title), 50) !!}</h3>
+                </a>
+            @endforeach
         </div>
 
         <!-- Blog slider progress -->

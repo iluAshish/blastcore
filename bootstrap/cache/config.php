@@ -186,7 +186,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\framework/cache/data',
+        'path' => 'D:\\projects\\blastcore\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -236,7 +236,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'blastcore',
+        'database' => 'jetblastintl_db',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -246,7 +246,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'blastcore',
+        'database' => 'jetblastintl_db',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -266,7 +266,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'blastcore',
+        'database' => 'jetblastintl_db',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -281,7 +281,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'blastcore',
+        'database' => 'jetblastintl_db',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -325,12 +325,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\app',
+        'root' => 'D:\\projects\\blastcore\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\app/public',
+        'root' => 'D:\\projects\\blastcore\\storage\\app/public',
         'url' => 'https://jetblastintl.com//storage',
         'visibility' => 'public',
       ),
@@ -381,13 +381,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\logs/laravel.log',
+        'path' => 'D:\\projects\\blastcore\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\logs/laravel.log',
+        'path' => 'D:\\projects\\blastcore\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -437,7 +437,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\logs/laravel.log',
+        'path' => 'D:\\projects\\blastcore\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -460,7 +460,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\user\\Desktop\\blastcore\\resources\\views/vendor/mail',
+        0 => 'D:\\projects\\blastcore\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -557,7 +557,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\framework/sessions',
+    'files' => 'D:\\projects\\blastcore\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -577,9 +577,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\user\\Desktop\\blastcore\\resources\\views',
+      0 => 'D:\\projects\\blastcore\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\framework\\views',
+    'compiled' => 'D:\\projects\\blastcore\\storage\\framework\\views',
   ),
   'trustedproxy' => 
   array (

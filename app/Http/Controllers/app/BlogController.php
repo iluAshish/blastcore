@@ -73,6 +73,26 @@ class BlogController extends Controller
             $request->webp_video_thumbnail_image->move($video_thumbnail_imagePath, $video_thumbnail_image_name);
             $blog->webp_video_thumbnail_image = $video_thumbnail_image_name;
         }
+        if ($request->hasFile('author_image')) {
+            $blogPath = public_path('uploads/blog/image/');
+            if (!file_exists($blogPath)) {
+                mkdir($blogPath, 0777, true);
+            }
+            $fileName = $request->author_image->getClientOriginalName();
+            $blog_name = rand(1, 9999) . time() . rand(1, 9999) . '.' . $fileName;
+            $request->author_image->move($blogPath, $blog_name);
+            $blog->author_image = $blog_name;
+        }
+        if ($request->hasFile('author_webp_image')) {
+            $blogPath = public_path('uploads/blog/webp_image/');
+            if (!file_exists($blogPath)) {
+                mkdir($blogPath, 0777, true);
+            }
+            $fileName = $request->author_webp_image->getClientOriginalName();
+            $blog_name = rand(1, 9999) . time() . rand(1, 9999) . '.' . $fileName;
+            $request->author_webp_image->move($blogPath, $blog_name);
+            $blog->author_webp_image = $blog_name;
+        }
         $blog->title = $validatedData['title'];
         $blog->short_url = $validatedData['short_url'];
         $blog->description = $validatedData['description'];
@@ -89,6 +109,7 @@ class BlogController extends Controller
         $blog->meta_keyword = $request->meta_keyword ?? '';
         $blog->meta_description = $request->meta_description ?? '';
         $blog->other_meta_tag = $request->other_meta_tag ?? '';
+        $blog->author_name = $request->author_name ?? '';
         if ($blog->save()) {
             session()->flash('message', 'Blog "' . $blog->title . '" has been added successfully');
             return redirect('admin/blog/');
@@ -105,11 +126,13 @@ class BlogController extends Controller
         if ($blog) {
             $image_with_path = url('uploads/blog/image/' . $blog->image);
             $image_with_webp_path = url('uploads/blog/webp_image/' . $blog->webp_image);
+            $author_image_with_path = url('uploads/blog/image/' . $blog->author_image);
+            $author_image_with_webp_path = url('uploads/blog/webp_image/' . $blog->author_webp_image);
             $video_thumbnail_image_with_path = url('uploads/blog/video_thumbnail_image/' . $blog->video_thumbnail_image);
             $webp_video_thumbnail_image_with_path = url('uploads/blog/webp_video_thumbnail_image/' . $blog->webp_video_thumbnail_image);
             return view('app.blog.blog_form',
                 compact('key', 'blog', 'title', 'image_with_path', 'image_with_webp_path',
-                    'video_thumbnail_image_with_path', 'webp_video_thumbnail_image_with_path'));
+                    'video_thumbnail_image_with_path', 'webp_video_thumbnail_image_with_path','author_image_with_path','author_image_with_webp_path'));
         } else {
             return view('app/errors/404');
         }
@@ -122,10 +145,15 @@ class BlogController extends Controller
         if ($blog) {
             $image_with_path = url('uploads/blog/image/' . $blog->image);
             $image_with_webp_path = url('uploads/blog/webp_image/' . $blog->webp_image);
+
+            $author_image_with_path = url('uploads/blog/image/' . $blog->author_image);
+            $author_image_with_webp_path = url('uploads/blog/webp_image/' . $blog->author_webp_image);
+
             $video_thumbnail_image_with_path = url('uploads/blog/video_thumbnail_image/' . $blog->video_thumbnail_image);
             $webp_video_thumbnail_image_with_path = url('uploads/blog/webp_video_thumbnail_image/' . $blog->webp_video_thumbnail_image);
+            dd($author_image_with_path,$author_image_with_webp_path);
             return view('app.blog.blog_view', compact('blog', 'title', 'image_with_path',
-                'image_with_webp_path', 'video_thumbnail_image_with_path', 'webp_video_thumbnail_image_with_path'));
+                'image_with_webp_path', 'video_thumbnail_image_with_path', 'webp_video_thumbnail_image_with_path','author_image_with_path','author_image_with_webp_path'));
         } else {
             return view('app/errors/404');
         }
@@ -195,6 +223,34 @@ class BlogController extends Controller
             }
             $blog->webp_video_thumbnail_image = $video_thumbnail_image_name;
         }
+
+        if ($request->hasFile('author_image')) {
+            $blogPath = public_path('uploads/blog/image/');
+            if (!file_exists($blogPath)) {
+                mkdir($blogPath, 0777, true);
+            }
+            $fileName = $request->author_image->getClientOriginalName();
+            $blog_name = rand(1, 9999) . time() . rand(1, 9999) . '.' . $fileName;
+            if ($blog->author_image != NULL) {
+                unlink($blogPath . $blog->author_image);
+            }
+            $request->author_image->move($blogPath, $blog_name);
+            $blog->author_image = $blog_name;
+        }
+        if ($request->hasFile('author_webp_image')) {
+            $blogPath = public_path('uploads/blog/webp_image/');
+            if (!file_exists($blogPath)) {
+                mkdir($blogPath, 0777, true);
+            }
+            $fileName = $request->author_webp_image->getClientOriginalName();
+            $blog_name = rand(1, 9999) . time() . rand(1, 9999) . '.' . $fileName;
+            if ($blog->author_webp_image != NULL) {
+                unlink($blogPath . $blog->author_webp_image);
+            }
+            $request->author_webp_image->move($blogPath, $blog_name);
+            $blog->author_webp_image = $blog_name;
+        }
+        $blog->author_name = $request->author_name ?? '';
         $blog->title = $validatedData['title'];
         $blog->short_url = $validatedData['short_url'];
         $blog->description = $validatedData['description'];

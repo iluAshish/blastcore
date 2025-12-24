@@ -111,6 +111,55 @@
                                            value="{{ !empty($site)?$site->youtube_url:'' }}">
                                 </div>
                             </div>
+
+                            <!-- new link here  -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="twitter_url">Twitter</label>
+                                    <input type="text" class="form-control" name="twitter_url"
+                                           placeholder="Twitter Url" id="twitter_url"
+                                           value="{{ !empty($site)?$site->twitter_url:'' }}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="tiktok_url">Tik Tok</label>
+                                    <input type="text" class="form-control" name="tiktok_url"
+                                           placeholder="Tik Tok" id="tiktok_url"
+                                           value="{{ !empty($site)?$site->tiktok_url:'' }}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="pinterest_url">Pinterest url</label>
+                                    <input type="text" class="form-control" name="pinterest_url"
+                                           placeholder="Pinterest url" id="pinterest_url"
+                                           value="{{ !empty($site)?$site->pinterest_url:'' }}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="snapchat_url">Snapchat Url</label>
+                                    <input type="text" class="form-control" name="snapchat_url"
+                                           placeholder="Snapchat Url" id="snapchat_url"
+                                           value="{{ !empty($site)?$site->snapchat_url:'' }}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="google_review">Google Review</label>
+                                    <input type="text" class="form-control" name="google_review"
+                                           placeholder="Google Review" id="google_review"
+                                           value="{{ !empty($site)?$site->google_review:'' }}">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="google_review">Privacy Policy</label>
+                                    <textarea class="form-control textarea" required name="privacy" placeholder="Privacy Policy"
+                                              id="privacy">{{ isset($site)?$site->privacy:'' }}</textarea>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="google_review">Terms & Conditions</label>
+                                    <textarea class="form-control textarea" required name="terms_conditions" placeholder="Terms & Conditions"
+                                              id="terms_conditions">{{ isset($site)?$site->terms_conditions:'' }}</textarea>
+                                </div>
+                            </div>
+                            <!-- new link end here  -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="product_brochure">Product Brochure*</label>

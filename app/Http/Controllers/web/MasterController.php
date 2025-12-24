@@ -11,6 +11,7 @@ use App\ContactEnquiry;
 use App\ContactInformation;
 use App\HomeAbout;
 use App\HomeBanner;
+use App\HomeGallery;
 use App\HomeHighlight;
 use App\Http\Controllers\Controller;
 use App\MetaData;
@@ -23,6 +24,9 @@ use App\ProductEnquiry;
 use App\Service;
 use App\ServiceEnquiry;
 use App\SiteInformation;
+use App\Subscriber;
+use App\SuccessStory;
+use App\Testimonial;
 use App\WhyChooseUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -32,16 +36,36 @@ class MasterController extends Controller
     public function __construct()
     {
         $siteInformation = SiteInformation::first();
-        $contacts = ContactInformation::active()->get();
+        $contactsFooter = ContactInformation::active()
+        ->latest()
+        ->limit(2)
+        ->get();
+
         $service_menus = Service::active()->get();
         $footer_service_menus = Service::active()->paginate(6);
         $main_product_categories = ProductCategory::with('activeChildren')->active()->mainCategory()->get();
         $productBrands = ProductBrand::active()->get();
         $featured_products = Product::with('activeFirstImage', 'brand','category')->featured()->active()->get();
+        $services = Service::featured()->active()->get();
+        $homeBanners = HomeBanner::active()->orderBy('sort_order', 'ASC')->take(3)->get();
+        
         $extra_meta_data = OtherMetaData::first();
-        View::share(compact('siteInformation', 'contacts', 'service_menus', 'footer_service_menus',
-            'main_product_categories', 'productBrands', 'featured_products', 'extra_meta_data'));
-            // dd($service_menus);
+        $clients = Client::active()->get();
+        View::share(compact(
+            'siteInformation', 
+            'contactsFooter', 
+            'service_menus', 
+            'footer_service_menus',
+            'main_product_categories', 
+            'productBrands', 
+            'featured_products', 
+            'extra_meta_data',
+            'homeWhyChooseUs',
+            'homeAbout',
+            'services',
+            'clients'
+        ));
+        
     }
 
     public function seo_content($type, $page_name, $key = NULL)
@@ -58,28 +82,44 @@ class MasterController extends Controller
 
     public function home()
     {
+        $homeAbout = AboutUs::first();
+
         $homeBanners = HomeBanner::active()->orderBy('sort_order', 'ASC')->get();
-        $homeAbout = HomeAbout::first();
         $homeAboutHighlight = HomeHighlight::first();
-        $services = Service::featured()->active()->get();
         $blogs = Blog::active()->latest('posted_date')->limit(5)->get();
-        $clients = Client::active()->get();
+       
         $meta_data = $this->seo_content(1, 'Home');
+        $whyChooseUs = WhyChooseUs::active()->limit(4)->get();
+        $testimonials = Testimonial::active()->orderBy('created_at', 'DESC')->limit(8)->get();
+        $galleryImages = HomeGallery::active()->orderBy('sort_order', 'ASC')->get();
+
         return view('web.home', compact('homeBanners', 'homeAbout', 'meta_data',
-            'homeAboutHighlight', 'services', 'blogs', 'clients'));
+            'homeAboutHighlight', 'services', 'blogs','whyChooseUs','testimonials', 'galleryImages'));
+    }
+    public function privacy()
+    {
+        $meta_data = $this->seo_content(1, 'Privacy');
+        return view('web.privacy', compact('meta_data'));
+    }
+    public function terms()
+    {
+        $meta_data = $this->seo_content(1, 'Terms');
+        return view('web.terms', compact('meta_data'));
     }
 
     public function about()
     {
         $about = AboutUs::first();
         $homeAboutHighlight = HomeHighlight::first();
-        $whyChooseUs = WhyChooseUs::active()->limit(4)->get();
+        $whyChooseUs = WhyChooseUs::active()->orderBy('title', 'ASC')->limit(4)->get();
         $ourBrand = AboutOurBrand::first();
         $brandHighlightList = AboutBrandHighlight::active()->orderBy('sort_order', 'ASC')->get();
         $services = Service::active()->get();
         $meta_data = $this->seo_content(1, 'About');
+        $successStories = SuccessStory::active()->orderBy('created_at', 'DESC')->get();
+    //    dd($successStories);
         return view('web.about', compact('about', 'meta_data', 'homeAboutHighlight',
-            'whyChooseUs', 'ourBrand', 'brandHighlightList', 'services'));
+            'whyChooseUs', 'ourBrand', 'brandHighlightList', 'services','successStories'));
     }
 
     public function loadMoreFooterService(Request $request)
@@ -109,7 +149,9 @@ class MasterController extends Controller
 
     public function service($short_url)
     {
+
         $service = Service::with('activeGalleries')->where('short_url', '=', $short_url)->active()->first();
+        // dd($service);
         if ($service) {
             $otherServices = Service::where('id', '!=', $service->id)->active()->latest()->get();
             $meta_data = $this->seo_content(0, 'Service', $service->id);
@@ -128,6 +170,7 @@ class MasterController extends Controller
             $enquiry->phone = $request->phone;
             $enquiry->service_id = $request->service_id;
             $enquiry->message = $request->message;
+            $enquiry->company = $request->company ?? '';
             $enquiry->request_url = url()->previous();
             if ($enquiry->save()) {
                 if (SendServiceEnquiryMail($enquiry)) {
@@ -148,10 +191,16 @@ class MasterController extends Controller
 
     public function blogs()
     {
-        $blogs = Blog::active()->latest('posted_date')->paginate(6);
+        $firstTwoBlogs = Blog::active()->latest('posted_date')->take(2)->get();
+        //after first two blogs get in blogs page
+        $blogs = Blog::active()->latest('posted_date')->skip(2)->take(6)->get();
         $totalBlogs = Blog::active()->latest()->count();
         $meta_data = $this->seo_content(1, 'Blogs');
-        return view('web.blogs', compact('meta_data', 'blogs', 'totalBlogs'));
+        $offset = 6;
+        $limit = 6;
+        $nextOffset = $offset + $limit;
+        return view('web.blogs', compact('meta_data', 'blogs', 'totalBlogs',
+            'firstTwoBlogs', 'offset', 'limit', 'nextOffset'));
     }
 
     public function loadMoreBlogs(Request $request)
@@ -160,23 +209,27 @@ class MasterController extends Controller
         $offset = $request->offset;
         $nextOffset = $limit + $offset;
         $blogs = Blog::active()->skip($offset)->take($limit)->latest('posted_date')->get();
-        $totalCount = Blog::active()->get();
+        $totalBlogs = Blog::active()->get();
+        
         if ($blogs->isNotEmpty()) {
-            return view('web.partials._blog_list', compact('blogs', 'totalCount', 'nextOffset'));
+            return view('web.partials._blogs_list', compact('blogs', 'totalBlogs', 'nextOffset', 'offset', 'limit'));
         } else {
             echo "0";
         }
     }
 
-    public function blog_detail()
+    public function blog_detail($short_url)
     {
-        $short_url = 'how-choosing-the-right-steel-shot-balance-increases-your-blasting-performance';
         $blog = Blog::where('short_url', '=', $short_url)->active()->first();
         if ($blog) {
             $recentBlogs = Blog::active()->where('id', '!=', $blog->id)->latest('posted_date')->take(5)->get();
             $blogs = Blog::active()->latest()->get();
+            $nextBlog = Blog::where('id', '>', $blog->id)->active()->first();
+            $previousBlog = Blog::where('id', '<', $blog->id)->active()->first();
             $meta_data = $this->seo_content(0, 'Blog', $blog->id);
-            return view('web.blog_detail', compact('blog', 'recentBlogs', 'blogs', 'meta_data'));
+            //dd($blog);
+            return view('web.blog_detail', compact('blog', 'recentBlogs', 'blogs', 'meta_data',
+                'nextBlog', 'previousBlog'));
         } else {
             return view('web.error.404');
         }
@@ -185,11 +238,14 @@ class MasterController extends Controller
     public function contact()
     {
         $meta_data = $this->seo_content(1, 'Contact');
-        return view('web.contact', compact('meta_data'));
+        $contacts = ContactInformation::active()->latest()->get();
+       
+        return view('web.contact', compact('meta_data','contacts'));
     }
 
     public function contact_store(Request $request)
     {
+        // dd($request);
         if (filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
             $contact = new ContactEnquiry();
             $contact->name = $request->name;
@@ -199,6 +255,7 @@ class MasterController extends Controller
             $contact->request_url = url()->previous();
             if ($contact->save()) {
                 $sendContactMail = SendContactMail($contact);
+               
                 if ($sendContactMail) {
                     return response()->json(['status' => 'success',
                         'message' => 'Contact request has been submitted successfully']);
@@ -234,9 +291,10 @@ class MasterController extends Controller
             $offset = $products->count();
             $type = 'product_category';
             $typeValue = $short_url;
+            $nextOffset = $offset + 12;
             $meta_data = $this->seo_content(0, 'ProductCategory', $productCategory->id);
             return view('web.products', compact('latest_products', 'products', 'totalProducts',
-                'offset', 'type', 'typeValue', 'meta_data'));
+                'offset', 'type', 'typeValue', 'meta_data','nextOffset'));
         } else {
             return view('web.error.404');
         }
@@ -255,10 +313,11 @@ class MasterController extends Controller
             $offset = $products->count();
             $type = 'product_brand';
             $typeValue = $short_url;
+            $nextOffset = $offset + 12;
             $meta_data = $this->seo_content(0, 'ProductBrand', $productBrand->id);
             // dd($products);
             return view('web.products', compact('latest_products', 'products', 'totalProducts',
-                'offset', 'type', 'typeValue', 'meta_data'));
+                'offset', 'type', 'typeValue', 'meta_data','nextOffset'));
         } else {
             return view('web.error.404');
         }
@@ -272,31 +331,48 @@ class MasterController extends Controller
         $offset = $products->count();
         $type = 'all';
         $typeValue = '';
+        $nextOffset = $offset + 12;
         $meta_data = $this->seo_content(1, 'Products');
+        $limit = 12;
         return view('web.products', compact('latest_products', 'products', 'totalProducts',
-            'offset', 'type', 'typeValue', 'meta_data'));
+            'offset', 'type', 'typeValue', 'meta_data', 'nextOffset', 'limit'));
     }
 
     public function loadMoreProducts(Request $request)
     {
-        $limit = $request->limit;
-        $offset = $request->offset;
-        $nextOffset = $limit + $offset;
-        $condition = $this->filterProducts($request);
-        $products = $condition->skip($offset)->take($limit)->latest()->get();
-        $totalProducts = $condition->count();
+        $limit  = (int) $request->limit;
+        $offset = (int) $request->offset;
+        $nextOffset = $offset + $limit;
+
+        // Base query
+        $baseQuery = $this->filterProducts($request);
+
+        // Get paginated data
+        $products = (clone $baseQuery)
+                    ->skip($offset)
+                    ->take($limit)
+                    ->latest()
+                    ->with('activeFirstImage', 'brand')
+                    ->get();
+    
+        // Get total count (NO offset / limit)
+        $totalProducts = (clone $baseQuery)->count();
+
         if ($products->isNotEmpty()) {
-            return view('web.partials._product_list', compact('products', 'nextOffset',
-                'offset', 'totalProducts'));
-        } else {
-            return 0;
+            return view(
+                'web.partials._filter_products',
+                compact('products', 'nextOffset', 'offset', 'totalProducts', 'limit')
+            );
         }
+
+        return 0;
+
     }
 
     public function product($category, $short_url)
     {
         $product = Product::where('short_url', '=', $short_url)
-            ->with('category', 'activeRelated', 'activeImages', 'activeGalleries', 'activeFeatures')
+            ->with('category', 'activeRelated', 'activeImages', 'activeGalleries', 'activeFeatures','brand')
             ->active()->first();
         if ($product) {
             $meta_data = $this->seo_content(0, 'Product', $product->id);
@@ -308,6 +384,7 @@ class MasterController extends Controller
 
     public function productEnquiry(Request $request)
     {
+        // dd($request, url()->previous());
         if (filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
             $enquiry = new ProductEnquiry();
             $enquiry->name = $request->name;
@@ -350,44 +427,60 @@ class MasterController extends Controller
         $products = $condition->latest()->take(12)->get();
         $offset = ($condition->count() > 12) ? 12 : $condition->count();
         $totalProducts = $condition->count();
+        $nextOffset = $offset + 12;
 
         return view('web.partials._filter_products', compact('products', 'totalProducts',
-            'offset'));
+            'offset', 'nextOffset'));
     }
 
     public function filterProducts(Request $request)
     {
-        if ($request->input_field != null) {
-            $inputs = explode(',', $request->input_field);
-            $condition = Product::with('activeFirstImage', 'brand')->active()->where(
-                function ($query) use ($inputs, $request) {
-                    if (!empty($inputs)) {
-                        foreach ($inputs as $input) {
-                            $query->WhereIn($input, $request[$input]);
-                        }
-                    }
-                }
-            );
+        if (!empty($request->input_field) && !empty($request->{$request->input_field})) {
+
+            $field = $request->input_field; // e.g. product_brand_id
+
+            $condition = Product::with(['activeFirstImage', 'brand'])
+                ->active()
+                ->whereIn($field, $request->$field);
+
         } else {
-            if ($request->type == 'product_category') {
-                $productCategory = ProductCategory::active()->mainCategory()->with('activeChildren')
-                    ->where('short_url', $request->typeValue)->first();
-                $condition = Product::with('activeFirstImage', 'brand')->active()
-                    ->where('product_category_id', $productCategory->id)
-                    ->orWhere(function ($query) use ($productCategory) {
-                        $query->whereIn('product_category_id', $productCategory->activeChildren->map(function ($query) {
-                            return collect($query->toArray())->only(['id'])->all();
-                        }));
-                    }
-                    );
-            } else if ($request->type == 'product_brand') {
-                $productBrand = ProductBrand::active()->where('short_url', $request->typeValue)->first();
-                $condition = Product::with('activeFirstImage', 'brand')->active()
+
+            // Type based filters
+            if ($request->type === 'product_category' && !empty($request->typeValue)) {
+
+                $productCategory = ProductCategory::active()
+                    ->mainCategory()
+                    ->with('activeChildren')
+                    ->where('short_url', $request->typeValue)
+                    ->firstOrFail();
+
+                $categoryIds = collect($productCategory->activeChildren)
+                    ->pluck('id')
+                    ->push($productCategory->id)
+                    ->toArray();
+
+                $condition = Product::with(['activeFirstImage', 'brand'])
+                    ->active()
+                    ->whereIn('product_category_id', $categoryIds);
+
+            } elseif ($request->type === 'product_brand' && !empty($request->typeValue)) {
+
+                $productBrand = ProductBrand::active()
+                    ->where('short_url', $request->typeValue)
+                    ->firstOrFail();
+
+                $condition = Product::with(['activeFirstImage', 'brand'])
+                    ->active()
                     ->where('product_brand_id', $productBrand->id);
+
             } else {
-                $condition = Product::with('activeFirstImage', 'brand')->active();
+
+                // Default: all active products
+                $condition = Product::with(['activeFirstImage', 'brand'])
+                    ->active();
             }
         }
+
         return $condition;
     }
 

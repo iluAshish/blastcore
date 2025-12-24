@@ -8,22 +8,12 @@
                 <h2>Why
                     Choose Us</h2>
                 <div class="d-flex flex-wrap w-100">
-                    <div class="why-choose-box">
-                        <span class="timer" data-to="79" data-speed="3000">79</span>
-                        <p>Leader in Innovation</p>
-                    </div>
-                    <div class="why-choose-box">
-                        <span class="timer" data-to="81" data-speed="3000">81</span>
-                        <p>Availability of Spare Part &amp; Consumables</p>
-                    </div>
-                    <div class="why-choose-box">
-                        <span class="timer" data-to="100" data-speed="3000">100</span>
-                        <p>Customer Services</p>
-                    </div>
-                    <div class="why-choose-box">
-                        <span class="timer" data-to="87" data-speed="3000">87</span>
-                        <p>Distribution Network</p>
-                    </div>
+                    @foreach($whyChooseUs as $item)
+                        <div class="why-choose-box">
+                            <span class="timer" data-to="{{$item->number}}" data-speed="3000">{{$item->number}}</span>
+                            <p>{{$item->title}}</p>
+                        </div>
+                    @endforeach
                     <div class="video-container position-relative">
                         <video
                             id="heroVideo"

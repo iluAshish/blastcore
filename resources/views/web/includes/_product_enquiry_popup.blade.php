@@ -21,48 +21,41 @@
         <form id="ProductEnquiryFormValidation" class="d-flex flex-wrap justify-content-between" method="post" action=""
           novalidate>
           <div class="form-group col--6">
-            <input class="input" type="text" placeholder="Name*" id="ProductEnquiryName" name="product_enquiry_name"
-              autocomplete="name" required aria-describedby="ProductEnquiryNameError" />
-            <span id="ProductEnquiryNameError" class="error-message d-none">
+            <input class="input" type="text" placeholder="Name*" id="name" name="name"
+              autocomplete="name" required aria-describedby="nameError" />
+            <span id="nameError" class="error-message d-none">
               Please enter your name
             </span>
           </div>
 
           <div class="form-group col--6">
-            <input class="input" type="email" placeholder="Email*" id="ProductEnquiryMail" name="product_enquiry_email"
-              autocomplete="email" required aria-describedby="ProductEnquiryMailError" />
-            <span id="ProductEnquiryMailError" class="error-message d-none">
+            <input class="input" type="email" placeholder="Email*" id="email" name="email"
+              autocomplete="email" required aria-describedby="emailError" />
+            <span id="emailError" class="error-message d-none">
               Please enter a valid email
             </span>
           </div>
 
           <div class="form-group col--6">
-            <input class="input" type="tel" placeholder="Phone*" id="ProductEnquiryPhone" name="product_enquiry_phone"
-              autocomplete="tel" required aria-describedby="ProductEnquiryPhoneError" />
-            <span id="ProductEnquiryPhoneError" class="error-message d-none">
+            <input class="input" type="tel" placeholder="Phone*" id="phone" name="phone"
+              autocomplete="tel" required aria-describedby="phoneError" />
+            <span id="phoneError" class="error-message d-none">
               Please enter your phone number
             </span>
           </div>
 
           <div class="form-group col--6">
-            <input class="input" type="text" placeholder="" id="ProductEnquiryCompany"
-              name="product_enquiry_product_name_display" value="Industrial Pneumatic blower fan" readonly />
-            <!-- Hidden field to actually submit product name reliably -->
-            <input type="hidden" name="product_enquiry_product_name" value="Industrial Pneumatic blower fan" />
-            <!-- If you ever want validation here, uncomment and adjust:
-                        <span id="ProductEnquiryCompanyError" class="error-message d-none">
-                            Please enter the company name
-                        </span>
-                        -->
+            <input class="input" type="text" placeholder="" id="product_enquiry_name"  readonly />
           </div>
+          <input type="hidden" name="product_id" id="product_id" class="required" value="2">
 
           <div class="form-group w-100">
-            <textarea class="input" id="ProductEnquiryMessage" name="product_enquiry_message" placeholder="Message"
+            <textarea class="input" id="message" name="message" placeholder="Message"
               rows="4"></textarea>
           </div>
 
           <div class="d-flex justify-content-end buttonGroup p-0 w-100">
-            <button type="submit" class="btn theme-btn theme-bg me-2">
+            <button type="submit" class="btn theme-btn theme-bg me-2" data-url="/product/enquiry" id="contact_form_btn">
               Submit
             </button>
             <button type="button" class="btn theme-btn theme-border boder-grey" data-bs-dismiss="modal"

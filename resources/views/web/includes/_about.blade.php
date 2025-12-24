@@ -15,14 +15,10 @@
                 <div class="about-content">
                     <div class="head">
                         <span>About us</span>
-                        <h2>Concerted Efforts to Build Better</h2>
+                        <h2>{{$homeAbout->title}}</h2>
                     </div>
-                    <p>
-                        JETBLAST International Equipment LLC delivers on its promise—tangible, real results every
-                        time we work in partnership with our customers. Whether it is integrated manufacturing or
-                        customized designing, we ensure a level of certainty of results that no other firm can match.
-                    </p>
-                    <a href="" class="btn theme-btn theme-bg">Read more</a>
+                    {!! Str::limit(strip_tags($homeAbout->first_description), 450) !!}
+                    <a href="{{route('about')}}" class="btn theme-btn theme-bg">Read more</a>
                 </div>
             </div>
             <picture>
