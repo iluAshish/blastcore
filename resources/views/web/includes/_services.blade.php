@@ -2,7 +2,7 @@
     <div class="container-side">
         <div class="head">
             <span>What we offer</span>
-            <h2>Explore our services</h2>
+            <h2>Explore our services ss</h2>
         </div>
 
         <div class="services-slider">
