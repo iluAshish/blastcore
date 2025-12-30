@@ -418,7 +418,7 @@
                                 @endforeach
                             </ul>
                         </li>
-             <li class="nav-item mobDropDown dropdown"> <a href="products.php">Products</a> <button class="show" type="button" id="productsMenuMobile" data-bs-toggle="dropdown"
+             <li class="nav-item mobDropDown dropdown"> <a href="{{ route('products') }}">Products</a> <button class="show" type="button" id="productsMenuMobile" data-bs-toggle="dropdown"
                                 aria-expanded="false"
                                 aria-label="Toggle products submenu"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"> <path d="M2.4548 7.93918C2.7361 7.65797 3.11756 7.5 3.5153 7.5C3.91305 7.5 4.29451 7.65797 4.5758 7.93918L12.0008 15.3642L19.4258 7.93918C19.7087 7.66594 20.0876 7.51475 20.4809 7.51817C20.8742 7.52159 21.2504 7.67934 21.5285 7.95745C21.8066 8.23556 21.9644 8.61178 21.9678 9.00508C21.9712 9.39837 21.82 9.77728 21.5468 10.0602L13.0613 18.5457C12.78 18.8269 12.3986 18.9849 12.0008 18.9849C11.6031 18.9849 11.2216 18.8269 10.9403 18.5457L2.4548 10.0602C2.1736 9.77889 2.01562 9.39743 2.01562 8.99968C2.01562 8.60193 2.1736 8.22047 2.4548 7.93918Z" fill="white" stroke="#1A25A5" stroke-width="0.75" /> </svg> </button>
                             <div class="dropdown-menu show" aria-labelledby="productsMenuMobile">

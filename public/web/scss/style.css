@@ -3836,6 +3836,10 @@ footer .social svg:hover {
   }
 }
 
+.clients .slick-track {
+  margin-left: auto;
+  margin-right: auto;
+}
 .clients .h3 {
   line-height: 116.667%;
   text-align: center;
@@ -4493,11 +4497,12 @@ footer .social svg:hover {
   margin-top: auto;
 }
 .services-card:hover {
+  color: #fff;
   background: #304B9F;
 }
 .services-card:hover h3, .services-card:hover .title,
 .services-card:hover p,
-.services-card:hover a {
+.services-card:hover a, .services-card:hover .services-description {
   color: #fff;
 }
 .services-card:hover a::after {
@@ -8794,6 +8799,10 @@ footer .social svg:hover {
 }
 .history .slick-list {
   margin: 0px -2px;
+}
+.history .slick-track {
+  margin-left: auto;
+  margin-right: auto;
 }
 .history .slick-slide {
   position: relative;

@@ -1,17 +1,17 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'JetBlast International Equipment LLC',
+    'name' => 'Laravel',
     'default_language' => 'en',
-    'env' => 'production',
+    'env' => 'local',
     'debug' => true,
-    'url' => 'https://jetblastintl.com/',
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'Asia/Kolkata',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:OYJUmRe5SC5Dg9jibS2MYQhGXkNlG7gZorKjTuy6jnw=',
+    'key' => 'base64:jq7FZHQaMazh3uZmCRRKNHDIZUakKIdxNXzTD102qa8=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -186,7 +186,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\projects\\blastcore\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -225,7 +225,7 @@
         'endpoint' => NULL,
       ),
     ),
-    'prefix' => 'jetblast_international_equipment_llc_cache',
+    'prefix' => 'laravel_cache',
   ),
   'database' => 
   array (
@@ -236,7 +236,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'jetblastintl_db',
+        'database' => 'blastcore',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -246,7 +246,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'jetblastintl_db',
+        'database' => 'blastcore',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -266,7 +266,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'jetblastintl_db',
+        'database' => 'blastcore',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -281,7 +281,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'jetblastintl_db',
+        'database' => 'blastcore',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -296,7 +296,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'jetblast_international_equipment_llc_database_',
+        'prefix' => 'laravel_database_',
       ),
       'default' => 
       array (
@@ -325,13 +325,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\projects\\blastcore\\storage\\app',
+        'root' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\projects\\blastcore\\storage\\app/public',
-        'url' => 'https://jetblastintl.com//storage',
+        'root' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -381,13 +381,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\projects\\blastcore\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\projects\\blastcore\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -437,37 +437,37 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\projects\\blastcore\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\logs/laravel.log',
       ),
     ),
   ),
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtppro.zoho.com',
-    'port' => '587',
+    'host' => 'smtp.mailtrap.io',
+    'port' => '2525',
     'from' => 
     array (
-      'address' => 'info@jetblastintl.com',
-      'name' => 'JetBlast International Equipment LLC',
+      'address' => NULL,
+      'name' => 'Laravel',
     ),
-    'encryption' => 'tls',
-    'username' => 'info@jetblastintl.com',
-    'password' => 'c6mvsBSFnphR',
+    'encryption' => NULL,
+    'username' => NULL,
+    'password' => NULL,
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\projects\\blastcore\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\user\\Desktop\\blastcore\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
   ),
   'queue' => 
   array (
-    'default' => 'database',
+    'default' => 'sync',
     'connections' => 
     array (
       'sync' => 
@@ -557,7 +557,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\projects\\blastcore\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -566,7 +566,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'jetblast_international_equipment_llc_session',
+    'cookie' => 'laravel_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => false,
@@ -577,9 +577,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\projects\\blastcore\\resources\\views',
+      0 => 'C:\\Users\\user\\Desktop\\blastcore\\resources\\views',
     ),
-    'compiled' => 'D:\\projects\\blastcore\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\user\\Desktop\\blastcore\\storage\\framework\\views',
   ),
   'trustedproxy' => 
   array (
