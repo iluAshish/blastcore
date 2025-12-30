@@ -288,6 +288,8 @@ document.addEventListener('DOMContentLoaded', function () {
    MAIN SCRIPT
 ============================================================ */
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   /* ------------------------------
      1. Sticky Header
@@ -906,3 +908,6 @@ $('.banner-slick').slick({
     prevArrow: '<button class="slick-prev">‹</button>',
     nextArrow: '<button class="slick-next">›</button>'
 });
+
+
+
