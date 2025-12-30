@@ -6360,32 +6360,32 @@ footer .social svg:hover {
 }
 @media (min-width: 992px) {
   .why-choose .why-choose-box {
-    padding: 33px 22px;
+    padding: 17px 15px;
   }
 }
 @media (min-width: 1200px) {
   .why-choose .why-choose-box {
-    padding: 25px;
+    padding: 24px 17px;
   }
 }
 @media (min-width: 1350px) {
   .why-choose .why-choose-box {
-    padding: 30px;
+    padding: 27px 17px;
   }
 }
 @media (min-width: 1440px) {
   .why-choose .why-choose-box {
-    padding: 36px;
+    padding: 30px 17px;
   }
 }
 @media (min-width: 1600px) {
   .why-choose .why-choose-box {
-    padding: 42px;
+    padding: 34px 18px;
   }
 }
 @media (min-width: 1900px) {
   .why-choose .why-choose-box {
-    padding: 50px;
+    padding: 36px 20px;
   }
 }
 .why-choose .why-choose-box span {
@@ -6509,7 +6509,7 @@ footer .social svg:hover {
 }
 @media (min-width: 768px) {
   .why-choose .video-container video {
-    height: 131px;
+    height: 164px;
   }
 }
 @media (min-width: 992px) {

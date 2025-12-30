@@ -733,7 +733,6 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="{{asset('web/js/script.js')}}"></script>
 
 
 @if (!Request::is('/'))
@@ -749,7 +748,42 @@
     var base_url = "{{ url('/') }}";
     var token = "{{ csrf_token() }}";
 </script>
-<script src="{{asset('web/js/scripts.min.js')}}"></script>
+<!-- <script src="{{asset('web/js/scripts.min.js')}}"></script> -->
+ <script src="{{asset('web/js/script.js')}}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("heroVideo");
+  const button = document.getElementById("playPauseBtn");
+  const icon = document.getElementById("playIcon"); // ✅ FIX
+
+  if (!video || !button || !icon) return;
+
+  const PLAY_ICON = "http://127.0.0.1:8000/web/images/play.webp";
+  const PAUSE_ICON = "http://127.0.0.1:8000/web/images/pause.webp";
+
+  const updateIcon = () => {
+    icon.src = video.paused ? PLAY_ICON : PAUSE_ICON;
+    icon.alt = video.paused ? "Play video" : "Pause video";
+  };
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  video.addEventListener("play", updateIcon);
+  video.addEventListener("pause", updateIcon);
+
+  // set correct icon on load
+  updateIcon();
+});
+
+</script>
 @yield('scripts')
 @stack('scripts')
 </body>
