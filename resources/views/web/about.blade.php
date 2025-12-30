@@ -111,7 +111,7 @@
 <section class="history commonPadding-120">
     <div class="container-history">
         <h2 class="commonPadding pt-0 text-center m-0">Our Successful Journey</h2>
-        <div class="history-row  history-slide-init d-flex flex-wrap">
+        <div class="history-row  history-slide-init">
             @foreach($successStories as $story)
                 <div class="history-item">
                     <div class="content">

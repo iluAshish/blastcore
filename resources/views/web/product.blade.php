@@ -50,13 +50,13 @@
                         </button>
 
                         @if($product->brochure || $siteInformation->product_brochure)
-                            <div class="contentForm">
+      
                                 <a href="{{ $product->brochure ? asset('uploads/product/brochure/'. $product->brochure) : asset('uploads/site/product_brochure/' . $siteInformation->product_brochure) }}"
                                 target="_blank">
                                     <button class=" btn theme-btn theme-border" data-bs-toggle="modal" href="#downloadBrochureForm" role="button">
                                     Download Brochure</button>
                                 </a>
-                            </div>
+                         
                         @endif                  
                 </div>
                 {!! $product->first_description !!}

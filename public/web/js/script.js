@@ -778,6 +778,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const equalHeightTargets = [
     ".services-card, .service-card",
     ".products-slider-card",
+    ".history-item .content",
     // ".product-listing .product-card",
   ];
 
